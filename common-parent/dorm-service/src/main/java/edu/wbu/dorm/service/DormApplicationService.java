@@ -17,4 +17,25 @@ public interface DormApplicationService extends BaseService<DormApplication> {
      * @return
      */
     int insertNewApplication(DormApplication da);
+
+    /**
+     * 删除对应申请
+     * @param id
+     * @return
+     */
+    int delete(int id);
+
+    /**
+     * 修改申请
+     * @param dorm
+     * @return
+     */
+    int update(DormApplication dorm);
+
+    /**
+     * 查找对应的申请数据
+     * @param id
+     * @return
+     */
+    DormApplication findOne(int id);
 }

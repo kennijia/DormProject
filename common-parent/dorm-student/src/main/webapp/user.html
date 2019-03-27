@@ -384,6 +384,7 @@
             var text = sessionStorage.getItem("userInfo");//从sessionStorage中取出文本数据
             var a ;
             if (text!=null){
+                console.log(text);
                 a = JSON.parse(text);//将文本数据转为object
                 f(a);
             } else {

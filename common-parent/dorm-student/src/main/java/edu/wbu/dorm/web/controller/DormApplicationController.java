@@ -21,28 +21,18 @@ public class DormApplicationController {
     @Autowired
     private DormService dormService;
 
-    /**
-     * 查询已受理申请
-     * @param id
-     * @return
-     */
     @RequestMapping("/findOld")
     public @ResponseBody List<DormApplication> findOld(String id){
         return dormApplicationService.findOld(id);
     }
 
-    /**
-     * 查询未受理申请
-     * @param id
-     * @return
-     */
     @RequestMapping("/findNew")
     public @ResponseBody List<DormApplication> findNew(String id){
         return dormApplicationService.findNew(id);
     }
 
-    @RequestMapping("/changeDormApplication")
-    public @ResponseBody ResultInfo changeDormApplication(String personId,int to_db_id,int to_dorm_id,String reason, HttpSession session){
+    @RequestMapping("/add")
+    public @ResponseBody ResultInfo add(String personId,int to_db_id,int to_dorm_id,String reason, HttpSession session){
         //如果用户登录了，则开始业务操作
         Object onlineUser = session.getAttribute("user");
         System.out.println(onlineUser);
@@ -71,4 +61,31 @@ public class DormApplicationController {
         }
         return info;
     }
+    @RequestMapping("/findOne")
+    public @ResponseBody DormApplication findOne(int id){
+        return dormApplicationService.findOne(id);
+    }
+    @RequestMapping("/delete")
+    public @ResponseBody ResultInfo deleteOne(int id){
+        int i = dormApplicationService.delete(id);
+        ResultInfo info = new ResultInfo();
+        if (i>0)
+            info.setFlag(true);//代表删除成功
+        else
+            info.setFlag(false);
+
+        return info;
+    }
+    @RequestMapping("/update")
+    public @ResponseBody ResultInfo update(DormApplication dorm){
+        ResultInfo info = new ResultInfo();
+        int i = dormApplicationService.update(dorm);
+        if (i>0)
+            info.setFlag(true);//代表修改成功
+        else
+            info.setFlag(false);
+        return info;
+    }
+
+
 }

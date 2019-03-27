@@ -7,4 +7,7 @@
     <update id="updateOccupy" parameterType="dorm">
         update dorm set occupy = occupy + 1 where id = #{id}
     </update>
+    <select id="findAllDorms" parameterType="int" resultType="dorm">
+        select * from dorm where db_id = #{db_id}
+    </select>
 </mapper>

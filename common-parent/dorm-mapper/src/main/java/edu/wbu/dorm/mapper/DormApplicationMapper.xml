@@ -10,4 +10,13 @@
     <insert id="insertApplication" parameterType="dormApplication">
         insert into dormapplication values (null,#{pid},#{reason},#{to_db_id},#{to_dorm_id},0)
     </insert>
+    <delete id="deleteApplication" parameterType="int">
+        delete from dormapplication where id = #{id}
+    </delete>
+    <select id="findOne" parameterType="int" resultType="dormApplication">
+        select * from dormapplication where id = #{id}
+    </select>
+    <update id="updateApplication" parameterType="dormApplication">
+        update dormapplication set reason = #{reason} ,to_db_id = #{to_db_id},to_dorm_id = #{to_dorm_id} where id = #{id}
+    </update>
 </mapper>

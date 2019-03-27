@@ -51,9 +51,22 @@
     <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
     <script src="assets/js/demo.js"></script>
     <script>
+        function del(obj){
+            var strArr = obj.href.split("?");
+            var deleteId = strArr[strArr.length-1];
+            $.get("da/delete.do",{"id":deleteId},function (respData) {
+                if (respData.flag!=false){
+                    //删除记录成功
+                    $('#delModal').modal();
+                     var parent_par = obj.parentNode.parentNode;
+                     var parent_par_par = parent_par.parentNode;
+                     parent_par_par.removeChild(parent_par);
+                }
+            })
+        }
         $(function () {
             var userInfo = sessionStorage.getItem("userInfo");
-            if (userInfo!=null){
+            if (userInfo!=null&&userInfo!=""){
                 var id = JSON.parse(userInfo).id;
                 console.log(id);
                 $.ajax({
@@ -94,7 +107,7 @@
                 '                        <td>'+respData[i].to_dorm_id+'</td>\n' +
                 '                        <td>'+respData[i].reason+'</td>\n' +
                 '                        <td>'+'未受理'+'</td>\n' +
-                '                        <td><a href="#">删除</a>&nbsp;<a href="'+respData[i].id+'">修改</a></td>\n' +
+                '                        <td><a onclick="del(this)" href="#?'+respData[i].id+'">删除</a>&nbsp;<a href="'+respData[i].id+'">修改</a></td>\n' +
                 '                    </tr>';
                         }
                         $("#newApplication").html(data_list)
@@ -108,7 +121,7 @@
                 console.log(reason);
                 var personId = JSON.parse(sessionStorage.getItem("userInfo")).id;
                 $.ajax({
-                    url:"da/changeDormApplication.do",
+                    url:"da/add.do",
                     type:"post",
                     data:{
                         "personId":personId,
@@ -143,15 +156,34 @@
                             dormBuildingData += '<option value="'+dormBuilding[i].id+'">'+dormBuilding[i].id+'号女生宿舍'+'</option>';
                         if (dormBuilding[i].type==3)
                             dormBuildingData += '<option value="'+dormBuilding[i].id+'">'+dormBuilding[i].id+'号教工宿舍'+'</option>';
-                    } ;
+                    }
                     $("#to_db_id").html(dormBuildingData);
                 })
             });
+            $("#to_db_id").change(function () {
+                var db_id = $("#to_db_id").val();
+                $.get("dorm/findAll.do",{"db_id":db_id},function (dormsList) {
+                    var dorms ="";
+                    for (var i = 0;i< dormsList.length;i++){
+                        dorms += '<option value="'+dormsList[i].dorm_number+'">'+dormsList[i].dorm_number+'宿舍'+'</option>';
+                    }
+                    $("#to_dorm_id").html(dorms);
+                })
+            })
         })
 
     </script>
 </head>
 <body>
+<!-- Small modal -->
+<div id="delModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div style="height: 80px;text-align: center;line-height: 80px">
+                删除成功</div>
+        </div>
+    </div>
+</div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -171,7 +203,8 @@
                     </div>
                     <div class="form-group">
                         <label for="to_dorm_id">您想调换至该号楼哪间宿舍</label>
-                        <input type="text" class="form-control" id="to_dorm_id" placeholder="例如:320">
+                        <select id="to_dorm_id" class="form-control">
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="reason">申请理由</label>

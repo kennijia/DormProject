@@ -48,19 +48,19 @@
         $("#password").blur(checkPassword);
         $("#loginForm").submit(function () {
             if (checkUsername()&&checkPassword()) {
-                $.post("student/login.do",$("#loginForm").serialize(),function (data) {
+                $.post("student/login.do",$("#loginForm").serialize(),function (respData) {
                     //对响应结果做出处理
-                    if (data.flag){
+                    if (respData.flag){
                         //登录成功
                         $(".glyphicon").removeClass("glyphicon-remove");
                         $(".form-group").removeClass("has-error");
                         $(".glyphicon").addClass("glyphicon-ok");
                         $(".form-group").addClass("has-success");
-                        sessionStorage.setItem("userInfo",data.s);
+                        sessionStorage.setItem("userInfo",JSON.stringify(respData.data));
                         setTimeout(function (){location.href = "user.html"},1000);
                     } else {
                         //登录失败，给出提示信息
-                        $("#alert-password").html(data.errorMsg);
+                        $("#alert-password").html(respData.errorMsg);
                         $(".glyphicon").addClass("glyphicon-remove");
                         $(".form-group").addClass("has-error");
                     }

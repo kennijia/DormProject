@@ -25,6 +25,21 @@ public class DormApplicationServiceImpl extends BaseServiceImpl<DormApplication>
     }
 
     @Override
+    public int delete(int id) {
+        return daMapper.deleteApplication(id);
+    }
+
+    @Override
+    public int update(DormApplication dorm) {
+        return daMapper.updateApplication(dorm);
+    }
+
+    @Override
+    public DormApplication findOne(int id) {
+        return daMapper.findOne(id);
+    }
+
+    @Override
     public DormApplication findById(String id) {
         return null;
     }

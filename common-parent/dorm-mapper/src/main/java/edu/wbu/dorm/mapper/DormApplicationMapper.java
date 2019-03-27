@@ -26,4 +26,25 @@ public interface DormApplicationMapper {
      */
     int insertApplication(DormApplication dormApplication);
 
+    /**
+     * 根据id删除对应申请信息
+     * @param id
+     * @return
+     */
+    int deleteApplication(int id);
+
+    /**
+     * 根据id查询出对应申请信息
+     * @param id
+     * @return
+     */
+    DormApplication findOne(int id);
+
+    /**
+     * 根据id修改对应原来申请信息
+     * @param dorm
+     * @return
+     */
+    int updateApplication(DormApplication dorm);
+
 }
