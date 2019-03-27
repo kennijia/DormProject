@@ -1,0 +1,88 @@
+package edu.wbu.dorm.model;
+
+public class Dorm {
+    private int id;
+    private int db_id;//宿舍楼
+    private int dorm_number;//宿舍编号
+    private int capacity;//宿舍容量
+    private int occupy;//宿舍已住人数
+    private int hid;//对应卫生情况表的主键
+    private int fee_id;//对应费用表的主键
+
+    public Dorm(int db_id, int dorm_number) {
+        this.db_id = db_id;
+        this.dorm_number = dorm_number;
+    }
+
+    public Dorm() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getDb_id() {
+        return db_id;
+    }
+
+    public void setDb_id(int db_id) {
+        this.db_id = db_id;
+    }
+
+    public int getDorm_number() {
+        return dorm_number;
+    }
+
+    public void setDorm_number(int dorm_number) {
+        this.dorm_number = dorm_number;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public int getOccupy() {
+        return occupy;
+    }
+
+    public void setOccupy(int occupy) {
+        this.occupy = occupy;
+    }
+
+    public int getHid() {
+        return hid;
+    }
+
+    public void setHid(int hid) {
+        this.hid = hid;
+    }
+
+    public int getFee_id() {
+        return fee_id;
+    }
+
+    public void setFee_id(int fee_id) {
+        this.fee_id = fee_id;
+    }
+
+    @Override
+    public String toString() {
+        return "Dorm{" +
+                "id=" + id +
+                ", db_id=" + db_id +
+                ", dorm_number=" + dorm_number +
+                ", capacity=" + capacity +
+                ", occupy=" + occupy +
+                ", hid=" + hid +
+                ", fee_id=" + fee_id +
+                '}';
+    }
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.wbu.dorm.mapper.DormMapper" >
+    <select id="findByDbidAndDid" parameterType="dorm" resultType="dorm">
+        select * from dorm where db_id = #{db_id} and dorm_number = #{dorm_number}
+    </select>
+    <update id="updateOccupy" parameterType="dorm">
+        update dorm set occupy = occupy + 1 where id = #{id}
+    </update>
+</mapper>

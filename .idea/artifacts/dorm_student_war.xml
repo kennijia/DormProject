@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="dorm-student:war">
+    <output-path>$PROJECT_DIR$/common-parent/dorm-student/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>dorm-student</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="dorm-student.war">
+      <element id="artifact" artifact-name="dorm-student:war exploded" />
+    </root>
+  </artifact>
+</component>

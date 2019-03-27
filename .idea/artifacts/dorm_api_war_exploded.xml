@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="dorm-api:war exploded">
+    <output-path>$PROJECT_DIR$/common-parent/dorm-api/target/dorm-api</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>dorm-api</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="dorm-api" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/common-parent/dorm-api/target/dorm-api/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="dorm-api/web/Web" />
+    </root>
+  </artifact>
+</component>
