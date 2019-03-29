@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.wbu.dorm.mapper.RepairMapper" >
+    <select id="findByDormId" parameterType="int" resultType="repair">
+        select * from repair where dorm_id = #{dorm_id}
+    </select>
+    <insert id="insert" parameterType="repair">
+        insert into repair values (null,#{dorm_id},#{content},0,#{createTime},null)
+    </insert>
+</mapper>

@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/common-parent/dorm-model/dorm-model.iml" filepath="$PROJECT_DIR$/common-parent/dorm-model/dorm-model.iml" />
       <module fileurl="file://$PROJECT_DIR$/common-parent/dorm-service/dorm-service.iml" filepath="$PROJECT_DIR$/common-parent/dorm-service/dorm-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/common-parent/dorm-student/dorm-student.iml" filepath="$PROJECT_DIR$/common-parent/dorm-student/dorm-student.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-parent/dorm-utils/dorm-utils.iml" filepath="$PROJECT_DIR$/common-parent/dorm-utils/dorm-utils.iml" />
     </modules>
   </component>
 </project>

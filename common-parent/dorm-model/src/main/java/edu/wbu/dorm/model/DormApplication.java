@@ -11,13 +11,11 @@ public class DormApplication {
     public DormApplication() {
     }
 
-    public DormApplication(int id, String pid, String reason, int to_db_id, int to_dorm_id, int status) {
-        this.id = id;
+    public DormApplication(String pid, String reason, int to_db_id, int to_dorm_id) {
         this.pid = pid;
         this.reason = reason;
         this.to_db_id = to_db_id;
         this.to_dorm_id = to_dorm_id;
-        this.status = status;
     }
 
     public int getId() {

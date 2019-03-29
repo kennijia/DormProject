@@ -1,6 +1,7 @@
 package edu.wbu.dorm.web.controller;
 
 import edu.wbu.dorm.model.Dorm;
+import edu.wbu.dorm.model.ResultInfo;
 import edu.wbu.dorm.service.DormService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,5 +19,13 @@ public class DormController {
     @RequestMapping("/findAll")
     public @ResponseBody List<Dorm> findAll(int db_id){
         return dormService.findAllDorms(db_id);
+    }
+
+    @RequestMapping("/findOne")
+    public @ResponseBody ResultInfo findOne(int dorm_id){
+        ResultInfo info = new ResultInfo();
+        info.setFlag(true);
+        info.setData(dormService.findById(dorm_id));
+        return info;
     }
 }

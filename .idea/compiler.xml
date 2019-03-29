@@ -11,6 +11,7 @@
         <module name="dorm-model" />
         <module name="dorm-service" />
         <module name="dorm-student" />
+        <module name="dorm-utils" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
@@ -20,6 +21,7 @@
       <module name="dorm-model" target="1.8" />
       <module name="dorm-service" target="1.8" />
       <module name="dorm-student" target="1.8" />
+      <module name="dorm-utils" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

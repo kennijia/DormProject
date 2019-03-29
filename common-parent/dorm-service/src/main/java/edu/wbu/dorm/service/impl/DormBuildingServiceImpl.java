@@ -4,9 +4,11 @@ import edu.wbu.dorm.model.DormBuilding;
 import edu.wbu.dorm.service.DormBuildingService;
 import edu.wbu.dorm.service.base.BaseServiceImpl;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
+@Transactional
 public class DormBuildingServiceImpl extends BaseServiceImpl<DormBuilding> implements DormBuildingService {
     @Override
     public List<DormBuilding> findAll() {

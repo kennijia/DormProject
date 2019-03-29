@@ -10,4 +10,7 @@
     <select id="findAllDorms" parameterType="int" resultType="dorm">
         select * from dorm where db_id = #{db_id}
     </select>
+    <select id="findById" parameterType="int" resultType="dorm">
+        select * from dorm where id = #{id}
+    </select>
 </mapper>

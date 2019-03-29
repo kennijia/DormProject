@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title></title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="assets/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
+
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="assets/css/demo.css" rel="stylesheet" />
+
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <!--   Core JS Files   -->
+    <script src="assets/js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <!--  Checkbox, Radio & Switch Plugins -->
+    <script src="assets/js/bootstrap-checkbox-radio-switch.js"></script>
+
+    <!--  Charts Plugin -->
+    <script src="assets/js/chartist.min.js"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="assets/js/bootstrap-notify.js"></script>
+
+    <!--  Google Maps Plugin    -->
+    <!---<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>--->
+
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+    <script src="assets/js/light-bootstrap-dashboard.js"></script>
+
+    <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+    <script src="assets/js/demo.js"></script>
+    <script>
+        var text = sessionStorage.getItem("userInfo");
+        var userInfo;
+        if (text!=null&&text!==""){
+            userInfo = JSON.parse(text);
+            console.log(userInfo.id);
+        }
+        //刷新报修页面申请列表
+        function e(dorm_id){
+            $.get("repair/find.do",{"dorm_id":dorm_id},function (respRepairs) {
+                var repairList = respRepairs.data;
+                if (respRepairs.flag){
+                    var repair = "";
+                    for (var i = 0;i<repairList.length;i++){
+                        var j = i+1;
+                        if (repairList[i].status===0)
+                            repairList[i].status = "等待管理员处理" ;
+                        if (repairList[i].status===1)
+                            repairList[i].status = "正在派人前往" ;
+                        if (repairList[i].status===2)
+                            repairList[i].status = "已完成" ;
+                        repair += '<tr>\n' +
+            '                        <td>'+j+'</td>\n' +
+            '                        <td>'+repairList[i].content+'</td>\n' +
+            '                        <td>'+repairList[i].createTime+'</td>\n' +
+            '                        <td>'+repairList[i].status+'</td>\n' +
+        '                          </tr>';
+                    }
+                    $("#repairList").html(repair);
+                }
+            });
+        }
+        $(function () {
+            if (userInfo!=null){
+                e(userInfo.dorm_id);
+            }
+            $("#btn_repairSubmit").click(function () {
+                var content = $("#repairContent").val();
+                if (content!=null&&content!==""){
+                    $.post("repair/add.do",{"content":content,"dorm_id":userInfo.dorm_id},function (resp) {
+                        if (resp.flag!==false){
+                            $("#myModal").modal('hide');
+                            e(userInfo.dorm_id);
+                        }else
+                            alert("提交失败。")
+                    });
+                }else
+                    $('#delModal').modal();
+            });
+            //用户退出
+            $("#btn_logout").click(function () {
+                sessionStorage.removeItem("userInfo");
+                $.get("user/logout.do",{},function (r) {
+                    location.href = "login.html";
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">报修申请表</h4>
+            </div>
+            <div class="modal-body">
+                <form id="repairForm">
+                    <div class="form-group">
+                        <label for="repairContent">损坏情况</label>
+                        <textarea style="min-height:100px;resize: vertical;max-height: 200px" class="form-control" id="repairContent" placeholder="请简要叙述损坏情况"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button id="btn_repairSubmit" type="button" class="btn btn-primary">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Small modal -->
+<div id="delModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div style="height: 80px;text-align: center;line-height: 80px">
+                内容不能为空</div>
+        </div>
+    </div>
+</div>
+<div class="wrapper">
+    <div class="sidebar" data-color="orange" data-image="assets/img/sidebar-5.jpg">
+        <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="#" class="simple-text">
+                    后勤宿舍管理系统
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li>
+                    <a href="index.html">
+                        <i class="pe-7s-graph"></i>
+                        <p>主页</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="user.html">
+                        <i class="pe-7s-user"></i>
+                        <p>用户资料</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="application.html">
+                        <i class="pe-7s-note2"></i>
+                        <p>调换申请</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="dorm.html">
+                        <i class="pe-7s-note2"></i>
+                        <p>宿舍明细</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="repairs.html">
+                        <i class="pe-7s-tools"></i>
+                        <p>宿舍报修</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="typography.html">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>Typography</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="icons.html">
+                        <i class="pe-7s-science"></i>
+                        <p>Icons</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="maps.html">
+                        <i class="pe-7s-map-marker"></i>
+                        <p>Maps</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="notifications.html">
+                        <i class="pe-7s-bell"></i>
+                        <p>Notifications</p>
+                    </a>
+                </li>
+                <li class="active-pro">
+                    <a href="upgrade.html">
+                        <i class="pe-7s-rocket"></i>
+                        <p>Upgrade to PRO</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">报修申请</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-dashboard"></i>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-globe"></i>
+                                <b class="caret"></b>
+                                <span class="notification">5</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Notification 1</a></li>
+                                <li><a href="#">Notification 2</a></li>
+                                <li><a href="#">Notification 3</a></li>
+                                <li><a href="#">Notification 4</a></li>
+                                <li><a href="#">Another notification</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="login.html">
+                                登录
+                            </a>
+                        </li>
+                        <li>
+                            <a href="user.html">
+                                我的账户
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                菜单
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a id="btn_logout" href="javascript:void(0);">
+                                退出
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-plain">
+                            <div class="header">
+                                <h4 class="title">已提交报修申请</h4>
+                                <p class="category">...</p>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <th>数目</th>
+                                    <th>损坏情况描述</th>
+                                    <th>报修日期</th>
+                                    <th>受理状态</th>
+                                    </thead>
+                                    <tbody id="repairList">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row">
+
+                </div>
+                <div class="col-md-12">
+                    <!-- Button trigger modal -->
+                    <button id="btn_application" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                        报修
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav class="pull-left">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Company
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Portfolio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Blog
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <p class="copyright pull-right">
+                    Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://www.17sucai.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+                </p>
+            </div>
+        </footer>
+
+
+    </div>
+</div>
+
+
+</body>
+
+
+
+
+
+</html>

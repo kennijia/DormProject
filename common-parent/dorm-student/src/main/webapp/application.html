@@ -51,35 +51,59 @@
     <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
     <script src="assets/js/demo.js"></script>
     <script>
+        var text = sessionStorage.getItem("userInfo");
+        var userInfo;
+        if (text!=null&&text!==""){
+            userInfo = JSON.parse(text);
+        }
+        //删除申请信息
         function del(obj){
             var strArr = obj.href.split("?");
             var deleteId = strArr[strArr.length-1];
             $.get("da/delete.do",{"id":deleteId},function (respData) {
-                if (respData.flag!=false){
+                if (respData.flag){
                     //删除记录成功
-                    $('#delModal').modal();
-                     var parent_par = obj.parentNode.parentNode;
-                     var parent_par_par = parent_par.parentNode;
-                     parent_par_par.removeChild(parent_par);
+                    $("#errorMsg").html("删除成功");
+                    $('#delModal').modal('show');
+                    f(userInfo.id);
                 }
             })
         }
+        function f(id){
+            $.ajax({
+                url:"da/findNew.do",
+                type:"get",
+                data:{id:id},
+                success:function (respData) {
+                    var data_list ="";
+                    for (var i = 0;i<respData.length;i++){
+                        data_list += '<tr>\n' +
+                '                        <td>'+i+'</td>\n' +
+                '                        <td>'+respData[i].to_db_id+'</td>\n' +
+                '                        <td>'+respData[i].to_dorm_id+'</td>\n' +
+                '                        <td>'+respData[i].reason+'</td>\n' +
+                '                        <td>'+'等待管理员处理'+'</td>\n' +
+                '                        <td><a onclick="del(this)" href="#?'+respData[i].id+'">删除</a></td>\n' +
+                '                    </tr>';
+                    }
+                    $("#newApplication").html(data_list)
+                }
+            })
+        }
+        //页面加载完成后请求查询出所有的已处理的申请信息
         $(function () {
-            var userInfo = sessionStorage.getItem("userInfo");
-            if (userInfo!=null&&userInfo!=""){
-                var id = JSON.parse(userInfo).id;
-                console.log(id);
+            if (userInfo!=null){
                 $.ajax({
                     url:"da/findOld.do",
                     type:"get",
-                    data:{id:id},
+                    data:{id:userInfo.id},
                     success:function (respData) {
                         var data_list ="";
                         for (var i = 0;i<respData.length;i++){
-                            if (respData[i].status==1){
+                            if (respData[i].status===1){
                                 respData[i].status = '驳回不同意';
                             }
-                            if (respData[i].status==2){
+                            if (respData[i].status===2){
                                 respData[i].status = '同意';
                             }
                             data_list += '<tr>\n' +
@@ -88,102 +112,82 @@
                     '                        <td>'+respData[i].to_dorm_id+'</td>\n' +
                     '                        <td>'+respData[i].reason+'</td>\n' +
                     '                        <td>'+respData[i].status+'</td>\n' +
-                    '                        <td><a href="'+respData[i].id+'">查看</a></td>\n' +
+                    '                        \n' +
                     '                    </tr>';
                         }
                         $("#oldApplication").html(data_list)
                     }
                 });
-                $.ajax({
-                    url:"da/findNew.do",
-                    type:"get",
-                    data:{id:id},
-                    success:function (respData) {
-                        var data_list ="";
-                        for (var i = 0;i<respData.length;i++){
-                            data_list += '<tr>\n' +
-                '                        <td>'+i+'</td>\n' +
-                '                        <td>'+respData[i].to_db_id+'</td>\n' +
-                '                        <td>'+respData[i].to_dorm_id+'</td>\n' +
-                '                        <td>'+respData[i].reason+'</td>\n' +
-                '                        <td>'+'未受理'+'</td>\n' +
-                '                        <td><a onclick="del(this)" href="#?'+respData[i].id+'">删除</a>&nbsp;<a href="'+respData[i].id+'">修改</a></td>\n' +
-                '                    </tr>';
-                        }
-                        $("#newApplication").html(data_list)
-                    }
-                });
+                f(userInfo.id);
             }
-            $("#btn_submit").on('click',function () {
+            //提交申请表
+            $("#btn_submit").click(function () {
                 var to_db_id = $("#to_db_id").val();
                 var to_dorm_id = $("#to_dorm_id").val();
                 var reason = $("#reason").val();
-                console.log(reason);
-                var personId = JSON.parse(sessionStorage.getItem("userInfo")).id;
-                $.ajax({
-                    url:"da/add.do",
-                    type:"post",
-                    data:{
-                        "personId":personId,
-                        "to_db_id":to_db_id,
-                        "to_dorm_id":to_dorm_id,
-                        "reason":reason
-                    },
-                    success:function (respData) {
-                        if (respData.flag){
-                            //提交成功
-                            alert("提交成功");
-                        } else {
-                            //提交失败
-                            alert(respData.errorMsg);
+                if (to_db_id==null||to_dorm_id==null||reason==null||reason==="") {
+                    $("#errorMsg").html("内容不能为空");
+                    $("#delModal").modal('show');
+                }else {
+                    $.ajax({
+                        url:"da/add.do",
+                        type:"post",
+                        data:{
+                            "personId":userInfo.id,
+                            "to_db_id":to_db_id,
+                            "to_dorm_id":to_dorm_id,
+                            "reason":reason
+                        },
+                        success:function (respData) {
+                            if (respData.flag){
+                                $("#myModal").modal('hide');
+                                f(userInfo.id);
+                            } else {
+                                //提交失败
+                                $("#errorMsg").html(respData.errorMsg);
+                                $("#delModal").modal('show');
+                            }
                         }
-                    }
-                });
+                    });
+                }
             });
+            //退出
             $("#btn_logout").click(function () {
-                $.get("student/logout.do",{},function () {
-                    sessionStorage.removeItem("userInfo");
+                sessionStorage.removeItem("userInfo");
+                $.get("user/logout.do",{},function (r) {
                     location.href = "login.html";
                 });
             });
+            //点击申请即查出所有的宿舍楼
             $("#btn_application").click(function () {
                 $.get("db/findAll.do",{},function (dormBuilding) {
                     var dormBuildingData = '';
                     for (var i = 0;i<dormBuilding.length;i++){
-                        if (dormBuilding[i].type==1)
+                        if (dormBuilding[i].type===1)
                             dormBuildingData += '<option value="'+dormBuilding[i].id+'">'+dormBuilding[i].id+'号男生宿舍'+'</option>';
-                        if (dormBuilding[i].type==2)
+                        if (dormBuilding[i].type===2)
                             dormBuildingData += '<option value="'+dormBuilding[i].id+'">'+dormBuilding[i].id+'号女生宿舍'+'</option>';
-                        if (dormBuilding[i].type==3)
+                        if (dormBuilding[i].type===3)
                             dormBuildingData += '<option value="'+dormBuilding[i].id+'">'+dormBuilding[i].id+'号教工宿舍'+'</option>';
                     }
                     $("#to_db_id").html(dormBuildingData);
                 })
             });
+            //选择宿舍楼之后查出该楼所有的宿舍信息
             $("#to_db_id").change(function () {
                 var db_id = $("#to_db_id").val();
                 $.get("dorm/findAll.do",{"db_id":db_id},function (dormsList) {
-                    var dorms ="";
-                    for (var i = 0;i< dormsList.length;i++){
+                    var dorms = "";
+                    for (var i = 0;i<dormsList.length;i++){
                         dorms += '<option value="'+dormsList[i].dorm_number+'">'+dormsList[i].dorm_number+'宿舍'+'</option>';
                     }
                     $("#to_dorm_id").html(dorms);
                 })
-            })
-        })
-
+            });
+        });
     </script>
 </head>
 <body>
-<!-- Small modal -->
-<div id="delModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-    <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-            <div style="height: 80px;text-align: center;line-height: 80px">
-                删除成功</div>
-        </div>
-    </div>
-</div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -208,8 +212,7 @@
                     </div>
                     <div class="form-group">
                         <label for="reason">申请理由</label>
-                        <textarea class="form-control" id="reason" placeholder="请简要叙述申请理由">
-                        </textarea>
+                        <textarea style="width:100%;height:100px;resize: vertical;max-height: 200px" class="form-control" id="reason" placeholder="请简要叙述申请理由"></textarea>
                     </div>
                 </form>
             </div>
@@ -220,8 +223,17 @@
         </div>
     </div>
 </div>
+<!-- Small modal -->
+<div id="delModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div id="errorMsg" style="height: 80px;text-align: center;line-height: 80px">
+                </div>
+        </div>
+    </div>
+</div>
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="orange" data-image="assets/img/sidebar-5.jpg">
 
     <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
 
@@ -229,7 +241,7 @@
     	<div class="sidebar-wrapper">
             <div class="logo">
                 <a href="#" class="simple-text">
-                    Creative Tim
+                    后勤宿舍管理系统
                 </a>
             </div>
 
@@ -247,9 +259,21 @@
                     </a>
                 </li>
                 <li class="active">
-                    <a href="table.html">
+                    <a href="application.html">
                         <i class="pe-7s-note2"></i>
                         <p>调换申请</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="dorm.html">
+                        <i class="pe-7s-note2"></i>
+                        <p>宿舍明细</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="repairs.html">
+                        <i class="pe-7s-tools"></i>
+                        <p>宿舍报修</p>
                     </a>
                 </li>
                 <li>
@@ -380,7 +404,6 @@
                                         <th>欲调换宿舍</th>
                                         <th>申请理由</th>
                                         <th>受理状态</th>
-                                        <th>操作</th>
                                     </thead>
                                     <tbody id="oldApplication">
 

@@ -28,4 +28,10 @@
         <property name="prefix" value="/"/>
         <property name="suffix" value=".html"/>
     </bean>
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="edu.wbu.dorm.web.interceptor.AuthenticationInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

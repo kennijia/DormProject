@@ -4,10 +4,12 @@ import edu.wbu.dorm.model.DormApplication;
 import edu.wbu.dorm.service.DormApplicationService;
 import edu.wbu.dorm.service.base.BaseServiceImpl;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class DormApplicationServiceImpl extends BaseServiceImpl<DormApplication> implements DormApplicationService {
     @Override
     public List<DormApplication> findOld(String pid) {

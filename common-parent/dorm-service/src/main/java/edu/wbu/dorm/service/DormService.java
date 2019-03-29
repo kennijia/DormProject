@@ -6,13 +6,6 @@ import java.util.List;
 
 public interface DormService  extends BaseService<Dorm> {
     /**
-     * 查找宿舍现住人数
-     * @param dorm
-     * @return
-     */
-    Dorm findOccupy(Dorm dorm);
-
-    /**
      * 增加宿舍人数
      * @param dorm
      * @return
@@ -25,4 +18,12 @@ public interface DormService  extends BaseService<Dorm> {
      * @return
      */
     List<Dorm> findAllDorms(int db_id);
+
+    /**
+     * 判断该宿舍能否再入住一人
+     * @param db_id
+     * @param dorm_number
+     * @return
+     */
+    Boolean isAdd(int db_id,int dorm_number);
 }

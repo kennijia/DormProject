@@ -13,6 +13,8 @@
     <title>高校宿舍后勤系统</title>
 </head>
 <script>
+    var gly = $(".glyphicon");
+    var formGro = $(".form-group");
     function checkUsername(){
         var reg_username = /^[a-zA-Z0-9]+$/;
         var username = $("#username").val();
@@ -20,8 +22,8 @@
         if(flag){
             $("#alert-username").html("");
             $("#alert-password").html("");
-            $(".glyphicon").removeClass("glyphicon-remove");
-            $(".form-group").removeClass("has-error");
+            gly.removeClass("glyphicon-remove");
+            formGro.removeClass("has-error");
             /*checkUnique();*/
         }else{
             $("#alert-1").addClass("has-error");
@@ -35,8 +37,8 @@
         var flag = reg_password.test(password);
         if(flag){
             $("#alert-password").html("");
-            $(".glyphicon").removeClass("glyphicon-remove");
-            $(".form-group").removeClass("has-error");
+            gly.removeClass("glyphicon-remove");
+            formGro.removeClass("has-error");
         }else{
             $("#alert-2").addClass("has-error");
             $("#alert-password").html("密码不能为空!");
@@ -44,25 +46,27 @@
         return flag;
     }
     $(function () {
-        $("#username").blur(checkUsername);
+        $("#uid").blur(checkUsername);
         $("#password").blur(checkPassword);
         $("#loginForm").submit(function () {
+            var id = $("#uid").val();
+            var password = $("#password").val();
             if (checkUsername()&&checkPassword()) {
-                $.post("student/login.do",$("#loginForm").serialize(),function (respData) {
+                $.post("user/login.do",{"id":id,"password":password},function (respData) {
                     //对响应结果做出处理
                     if (respData.flag){
                         //登录成功
-                        $(".glyphicon").removeClass("glyphicon-remove");
-                        $(".form-group").removeClass("has-error");
-                        $(".glyphicon").addClass("glyphicon-ok");
-                        $(".form-group").addClass("has-success");
-                        sessionStorage.setItem("userInfo",JSON.stringify(respData.data));
-                        setTimeout(function (){location.href = "user.html"},1000);
+                        gly.removeClass("glyphicon-remove");
+                        formGro.removeClass("has-error");
+                        gly.addClass("glyphicon-ok");
+                        formGro.addClass("has-success");
+                        sessionStorage.setItem("userInfo",JSON.stringify(respData.data));//将json数据转化为字符串存储
+                        setTimeout(function (){location.href = "user.html"},500);
                     } else {
                         //登录失败，给出提示信息
                         $("#alert-password").html(respData.errorMsg);
-                        $(".glyphicon").addClass("glyphicon-remove");
-                        $(".form-group").addClass("has-error");
+                        gly.addClass("glyphicon-remove");
+                        formGro.addClass("has-error");
                     }
                 });
             }
@@ -80,21 +84,15 @@
         <div class="col-sm-6">
             <div>
                 <form id="loginForm">
-                    <!--<div class="form-group has-success has-feedback">
-                        <label class="control-label" for="sid">学号</label>&lt;!&ndash;control-label的颜色与input的提示信息颜色保持一致&ndash;&gt;
-                        <input class="form-control" name="sid" type="text"  id="sid" placeholder="请输入学号">
-                        <span class="help-block" style="height: 10px;"></span>
-                        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
-                    </div>-->
                     <div class="form-group has-feedback" id="alert-1">
-                        <label class="control-label" for="username">用户名</label>
-                        <input type="text" class="form-control" name="id" id="username" placeholder="请输入学号">
+                        <label class="control-label" for="uid">用户名</label>
+                        <input type="text" class="form-control" id="uid" placeholder="请输入学号/工号">
                         <span class="help-block" id="alert-username" style="height: 10px;"></span>
                         <span class="glyphicon form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback" id="alert-2">
                         <label class="control-label" for="password">密码</label>
-                        <input type="password" class="form-control" name="password" id="password" placeholder="请输入密码">
+                        <input type="password" class="form-control" id="password" placeholder="请输入密码">
                         <span class="help-block" id="alert-password" style="height: 10px;"></span>
                         <span class="glyphicon form-control-feedback"></span>
                     </div>

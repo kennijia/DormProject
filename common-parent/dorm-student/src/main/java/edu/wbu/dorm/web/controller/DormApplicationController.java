@@ -32,39 +32,22 @@ public class DormApplicationController {
     }
 
     @RequestMapping("/add")
-    public @ResponseBody ResultInfo add(String personId,int to_db_id,int to_dorm_id,String reason, HttpSession session){
-        //如果用户登录了，则开始业务操作
-        Object onlineUser = session.getAttribute("user");
-        System.out.println(onlineUser);
+    public @ResponseBody ResultInfo add(String personId,int to_db_id,int to_dorm_id,String reason){
         ResultInfo info = new ResultInfo();
-        if (onlineUser!=null){
-            //首先判断目标宿舍是否满人，满人则提交失败
-            Dorm d = new Dorm(to_db_id,to_dorm_id);
-            Dorm dorm = dormService.findOccupy(d);
-            DormApplication da = new DormApplication();
-            da.setPid(personId);
-            da.setTo_db_id(to_db_id);
-            da.setTo_dorm_id(to_dorm_id);
-            da.setReason(reason);
-            if (dorm.getOccupy()<dorm.getCapacity()){
-                //没有满人，那么将申请信息放入表中等待管理员审核
-                dormApplicationService.insertNewApplication(da);
-                info.setFlag(true);
-            }else {
-                //目标宿舍满人，驳回提交申请并返回false
-                info.setFlag(false);
-                info.setErrorMsg("目标宿舍满人了哦，请重新选择。");
-            }
-        }else{
-            //用户未登录，则提示登录
+        //首先判断目标宿舍是否能住人
+        Boolean add = dormService.isAdd(to_db_id, to_dorm_id);
+        if (add){
+            //能入住，将申请信息放入数据库中等待管理员审核
+            dormApplicationService.insertNewApplication(new DormApplication(personId,reason,to_db_id,to_dorm_id));
+            info.setFlag(true);
+        }else {
+            //不能入住，则返回false
             info.setFlag(false);
+            info.setErrorMsg("该宿舍不满足入住条件，请重新选择。");
         }
         return info;
     }
-    @RequestMapping("/findOne")
-    public @ResponseBody DormApplication findOne(int id){
-        return dormApplicationService.findOne(id);
-    }
+
     @RequestMapping("/delete")
     public @ResponseBody ResultInfo deleteOne(int id){
         int i = dormApplicationService.delete(id);
