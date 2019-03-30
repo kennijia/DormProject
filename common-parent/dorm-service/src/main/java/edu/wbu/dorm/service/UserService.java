@@ -20,4 +20,12 @@ public interface UserService extends BaseService<User> {
      * @return
      */
     Map<String, Double> countPersonProportion();
+
+    /**
+     * 验证该用户是否是管理员
+     * @param uid
+     * @param role
+     * @return
+     */
+    Boolean isAdmin(String uid,int role);
 }

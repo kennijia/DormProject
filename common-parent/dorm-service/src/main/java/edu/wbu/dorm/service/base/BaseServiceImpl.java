@@ -28,4 +28,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 
     @Autowired
     protected RepairMapper repairMapper;
+
+    @Autowired
+    protected AnnouncementMappper anouMapper;
 }

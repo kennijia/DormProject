@@ -6,6 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.net.ServerSocket;
 
 public class AuthenticationInterceptor implements HandlerInterceptor {
     @Override
@@ -14,8 +15,11 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
         System.out.println("preHandle");
         StringBuffer reqURL = req.getRequestURL();
         System.out.println(req.getHeader("Authorization"));
-        if (reqURL.indexOf("login.do")>0||reqURL.indexOf("proportion.do")>0)
-            return true;//请求登录，放行
+        System.out.println(req.getRemoteAddr());
+        System.out.println(req.getRemoteHost());
+        System.out.println(req.getRemotePort());
+        if (reqURL.indexOf("login.do")>=0||reqURL.indexOf("proportion.do")>=0||reqURL.indexOf("findSix.do")>=0)
+            return true;//这些请求无需登录，放行
         HttpSession session = req.getSession();
         if (session.getAttribute("onlineUser")!=null)
             return true;//已登录，放行

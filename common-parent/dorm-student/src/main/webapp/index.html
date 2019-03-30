@@ -5,7 +5,7 @@
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>emmmmm</title>
+	<title>Home</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -31,9 +31,39 @@
 
 </head>
 <body>
-
+<!-- Modal -->
+<div class="modal fade" id="editAnouModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">调整已发布公告</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="anouId">标题</label>
+                        <input style="min-height:100px;resize: vertical;max-height: 200px" class="form-control" id="anouId">
+                    </div>
+                    <div class="form-group">
+                        <label for="anouTitle">标题</label>
+                        <input style="min-height:100px;resize: vertical;max-height: 200px" class="form-control" id="anouTitle">
+                    </div>
+                    <div class="form-group">
+                        <label for="anouContent">内容</label>
+                        <textarea style="min-height:100px;resize: vertical;max-height: 200px" class="form-control" id="anouContent"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button id="btn_anouSubmit" type="button" class="btn btn-primary">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="wrapper">
-    <div class="sidebar" data-color="orange" data-image="assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
 
     <!--
 
@@ -198,7 +228,7 @@
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">在校生男女比例</h4>
-                                <p class="category">Last Campaign Performance</p>
+                                <p class="category">The Proportion of Male and Female</p>
                             </div>
                             <div class="content">
                                 <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
@@ -221,11 +251,13 @@
                     <div class="col-md-8">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Users Behavior</h4>
-                                <p class="category">24 Hours performance</p>
+                                <h4 class="title">优秀宿舍展示</h4>
+                                <p class="category">The Show of Excellent Dorm</p>
                             </div>
                             <div class="content">
-                                <div id="chartHours" class="ct-chart"></div>
+                                <div class="ct-chart">
+
+                                </div>
                                 <div class="footer">
                                     <div class="legend">
                                         <i class="fa fa-circle text-info"></i> Open
@@ -271,20 +303,20 @@
                     <div class="col-md-6">
                         <div class="card ">
                             <div class="header">
-                                <h4 class="title">Tasks</h4>
-                                <p class="category">Backend development</p>
+                                <h4 class="title">宿舍管理公告栏</h4>
+                                <p class="category">The Announcement of Dorm Management</p>
                             </div>
                             <div class="content">
                                 <div class="table-full-width">
                                     <table class="table">
-                                        <tbody>
+                                        <tbody id="announcementList">
                                             <tr>
                                                 <td>
                                                     <label class="checkbox">
-                                                        <input type="checkbox" value="" data-toggle="checkbox">
+
                                                     </label>
                                                 </td>
-                                                <td>Sign contract for "What are conference organizers afraid of?"</td>
+                                                <td>Sign contract for "What are conference organizers afraid of?</td>
                                                 <td class="td-actions text-right">
                                                     <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
                                                         <i class="fa fa-edit"></i>
@@ -297,7 +329,7 @@
                                             <tr>
                                                 <td>
                                                     <label class="checkbox">
-                                                        <input type="checkbox" value="" data-toggle="checkbox" checked="">
+
                                                     </label>
                                                 </td>
                                                 <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
@@ -313,11 +345,10 @@
                                             <tr>
                                                 <td>
                                                     <label class="checkbox">
-                                                        <input type="checkbox" value="" data-toggle="checkbox" checked="">
+
                                                     </label>
                                                 </td>
-                                                <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
-</td>
+                                                <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit</td>
                                                 <td class="td-actions text-right">
                                                     <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
                                                         <i class="fa fa-edit"></i>
@@ -330,7 +361,7 @@
                                             <tr>
                                                 <td>
                                                     <label class="checkbox">
-                                                        <input type="checkbox" value="" data-toggle="checkbox">
+
                                                     </label>
                                                 </td>
                                                 <td>Create 4 Invisible User Experiences you Never Knew About</td>
@@ -346,7 +377,7 @@
                                             <tr>
                                                 <td>
                                                     <label class="checkbox">
-                                                        <input type="checkbox" value="" data-toggle="checkbox">
+
                                                     </label>
                                                 </td>
                                                 <td>Read "Following makes Medium better"</td>
@@ -362,15 +393,15 @@
                                             <tr>
                                                 <td>
                                                     <label class="checkbox">
-                                                        <input type="checkbox" value="" data-toggle="checkbox">
+
                                                     </label>
                                                 </td>
                                                 <td>Unfollow 5 enemies from twitter</td>
                                                 <td class="td-actions text-right">
-                                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
+                                                    <button type="button" rel="tooltip" title="Edit Anou" class="btn btn-info btn-simple btn-xs">
                                                         <i class="fa fa-edit"></i>
                                                     </button>
-                                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                    <button type="button" rel="tooltip" title="Remove it" class="btn btn-danger btn-simple btn-xs">
                                                         <i class="fa fa-times"></i>
                                                     </button>
                                                 </td>
@@ -432,7 +463,7 @@
 </body>
 
     <!--   Core JS Files   -->
-    <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="assets/js/jquery-3.3.1.min.js" type="text/javascript"></script>
 	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 
 	<!--  Checkbox, Radio & Switch Plugins -->
@@ -454,6 +485,13 @@
 	<!--<script src="assets/js/demo.js"></script>-->
 
 	<script type="text/javascript">
+        var text = sessionStorage.getItem("userInfo");
+        var userInfo = {id : 0, role : 0};
+        if (text != null && text !== ""){
+            userInfo = JSON.parse(text);
+        }
+        console.log("用户ID："+userInfo.id);
+        console.log("用户角色："+userInfo.role);
         //页面图表
         function g(male,female){
             var dataSales = {
@@ -546,17 +584,95 @@
                 series: [male, female]
             });
         }
+        //刷新公告栏
+        function h(){
+            $.get("anou/findSix.do",function (respData) {
+                var anouList = respData.data;
+                var anou = '';
+                for (var i = 0;i<anouList.length;i++){
 
+                    anou += '<tr>\n' +
+'                                                <td>\n' +
+'                                                    <label class="checkbox">\n' +
+'\n' +
+'                                                    </label>\n' +
+'                                                </td>\n' +
+'                                                <td>'+anouList[i].title+'</td>\n' +
+'                                                <td class="td-actions text-right">\n' +
+'                                                    <button onclick="findAnou('+anouList[i].id+')" type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">\n' +
+'                                                        <i class="fa fa-edit"></i>\n' +
+'                                                    </button>\n' +
+'                                                    <button onclick="delAnou('+anouList[i].id+',userInfo)" type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">\n' +
+'                                                        <i class="fa fa-times"></i>\n' +
+'                                                    </button>\n' +
+'                                                </td>\n' +
+'                                            </tr>';
+                }
+                $("#announcementList").html(anou);
+            })
+        }
+        //管理员点开编辑框查看某一条已发布公告信息
+        function findAnou(anouId){
+            if (userInfo.role > 1) {
+                $.get("anou/findOne.do",{"anouId":anouId},function (respData) {
+                    if (respData.flag) {
+                        //查询成功，将数据写入模态框后弹出模态框
+                        $("#anouId").val(anouId);
+                        $("#anouTitle").val(respData.data.title);
+                        $("#anouContent").val(respData.data.content);
+                        $("#editAnouModal").modal('show');
+                    }
+                });
+            }else {
+                alert("请提供管理员权限.")
+            }
+
+        }
+        //管理员删除公告
+        function delAnou(anouId,user){
+            //首先校验用户权限
+            if (user.role > 1) {
+                $.post("anou/delete.do",{"anouId":anouId,"uid":user.id,"role":user.role},function (respData) {
+                    if (respData.flag){
+                        alert("删除成功.");
+                        h();
+                    } else {
+                        alert("删除失败.")
+                    }
+                });
+            }else {
+                alert("请提供管理员权限.")
+            }
+
+        }
         //页面载入完成
     	$(document).ready(function(){
-
+    	    h();
+    	    //管理员调整公告信息
+    	    $("#btn_anouSubmit").click(function () {
+    	        if (userInfo.id > 1) {
+                    var anouId = $("#anouId").val();
+                    var title = $("#anouTitle").val();
+                    var content = $("#anouContent").val();
+                    $.post("anou/update.do",{"anouId":anouId,"anouTitle":title,"anouContent":content,"uid":userInfo.id,"role":userInfo.role},function (respData) {
+                        if (respData.flag) {
+                            $("#editAnouModal").modal('hide');
+                        }else {
+                            alert("提交失败.")
+                        }
+                    });
+                }else {
+    	            alert("请提供管理员权限.")
+                }
+            });
+    	    //用户退出
             $("#btn_logout").click(function () {
                 sessionStorage.removeItem("userInfo");
                 $.get("user/logout.do",{},function (r) {
                     location.href = "login.html";
                 });
             });
-
+            //查询男女比例并将结果写入饼状图
             $.get("user/proportion.do",function (respData) {
                 var proportion = { male:respData.data.male,female:respData.data.female} ;
                 g(proportion.male,proportion.female);

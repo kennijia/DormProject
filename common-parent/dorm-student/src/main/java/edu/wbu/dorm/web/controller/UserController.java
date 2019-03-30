@@ -1,6 +1,5 @@
 package edu.wbu.dorm.web.controller;
 
-import com.auth0.jwt.JWT;
 import edu.wbu.dorm.model.ResultInfo;
 import edu.wbu.dorm.model.User;
 import edu.wbu.dorm.service.UserService;

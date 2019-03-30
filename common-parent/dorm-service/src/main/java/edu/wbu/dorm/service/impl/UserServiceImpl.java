@@ -43,6 +43,17 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         return map;
     }
 
+    @Override
+    public Boolean isAdmin(String uid, int role) {
+        User byId = userMapper.findById(uid);
+        if (byId==null)
+            return false;
+        if (byId.getRole()==2)
+            return true;
+        else
+            return false;
+    }
+
     /**
      * 查找用户信息
      * @param id
