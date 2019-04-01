@@ -7,4 +7,7 @@
     <insert id="insert" parameterType="dormBuilding">
         insert into dorm_building values (#{id},#{type},#{floors},#{location},#{builtuptime},#{capacity})
     </insert>
+    <select id="findById" parameterType="int" resultType="dormBuilding">
+        select * from dorm_building where id = #{id}
+    </select>
 </mapper>

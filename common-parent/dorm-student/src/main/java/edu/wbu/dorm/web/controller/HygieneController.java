@@ -21,10 +21,13 @@ public class HygieneController {
 
     @RequestMapping("/find")
     public @ResponseBody ResultInfo find(String uid){
-        ResultInfo info = new ResultInfo();
+        ResultInfo info = new ResultInfo(false);
         int dorm_id = userService.findById(uid).getDorm_id();
+        if (dorm_id==0)
+            return info;
         List<Hygiene> hygienes = hygieneService.findByDormId(dorm_id);
         info.setData(hygienes);
+        info.setFlag(true);
         return info;
     }
 }

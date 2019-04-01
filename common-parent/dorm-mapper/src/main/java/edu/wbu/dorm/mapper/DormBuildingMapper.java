@@ -1,10 +1,11 @@
 package edu.wbu.dorm.mapper;
 
+import edu.wbu.dorm.mapper.base.BaseMapper;
 import edu.wbu.dorm.model.DormBuilding;
 
 import java.util.List;
 
-public interface DormBuildingMapper {
+public interface DormBuildingMapper extends BaseMapper<DormBuilding> {
     /**
      * 查询数据库中已有宿舍楼信息
      * @return

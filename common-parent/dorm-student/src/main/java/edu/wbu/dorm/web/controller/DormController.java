@@ -23,7 +23,9 @@ public class DormController {
 
     @RequestMapping("/findOne")
     public @ResponseBody ResultInfo findOne(int dorm_id){
-        ResultInfo info = new ResultInfo();
+        ResultInfo info = new ResultInfo(false);
+        if (dorm_id==0)
+            return info;
         info.setFlag(true);
         info.setData(dormService.findById(dorm_id));
         return info;

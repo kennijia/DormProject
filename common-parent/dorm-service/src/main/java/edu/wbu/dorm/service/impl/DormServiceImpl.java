@@ -33,6 +33,15 @@ public class DormServiceImpl extends BaseServiceImpl<Dorm> implements DormServic
             return false;//找到该宿舍但已满人
     }
 
+    @Override
+    public Boolean isOutside(String uid) {
+        int dorm_id = userMapper.findById(uid).getDorm_id();
+        if (dorm_id==0){
+            return true;//代表住在校外
+        }
+        return false;//代表住在校内
+    }
+
 
     @Override
     public Dorm findById(String id) {

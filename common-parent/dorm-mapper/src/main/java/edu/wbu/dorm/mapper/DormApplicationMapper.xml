@@ -8,7 +8,7 @@
         SELECT * FROM dormapplication where status = 0 and pid = #{pid}
     </select>
     <insert id="insertApplication" parameterType="dormApplication">
-        insert into dormapplication values (null,#{pid},#{reason},#{to_db_id},#{to_dorm_id},0)
+        insert into dormapplication values (null,#{pid},#{reason},#{to_db_id},#{to_dorm_number},0,#{time})
     </insert>
     <delete id="deleteApplication" parameterType="int">
         delete from dormapplication where id = #{id}
@@ -19,4 +19,33 @@
     <update id="updateApplication" parameterType="dormApplication">
         update dormapplication set reason = #{reason} ,to_db_id = #{to_db_id},to_dorm_id = #{to_dorm_id} where id = #{id}
     </update>
+    <select id="countAll" resultType="int">
+        select count(*) from dormapplication
+    </select>
+    <update id="updateStatus" parameterType="dormApplication">
+      update dormapplication set status = #{status} where id = #{id}
+    </update>
+    <resultMap id="dormApplicationExt" type="dormApplicationExt">
+        <id property="id" column="id"/>
+        <result property="username" column="name"/>
+        <result property="pid" column="pid"/>
+        <result property="reason" column="reason"/>
+        <result property="to_db_id" column="to_db_id"/>
+        <result property="to_dorm_number" column="to_dorm_number"/>
+        <result property="status" column="status"/>
+        <result property="time" column="time"/>
+    </resultMap>
+    <select id="findByPage" parameterType="int" resultMap="dormApplicationExt">
+        SELECT
+            da.id,
+            da.pid,
+            u.name,
+            da.reason,
+            da.to_db_id,
+            da.to_dorm_number,
+            da.status,
+            da.time
+        FROM dormapplication da,USER u
+        WHERE da.pid = u.id LIMIT #{selectedRow},15;
+    </select>
 </mapper>

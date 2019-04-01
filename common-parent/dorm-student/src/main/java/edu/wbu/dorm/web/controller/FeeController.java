@@ -21,11 +21,14 @@ public class FeeController {
 
     @RequestMapping("/find")
     public @ResponseBody ResultInfo find(String uid){
-        ResultInfo info = new ResultInfo();
-        int dorm_id = userService.findById(uid).getDorm_id();
-        int feeId = dormService.findById(dorm_id).getFee_id();
-        info.setData(feeService.findById(feeId));
-        info.setFlag(true);
+        ResultInfo info = new ResultInfo(false);
+        if (!dormService.isOutside(uid)){
+            //如果住在校内，则发送相关数据
+            int dorm_id = userService.findById(uid).getDorm_id();
+            int feeId = dormService.findById(dorm_id).getFee_id();
+            info.setData(feeService.findById(feeId));
+            info.setFlag(true);
+        }
         return info;
     }
 }

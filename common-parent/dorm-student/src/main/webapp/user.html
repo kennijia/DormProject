@@ -84,6 +84,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="admin.html">
+                        <i class="pe-7s-key"></i>
+                        <p>管理员界面</p>
+                    </a>
+                </li>
+                <li>
                     <a href="typography.html">
                         <i class="pe-7s-news-paper"></i>
                         <p>Typography</p>
@@ -401,7 +407,12 @@
                 $("#entrancetime").val(respUser.entrancetime);
                 $("#aboutMe").val(respUser.aboutMe);
                 $.get("dorm/findOne.do",{"dorm_id":respUser.dorm_id},function (dorm) {
-                    $("#dorm_number").val("观湖苑"+dorm.data.db_id+"栋"+dorm.data.dorm_number);
+                    if (dorm.flag){
+                        $("#dorm_number").val("观湖苑"+dorm.data.db_id+"栋"+dorm.data.dorm_number);
+                    } else {
+                        $("#dorm_number").val("校外")
+                    }
+
                 });
                 var headpic = "";
                 headpic += '<a href="#">\n' +

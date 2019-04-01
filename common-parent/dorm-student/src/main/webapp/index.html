@@ -41,16 +41,16 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <div class="form-group">
-                        <label for="anouId">标题</label>
-                        <input style="min-height:100px;resize: vertical;max-height: 200px" class="form-control" id="anouId">
+                    <div class="form-group" hidden>
+                        <label for="anouId">序号</label>
+                        <input class="form-control" disabled id="anouId">
                     </div>
                     <div class="form-group">
-                        <label for="anouTitle">标题</label>
-                        <input style="min-height:100px;resize: vertical;max-height: 200px" class="form-control" id="anouTitle">
+                        <label for="anouTitle">公告标题</label>
+                        <input class="form-control" id="anouTitle">
                     </div>
                     <div class="form-group">
-                        <label for="anouContent">内容</label>
+                        <label for="anouContent">公告内容</label>
                         <textarea style="min-height:100px;resize: vertical;max-height: 200px" class="form-control" id="anouContent"></textarea>
                     </div>
                 </form>
@@ -62,6 +62,32 @@
         </div>
     </div>
 </div>
+<!-- 模态框-提示信息  -->
+<div id="prompt_Modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">提示信息</h4>
+            </div>
+            <div class="modal-body">
+                <p id="promptMsg">删除成功</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!--<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Link with href
+</a>
+<div class="collapse" id="collapseExample">
+    <div class="well">
+        ...
+    </div>
+</div>-->
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
 
@@ -108,6 +134,12 @@
                     <a href="repairs.html">
                         <i class="pe-7s-tools"></i>
                         <p>宿舍报修</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin.html">
+                        <i class="pe-7s-key"></i>
+                        <p>管理员</p>
                     </a>
                 </li>
                 <li>
@@ -167,7 +199,7 @@
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-globe"></i>
                                     <b class="caret"></b>
-                                    <span class="notification">5</span>
+                                    <span class="notification">10</span>
                               </a>
                               <ul class="dropdown-menu">
                                 <li><a href="#">Notification 1</a></li>
@@ -183,7 +215,6 @@
                             </a>
                         </li>
                     </ul>
-
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <a href="login.html">
@@ -598,6 +629,7 @@
 '                                                    </label>\n' +
 '                                                </td>\n' +
 '                                                <td>'+anouList[i].title+'</td>\n' +
+'                                                <td>'+anouList[i].time+'</td>\n' +
 '                                                <td class="td-actions text-right">\n' +
 '                                                    <button onclick="findAnou('+anouList[i].id+')" type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">\n' +
 '                                                        <i class="fa fa-edit"></i>\n' +
@@ -624,7 +656,8 @@
                     }
                 });
             }else {
-                alert("请提供管理员权限.")
+                $("#promptMsg").html("请提供管理员权限");
+                $("#prompt_Modal").modal('show');
             }
 
         }
@@ -634,14 +667,16 @@
             if (user.role > 1) {
                 $.post("anou/delete.do",{"anouId":anouId,"uid":user.id,"role":user.role},function (respData) {
                     if (respData.flag){
-                        alert("删除成功.");
+                        $("#promptMsg").html("删除成功");
+                        $("#prompt_Modal").modal('show');
                         h();
                     } else {
                         alert("删除失败.")
                     }
                 });
             }else {
-                alert("请提供管理员权限.")
+                $("#promptMsg").html("请提供管理员权限");
+                $("#prompt_Modal").modal('show');
             }
 
         }
@@ -656,9 +691,11 @@
                     var content = $("#anouContent").val();
                     $.post("anou/update.do",{"anouId":anouId,"anouTitle":title,"anouContent":content,"uid":userInfo.id,"role":userInfo.role},function (respData) {
                         if (respData.flag) {
+                            h();
                             $("#editAnouModal").modal('hide');
                         }else {
-                            alert("提交失败.")
+                            $("#promptMsg").html("提交失败");
+                            $("#prompt_Modal").modal('show');
                         }
                     });
                 }else {

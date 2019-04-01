@@ -54,31 +54,35 @@
         //请求获取宿舍水电费
         function b(uid){
             $.get("fee/find.do",{"uid":uid},function (respFee) {
-                var fee = respFee.data;
-                var feeStr = '';
-                feeStr += '<tr>\n' +
-        '                    <td>1</td>\n' +
-        '                    <td>'+fee.waterFee+'</td>\n' +
-        '                    <td>'+fee.electricityFee+'</td>\n' +
-        '                </tr>';
-                $("#feeList").html(feeStr);
+                if (respFee.flag){
+                    var fee = respFee.data;
+                    var feeStr = '';
+                    feeStr += '<tr>\n' +
+                        '                    <td>1</td>\n' +
+                        '                    <td>'+fee.waterFee+'</td>\n' +
+                        '                    <td>'+fee.electricityFee+'</td>\n' +
+                        '                </tr>';
+                    $("#feeList").html(feeStr);
+                }
             })
         }
         //请求获取宿舍卫生情况
         function c(uid){
             $.get("hygiene/find.do",{"uid":uid},function (respHygiene) {
-                var higiene = respHygiene.data;//卫生状况列表
-                var higieneStr = "";
-                for (var i = 0;i<higiene.length;i++){
-                    var j = i+1;
-                    higieneStr += '<tr>\n' +
+                if (respHygiene.flag) {
+                    var higiene = respHygiene.data;//卫生状况列表
+                    var higieneStr = "";
+                    for (var i = 0;i<higiene.length;i++){
+                        var j = i+1;
+                        higieneStr += '<tr>\n' +
 '                                        <td>'+j+'</td>\n' +
 '                                        <td>'+higiene[i].description+'</td>\n' +
 '                                        <td>'+higiene[i].comments+'</td>\n' +
 '                                        <td>'+higiene[i].createTime+'</td>\n' +
 '                                    </tr>';
+                    }
+                    $("#hygieneList").html(higieneStr);
                 }
-                $("#hygieneList").html(higieneStr);
             })
         }
         //请求获取宿舍违纪记录
@@ -166,6 +170,12 @@
                     <a href="repairs.html">
                         <i class="pe-7s-tools"></i>
                         <p>宿舍报修</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin.html">
+                        <i class="pe-7s-key"></i>
+                        <p>管理员界面</p>
                     </a>
                 </li>
                 <li>

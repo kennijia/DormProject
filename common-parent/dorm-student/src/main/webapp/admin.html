@@ -57,26 +57,43 @@
             userInfo = JSON.parse(text);
             console.log(userInfo.id);
         }
-        //刷新报修页面申请列表
-        function e(userId){
-            $.get("repair/find.do",{"uid":userId},function (respRepairs) {
-                if (respRepairs.flag){
-                    var repairList = respRepairs.data;
+        //刷新宿舍调换申请列表
+        function e(currentPage){
+            $.get("da/find.do",{"currentPageStr":currentPage},function (resp) {
+                if (resp.flag){
+                    var daList = resp.data.info;
+                    var da = "";
+                    for (var i = 0;i<daList.length;i++){
+                        var j = i+1;
+
+                        da += '<tr>\n' +
+                            '                        <td>'+j+'</td>\n' +
+                            '                        <td>'+daList[i].username+'</td>\n' +
+                            '                        <td>观湖苑'+daList[i].to_db_id+'栋'+daList[i].to_dorm_number+'</td>\n' +
+                            '                        <td>'+daList[i].reason+'</td>\n' +
+                            '                        <td>'+daList[i].time+'</td>\n' +
+                            '                        <td>'+daList[i].status+'</td>\n' +
+                            '                          </tr>';
+                    }
+                    $("#daList").html(da);
+                }
+            });
+        }
+        //刷新保修申请列表
+        function j(currentPage){
+            $.get("repair/adminFind.do",{"currentPageStr":currentPage},function (resp) {
+                if (resp.flag){
+                    var repairList = resp.data.info;
                     var repair = "";
                     for (var i = 0;i<repairList.length;i++){
                         var j = i+1;
-                        if (repairList[i].status===0)
-                            repairList[i].status = "等待管理员处理" ;
-                        if (repairList[i].status===1)
-                            repairList[i].status = "正在派人前往" ;
-                        if (repairList[i].status===2)
-                            repairList[i].status = "已完成" ;
                         repair += '<tr>\n' +
-            '                        <td>'+j+'</td>\n' +
-            '                        <td>'+repairList[i].content+'</td>\n' +
-            '                        <td>'+repairList[i].createTime+'</td>\n' +
-            '                        <td>'+repairList[i].status+'</td>\n' +
-        '                          </tr>';
+                            '                        <td>'+j+'</td>\n' +
+                            '                        <td>观湖苑'+repairList[i].dorm.db_id+'栋'+repairList[i].dorm.dorm_number+'</td>\n' +
+                            '                        <td>'+repairList[i].content+'</td>\n' +
+                            '                        <td>'+repairList[i].createTime+'</td>\n' +
+                            '                        <td>'+repairList[i].status+'</td>\n' +
+                            '                          </tr>';
                     }
                     $("#repairList").html(repair);
                 }
@@ -84,22 +101,10 @@
         }
         $(function () {
             if (userInfo!=null){
-                e(userInfo.id);
+                e(1);
+                j(1);
             }
-            $("#btn_repairSubmit").click(function () {
-                var content = $("#repairContent").val();
-                if (content!=null&&content!==""){
-                    $.post("repair/add.do",{"content":content,"uid":userInfo.id},function (resp) {
-                        if (resp.flag!==false){
-                            $("#myModal").modal('hide');
-                            e(userInfo.id);
-                        }else
-                            alert("不满足申请条件。")
-                    });
-                }else
-                    //提交内容不能为空
-                    $('#delModal').modal();
-            });
+
             //用户退出
             $("#btn_logout").click(function () {
                 sessionStorage.removeItem("userInfo");
@@ -143,8 +148,9 @@
         </div>
     </div>
 </div>
+
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="blue" data-image="assets/img/sidebar-5.jpg">
         <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
         <div class="sidebar-wrapper">
             <div class="logo">
@@ -178,16 +184,16 @@
                         <p>宿舍明细</p>
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="repairs.html">
                         <i class="pe-7s-tools"></i>
                         <p>宿舍报修</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="admin.html">
                         <i class="pe-7s-key"></i>
-                        <p>管理员界面</p>
+                        <p>管理员</p>
                     </a>
                 </li>
                 <li>
@@ -234,7 +240,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">报修申请</a>
+                    <a class="navbar-brand" href="#">管理员</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
@@ -301,43 +307,65 @@
         </nav>
         <div class="content">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card card-plain">
-                            <div class="header">
-                                <h4 class="title">已提交报修申请</h4>
-                                <p class="category">...</p>
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-hover">
-                                    <thead>
-                                    <th>数目</th>
-                                    <th>损坏情况描述</th>
-                                    <th>报修日期</th>
-                                    <th>受理状态</th>
-                                    </thead>
-                                    <tbody id="repairList">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="tabbable" id="tabs-372125">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#panel-651534" data-toggle="tab">调换申请审核</a>
+                                </li>
+                                <li>
+                                    <a href="#panel-669067" data-toggle="tab">报修申请审核</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="panel-651534">
+                                    <div class="col-md-12">
+                                        <div class="card card-plain">
+                                            <div class="content table-responsive table-full-width">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <th>序号</th>
+                                                        <th>申请人</th>
+                                                        <th>申请调往</th>
+                                                        <th>申请理由</th>
+                                                        <th>申请日期</th>
+                                                        <th>审核</th>
+                                                    </thead>
+                                                    <tbody id="daList">
 
-                                    </tbody>
-                                </table>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="panel-669067">
+                                    <div class="col-md-12">
+                                        <div class="card card-plain">
+                                            <div class="content table-responsive table-full-width">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <th>序号</th>
+                                                        <th>申请宿舍</th>
+                                                        <th>损坏情况</th>
+                                                        <th>申请日期</th>
+                                                        <th>操作</th>
+                                                    </thead>
+                                                    <tbody id="repairList">
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-
-                </div>
-                <div class="row">
-
-                </div>
-                <div class="col-md-12">
-                    <!-- Button trigger modal -->
-                    <button id="btn_application" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                        报修
-                    </button>
                 </div>
             </div>
         </div>
-
         <footer class="footer">
             <div class="container-fluid">
                 <nav class="pull-left">

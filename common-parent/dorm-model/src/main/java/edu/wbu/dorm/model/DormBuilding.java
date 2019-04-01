@@ -1,12 +1,12 @@
 package edu.wbu.dorm.model;
 
 public class DormBuilding {
-    private int id;
-    private int type;
-    private int floors;
-    private String location;
-    private String builtuptime;
-    private int capacity;
+    private int id;//宿舍楼唯一id
+    private int type;//宿舍楼类型(1.男生宿舍2.女生宿舍3.教职工宿舍)
+    private int floors;//宿舍楼层数
+    private String location;//宿舍楼地理位置
+    private String builtuptime;//宿舍楼建立时间
+    private int capacity;//宿舍楼的房间数
 
     public DormBuilding() {
     }

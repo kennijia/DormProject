@@ -1,6 +1,6 @@
 package edu.wbu.dorm.model;
 
-public class DormApplication {
+public class DormApplicationExt {
     private int id;
     private String pid;//申请人学号/工号
     private String reason;
@@ -8,21 +8,29 @@ public class DormApplication {
     private int to_dorm_number;
     private int status;//受理状态(0未处理1驳回2同意)
     private String time;
+    private String username;
 
-    public DormApplication() {
+    public DormApplicationExt() {
     }
 
-    public DormApplication(String pid, String reason, int to_db_id, int to_dorm_number, String time) {
+    public DormApplicationExt(String pid, String reason, int to_db_id, int to_dorm_number) {
         this.pid = pid;
         this.reason = reason;
         this.to_db_id = to_db_id;
         this.to_dorm_number = to_dorm_number;
-        this.time = time;
     }
 
-    public DormApplication(int id, int status) {
+    public DormApplicationExt(int id, int status) {
         this.id = id;
         this.status = status;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getTime() {
@@ -83,7 +91,7 @@ public class DormApplication {
 
     @Override
     public String toString() {
-        return "DormApplication{" +
+        return "DormApplicationExt{" +
                 "id=" + id +
                 ", pid='" + pid + '\'' +
                 ", reason='" + reason + '\'' +
@@ -91,6 +99,7 @@ public class DormApplication {
                 ", to_dorm_number=" + to_dorm_number +
                 ", status=" + status +
                 ", time='" + time + '\'' +
+                ", username='" + username + '\'' +
                 '}';
     }
 }

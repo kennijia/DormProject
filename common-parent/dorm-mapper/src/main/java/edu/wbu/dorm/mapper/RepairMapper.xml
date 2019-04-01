@@ -7,4 +7,30 @@
     <insert id="insert" parameterType="repair">
         insert into repair values (null,#{dorm_id},#{content},0,#{createTime},null)
     </insert>
+    <select id="countAll" resultType="int">
+        select count(*) from repair
+    </select>
+    <resultMap id="repairResultMap" type="repairExt">
+        <id property="id" column="id"/>
+        <result property="dorm_id" column="dorm_id"/>
+        <result property="content" column="content"/>
+        <result property="status" column="status"/>
+        <result property="createTime" column="createTime"/>
+        <association property="dorm" javaType="dorm">
+            <result property="db_id" column="db_id"/>
+            <result property="dorm_number" column="dorm_number"/>
+        </association>
+    </resultMap>
+    <select id="findByPage" parameterType="int" resultMap="repairResultMap">
+        SELECT
+        r.id,
+        r.dorm_id,
+        r.content,
+        r.status,
+        r.createTime,
+        d.db_id,
+        d.dorm_number
+        FROM repair r,dorm d
+        WHERE r.dorm_id = d.id LIMIT #{selectedRow},15;
+    </select>
 </mapper>

@@ -1,6 +1,8 @@
 package edu.wbu.dorm.mapper;
 
 import edu.wbu.dorm.model.DormApplication;
+import edu.wbu.dorm.model.DormApplicationExt;
+import edu.wbu.dorm.model.PageBean;
 
 import java.util.List;
 
@@ -46,5 +48,25 @@ public interface DormApplicationMapper {
      * @return
      */
     int updateApplication(DormApplication dorm);
+
+    /**
+     * 查找有多少条记录
+     * @return
+     */
+    int countAll();
+
+    /**
+     * 查找对应页数下的记录信息
+     * @param selectedRow
+     * @return
+     */
+    List<DormApplicationExt> findByPage(int selectedRow);
+
+    /**
+     * 修改申请的受理状态
+     * @param dormApplication
+     * @return
+     */
+    int updateStatus(DormApplication dormApplication);
 
 }

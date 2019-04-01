@@ -4,6 +4,7 @@ public class Dorm {
     private int id;
     private int db_id;//宿舍楼
     private int dorm_number;//宿舍编号
+    private String dorm_gender;//宿舍性别
     private int capacity;//宿舍容量
     private int occupy;//宿舍已住人数
     private int hid;//对应卫生情况表的主键
@@ -39,6 +40,14 @@ public class Dorm {
 
     public void setDorm_number(int dorm_number) {
         this.dorm_number = dorm_number;
+    }
+
+    public String getDorm_gender() {
+        return dorm_gender;
+    }
+
+    public void setDorm_gender(String dorm_gender) {
+        this.dorm_gender = dorm_gender;
     }
 
     public int getCapacity() {
@@ -79,6 +88,7 @@ public class Dorm {
                 "id=" + id +
                 ", db_id=" + db_id +
                 ", dorm_number=" + dorm_number +
+                ", dorm_gender='" + dorm_gender + '\'' +
                 ", capacity=" + capacity +
                 ", occupy=" + occupy +
                 ", hid=" + hid +
