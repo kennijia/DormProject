@@ -46,6 +46,11 @@
             da.status,
             da.time
         FROM dormapplication da,USER u
-        WHERE da.pid = u.id LIMIT #{selectedRow},15;
+        WHERE da.pid = u.id
+        ORDER BY da.status ASC
+        LIMIT #{selectedRow},15
+    </select>
+    <select id="findById" parameterType="int" resultType="dormApplication">
+        select * from dormapplication where id = #{id}
     </select>
 </mapper>

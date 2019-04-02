@@ -85,4 +85,19 @@ public class DormApplicationController {
         info.setFlag(true);
         return info;
     }
+
+    @RequestMapping("/findById")
+    public @ResponseBody ResultInfo findById(String daIdStr){
+        ResultInfo info = new ResultInfo(false);
+        int daId = 0;
+        if (daIdStr!=null&&!daIdStr.equals("")){
+            daId = Integer.parseInt(daIdStr);
+            DormApplication byId = dormApplicationService.findById(daId);
+            DormApplication da = new DormApplication();
+            da.setReason(byId.getReason());
+            info.setData(da);
+            info.setFlag(true);
+        }
+        return info;
+    }
 }

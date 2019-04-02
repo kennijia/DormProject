@@ -55,9 +55,23 @@
         var userInfo = {id:0,role:0};
         if (text!=null&&text!==""){
             userInfo = JSON.parse(text);
-            console.log(userInfo.id);
         }
-        //刷新宿舍调换申请列表
+        //查看该条宿舍调换申请的理由
+        function g(daId) {
+            $.get("da/findById.do",{"daIdStr":daId},function (respData) {
+                if (respData.flag) {
+                    $("#seeDiv").html(respData.data.reason);
+                    $("#adminSeeModal").modal('show');
+                }
+            });
+
+
+        }
+        //查看该条保修的申请的损坏情况
+        function h(repairId) {
+            alert(repairId);
+        }
+        //刷新宿舍调换申请列表并分页
         function e(currentPage){
             $.get("da/find.do",{"currentPageStr":currentPage},function (resp) {
                 if (resp.flag){
@@ -70,16 +84,73 @@
                             '                        <td>'+j+'</td>\n' +
                             '                        <td>'+daList[i].username+'</td>\n' +
                             '                        <td>观湖苑'+daList[i].to_db_id+'栋'+daList[i].to_dorm_number+'</td>\n' +
-                            '                        <td>'+daList[i].reason+'</td>\n' +
+                            '                        <td><a onclick="g('+daList[i].id+')" href="javascript:void(0);">点击查看</a></td>\n' +
                             '                        <td>'+daList[i].time+'</td>\n' +
                             '                        <td>'+daList[i].status+'</td>\n' +
                             '                          </tr>';
                     }
                     $("#daList").html(da);
+                    var totalCount = resp.data.totalCount;//总记录数
+                    var totalPage = resp.data.totalPage;
+                    var curPage = resp.data.currentPage;
+                    var back = curPage-1;
+                    var next = curPage+1;
+                    if (next > totalPage) {
+                        next = totalPage;
+                    }
+                    if (back < 1) {
+                        back = 1;
+                    }
+                    var fir = '<li onclick="e(1)">\n' +
+            '                    <span>首页<span class="sr-only"> </span></span>\n' +
+            '                    </li>';
+                    var prePage = '<li onclick="e('+back+')">\n' +
+                '                    <span>上一页 <span class="sr-only"></span></span>\n' +
+                '                    </li>';
+                    fir += prePage;
+                    var nextPage = '<li onclick="e('+next+')">\n' +
+            '                         <span>下一页 <span class="sr-only"></span></span>\n' +
+            '                         </li>';
+                    var lastPage = '<li onclick="e('+curPage+')">\n' +
+                    '                    <span>末页 <span class="sr-only"></span></span>\n' +
+                    '                    </li>';
+                    nextPage += lastPage;
+                    var beginPage ;
+                    var endPage;
+                    if (totalPage<10) {
+                        //总页数小于10
+                        beginPage = 1;
+                        endPage = totalPage;
+                    }else {
+                        //总页数大于10
+                        beginPage = curPage - 5;
+                        endPage = curPage + 4;
+                        if (beginPage<1){
+                            beginPage = 1;
+                            endPage = 10;
+                        }
+                        if (endPage>totalPage) {
+                            endPage = totalPage;
+                            beginPage = endPage - 9;
+                        }
+                    }
+                    for (var i = beginPage;i<=endPage;i++){
+                        if (i == curPage) {
+                            fir += '<li class="active" onclick="e('+i+')">\n' +
+                        '                    <span> '+i+'<span class="sr-only"></span></span>\n' +
+                        '                    </li>';
+                        }else {
+                            fir += '<li onclick="e('+i+')">\n' +
+                        '                    <span>'+i+'<span class="sr-only"></span></span>\n' +
+                        '                    </li>';
+                        }
+                    }
+                    fir += nextPage;
+                    $("#pageNum1").html(fir);
                 }
             });
         }
-        //刷新保修申请列表
+        //刷新报修申请列表
         function j(currentPage){
             $.get("repair/adminFind.do",{"currentPageStr":currentPage},function (resp) {
                 if (resp.flag){
@@ -90,21 +161,83 @@
                         repair += '<tr>\n' +
                             '                        <td>'+j+'</td>\n' +
                             '                        <td>观湖苑'+repairList[i].dorm.db_id+'栋'+repairList[i].dorm.dorm_number+'</td>\n' +
-                            '                        <td>'+repairList[i].content+'</td>\n' +
+                            '                        <td><a onclick="h('+repairList[i].id+')" href="javascript:void(0);">点击查看</a></td>\n' +
                             '                        <td>'+repairList[i].createTime+'</td>\n' +
                             '                        <td>'+repairList[i].status+'</td>\n' +
                             '                          </tr>';
                     }
                     $("#repairList").html(repair);
+                    var totalCount = resp.data.totalCount;
+                    console.log(totalCount);
+                    var totalPage = resp.data.totalPage;
+                    console.log(totalPage);
+                    var curPage = resp.data.currentPage;
+                    console.log(curPage);
+                    var back = curPage-1;
+                    var next = curPage+1;
+                    if (next > totalPage) {
+                        next = totalPage;
+                    }
+                    if (back < 1) {
+                        back = 1;
+                    }
+                    var fir = '<li onclick="j(1)">\n' +
+                        '                    <span>首页<span class="sr-only"> </span></span>\n' +
+                        '                    </li>';
+                    var prePage = '<li onclick="j('+back+')">\n' +
+                        '                    <span>上一页 <span class="sr-only"></span></span>\n' +
+                        '                    </li>';
+                    fir += prePage;
+                    var nextPage = '<li onclick="j('+next+')">\n' +
+                        '                         <span>下一页 <span class="sr-only"></span></span>\n' +
+                        '                         </li>';
+                    var lastPage = '<li onclick="j('+curPage+')">\n' +
+                        '                    <span>末页 <span class="sr-only"></span></span>\n' +
+                        '                    </li>';
+                    nextPage += lastPage;
+                    var beginPage ;
+                    var endPage;
+                    if (totalPage<10) {
+                        //总页数小于10
+                        beginPage = 1;
+                        endPage = totalPage;
+                    }else {
+                        //总页数大于10
+                        beginPage = curPage - 5;
+                        endPage = curPage + 4;
+                        if (beginPage<1){
+                            beginPage = 1;
+                            endPage = 10;
+                        }
+                        if (endPage>totalPage) {
+                            endPage = totalPage;
+                            beginPage = endPage - 9;
+                        }
+                    }
+                    for (var i = beginPage;i<=endPage;i++){
+                        if (i == curPage) {
+                            fir += '<li class="active" onclick="j('+i+')">\n' +
+                                '                    <span> '+i+'<span class="sr-only"></span></span>\n' +
+                                '                    </li>';
+                        }else {
+                            fir += '<li onclick="j('+i+')">\n' +
+                                '                    <span>'+i+'<span class="sr-only"></span></span>\n' +
+                                '                    </li>';
+                        }
+                    }
+                    fir += nextPage;
+                    $("#pageNum2").html(fir);
                 }
             });
         }
+        //入口函数
         $(function () {
-            if (userInfo!=null){
+            if (userInfo!=null&&userInfo.role==2){
                 e(1);
                 j(1);
+            }else{
+                $("#adminContent").html("您还不是管理员，无权访问。")
             }
-
             //用户退出
             $("#btn_logout").click(function () {
                 sessionStorage.removeItem("userInfo");
@@ -116,39 +249,23 @@
     </script>
 </head>
 <body>
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<!-- Small modal -->
+<div id="adminSeeModal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">报修申请表</h4>
+                <h4 class="modal-title">内容</h4>
             </div>
             <div class="modal-body">
-                <form id="repairForm">
-                    <div class="form-group">
-                        <label for="repairContent">损坏情况</label>
-                        <textarea style="min-height:100px;resize: vertical;max-height: 200px" class="form-control" id="repairContent" placeholder="请简要叙述损坏情况"></textarea>
-                    </div>
-                </form>
+                <p id="seeDiv"></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button id="btn_repairSubmit" type="button" class="btn btn-primary">提交</button>
             </div>
-        </div>
-    </div>
-</div>
-<!-- Small modal -->
-<div id="delModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-    <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-            <div style="height: 80px;text-align: center;line-height: 80px">
-                内容不能为空</div>
-        </div>
-    </div>
-</div>
-
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <div class="wrapper">
     <div class="sidebar" data-color="blue" data-image="assets/img/sidebar-5.jpg">
         <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
@@ -306,7 +423,7 @@
             </div>
         </nav>
         <div class="content">
-            <div class="container-fluid">
+            <div id="adminContent" class="container-fluid">
                 <div class="row-fluid">
                     <div class="span12">
                         <div class="tabbable" id="tabs-372125">
@@ -316,6 +433,15 @@
                                 </li>
                                 <li>
                                     <a href="#panel-669067" data-toggle="tab">报修申请审核</a>
+                                </li>
+                                <li>
+                                    <a href="#panel-669060" data-toggle="tab">公告发布</a>
+                                </li>
+                                <li>
+                                    <a href="#panel-669069" data-toggle="tab">优秀宿舍</a>
+                                </li>
+                                <li>
+                                    <a href="#panel-123" data-toggle="tab">新生宿舍分配</a>
                                 </li>
                             </ul>
                             <div class="tab-content">
@@ -336,6 +462,11 @@
 
                                                     </tbody>
                                                 </table>
+                                                <nav aria-label="...">
+                                                    <ul id="pageNum1" class="pagination">
+
+                                                    </ul>
+                                                </nav>
                                             </div>
                                         </div>
                                     </div>
@@ -346,16 +477,48 @@
                                             <div class="content table-responsive table-full-width">
                                                 <table class="table table-hover">
                                                     <thead>
-                                                        <th>序号</th>
-                                                        <th>申请宿舍</th>
-                                                        <th>损坏情况</th>
-                                                        <th>申请日期</th>
-                                                        <th>操作</th>
+                                                    <th>序号</th>
+                                                    <th>申请宿舍</th>
+                                                    <th>损坏情况</th>
+                                                    <th>申请日期</th>
+                                                    <th>操作</th>
                                                     </thead>
                                                     <tbody id="repairList">
 
                                                     </tbody>
                                                 </table>
+                                                <nav aria-label="...">
+                                                    <ul id="pageNum2" class="pagination">
+
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="panel-669060">
+                                    <div class="col-md-12">
+                                        <div class="card card-plain">
+                                            <div class="content table-responsive table-full-width">
+                                                xxxxxxxx
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="panel-669069">
+                                    <div class="col-md-12">
+                                        <div class="card card-plain">
+                                            <div class="content table-responsive table-full-width">
+                                                zzzzzzzzzzzz
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="panel-123">
+                                    <div class="col-md-12">
+                                        <div class="card card-plain">
+                                            <div class="content table-responsive table-full-width">
+                                                zzzzzzzzzzzz
                                             </div>
                                         </div>
                                     </div>

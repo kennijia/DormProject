@@ -1,12 +1,13 @@
 package edu.wbu.dorm.mapper;
 
+import edu.wbu.dorm.mapper.base.BaseMapper;
 import edu.wbu.dorm.model.DormApplication;
 import edu.wbu.dorm.model.DormApplicationExt;
 import edu.wbu.dorm.model.PageBean;
 
 import java.util.List;
 
-public interface DormApplicationMapper {
+public interface DormApplicationMapper extends BaseMapper<DormApplication> {
     /**
      * 通过id查询已受理调换申请记录
      * @param id

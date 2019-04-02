@@ -31,6 +31,8 @@
         d.db_id,
         d.dorm_number
         FROM repair r,dorm d
-        WHERE r.dorm_id = d.id LIMIT #{selectedRow},15;
+        WHERE r.dorm_id = d.id
+        ORDER BY r.status ASC
+        LIMIT #{selectedRow},15
     </select>
 </mapper>

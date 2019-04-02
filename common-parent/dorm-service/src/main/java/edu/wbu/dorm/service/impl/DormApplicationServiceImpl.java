@@ -131,7 +131,7 @@ public class DormApplicationServiceImpl extends BaseServiceImpl<DormApplication>
 
     @Override
     public DormApplication findById(int id) {
-        return null;
+        return daMapper.findById(id);
     }
 
 
