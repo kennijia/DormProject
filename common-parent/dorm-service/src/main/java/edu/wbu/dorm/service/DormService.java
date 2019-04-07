@@ -6,13 +6,6 @@ import java.util.List;
 
 public interface DormService  extends BaseService<Dorm> {
     /**
-     * 增加宿舍人数
-     * @param dorm
-     * @return
-     */
-    int addPerson(Dorm dorm);
-
-    /**
      * 查找对应楼号中所有的宿舍
      * @param db_id
      * @return

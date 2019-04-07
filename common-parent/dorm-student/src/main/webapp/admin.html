@@ -53,7 +53,7 @@
     <script src="assets/js/demo.js"></script>
     <script>
         var text = sessionStorage.getItem("userInfo");
-        var userInfo = {id:0,role:0};
+        var userInfo = {id:0,role:0,permission:0};
         if (text!=null&&text!==""){
             userInfo = JSON.parse(text);
         }
@@ -65,12 +65,43 @@
                     $("#adminSeeModal").modal('show');
                 }
             });
-
-
         }
-        //查看该条保修的申请的损坏情况
+        //查看该条报修申请的损坏情况描述
         function h(repairId) {
-            alert(repairId);
+            $.get("repair/findOne.do",{"uid":userInfo.id,"ridStr":repairId},function (respData) {
+                if (respData.flag) {
+                    $("#seeDiv").html(respData.data);
+                    $("#adminSeeModal").modal('show');
+                }
+            });
+        }
+        //宿舍调换驳回
+        function refuse(daId,curPage) {
+            $.get("da/refuse.do",{"uid":userInfo.id,"daIdStr":daId},function (respData) {
+                if (respData.flag){
+                    //驳回成功刷新列表
+                    $("#seeDiv").html("操作成功。");
+                    $("#adminSeeModal").modal('show');
+                    e(curPage)
+                } else {
+                    $("#seeDiv").html("操作失败。");
+                    $("#adminSeeModal").modal('show');
+                }
+            });
+        }
+        //宿舍调换同意
+        function agree(daId,curPage) {
+            $.get("da/agree.do",{"uid":userInfo.id,"daIdStr":daId},function (respData) {
+                if (respData.flag){
+                    //同意成功刷新列表
+                    $("#seeDiv").html("操作成功。");
+                    $("#adminSeeModal").modal('show');
+                    e(curPage)
+                } else {
+                    $("#seeDiv").html("操作失败。");
+                    $("#adminSeeModal").modal('show');
+                }
+            });
         }
         //刷新宿舍调换申请列表并分页
         function e(currentPage){
@@ -80,13 +111,22 @@
                     var da = "";
                     for (var i = 0;i<daList.length;i++){
                         var j = i+1;
-
+                        if (daList[i].status==2){
+                            daList[i].status = '同意';
+                        }
+                        if (daList[i].status==1){
+                            daList[i].status = '驳回';
+                        }
+                        if (daList[i].status == 0) {
+                            daList[i].status = '待处理';
+                        }
                         da += '<tr>\n' +
                             '                        <td>'+j+'</td>\n' +
                             '                        <td>'+daList[i].username+'</td>\n' +
                             '                        <td>观湖苑'+daList[i].to_db_id+'栋'+daList[i].to_dorm_number+'</td>\n' +
                             '                        <td><a onclick="g('+daList[i].id+')" href="javascript:void(0);">点击查看</a></td>\n' +
                             '                        <td>'+daList[i].time+'</td>\n' +
+                            '                        <td><a onclick="agree('+daList[i].id+','+currentPage+')" href="javascript:void(0);">同意</a>&nbsp;<a onclick="refuse('+daList[i].id+','+currentPage+')" href="javascript:void(0);">驳回</a></td>\n' +
                             '                        <td>'+daList[i].status+'</td>\n' +
                             '                          </tr>';
                     }
@@ -112,7 +152,7 @@
                     var nextPage = '<li onclick="e('+next+')">\n' +
             '                         <span>下一页 <span class="sr-only"></span></span>\n' +
             '                         </li>';
-                    var lastPage = '<li onclick="e('+curPage+')">\n' +
+                    var lastPage = '<li onclick="e('+totalPage+')">\n' +
                     '                    <span>末页 <span class="sr-only"></span></span>\n' +
                     '                    </li>';
                     nextPage += lastPage;
@@ -151,6 +191,19 @@
                 }
             });
         }
+        //报修派人
+        function repair(rid, curPage) {
+            $.get("repair/send.do",{"uid":userInfo.id,"ridStr":rid},function (respData) {
+                if (respData.flag){
+                    $("#seeDiv").html("操作成功。");
+                    $("#adminSeeModal").modal('show');
+                    j(curPage)
+                } else {
+                    $("#seeDiv").html("操作失败。");
+                    $("#adminSeeModal").modal('show');
+                }
+            });
+        }
         //刷新报修申请列表
         function j(currentPage){
             $.get("repair/adminFind.do",{"currentPageStr":currentPage},function (resp) {
@@ -159,11 +212,21 @@
                     var repair = "";
                     for (var i = 0;i<repairList.length;i++){
                         var j = i+1;
+                        if (repairList[i].status==2){
+                            repairList[i].status = '已结束';
+                        }
+                        if (repairList[i].status==1){
+                            repairList[i].status = '已派人';
+                        }
+                        if (repairList[i].status == 0) {
+                            repairList[i].status = '待处理';
+                        }
                         repair += '<tr>\n' +
                             '                        <td>'+j+'</td>\n' +
                             '                        <td>观湖苑'+repairList[i].dorm.db_id+'栋'+repairList[i].dorm.dorm_number+'</td>\n' +
                             '                        <td><a onclick="h('+repairList[i].id+')" href="javascript:void(0);">点击查看</a></td>\n' +
                             '                        <td>'+repairList[i].createTime+'</td>\n' +
+                            '                        <td><a onclick="repair('+repairList[i].id+','+currentPage+')" href="javascript:void(0);">派遣维修人员</a></td>\n' +
                             '                        <td>'+repairList[i].status+'</td>\n' +
                             '                          </tr>';
                     }
@@ -192,7 +255,7 @@
                     var nextPage = '<li onclick="j('+next+')">\n' +
                         '                         <span>下一页 <span class="sr-only"></span></span>\n' +
                         '                         </li>';
-                    var lastPage = '<li onclick="j('+curPage+')">\n' +
+                    var lastPage = '<li onclick="j('+totalPage+')">\n' +
                         '                    <span>末页 <span class="sr-only"></span></span>\n' +
                         '                    </li>';
                     nextPage += lastPage;
@@ -231,24 +294,113 @@
                 }
             });
         }
+        //查询具体未分配宿舍的有哪些人
+        function queryDetail(behaviorId) {
+            var modal1 = $("#bigModal");
+            var content1 = $("#content-un-distrobution");
+            $.get("user/queryDetail.do",{"uid":userInfo.id,"behaviorId":behaviorId},function (resp) {
+                if (resp.flag){
+                    var list = resp.data;
+                    var listStr = "";
+                    for (var i = 0;i<list.length;i++){
+                        var j =i+1;
+                        listStr += '<tr>\n' +
+                            '                    <td>'+j+'</td>\n' +
+                            '                    <td>'+list[i].id+'</td>\n' +
+                            '                    <td>'+list[i].name+'</td>\n' +
+                            '                    <td>'+list[i].dept+'</td>\n' +
+                            '                    </tr>';
+                    }
+                    content1.html(listStr);
+                    modal1.modal('show');
+                }
+            });
+        }
+        //未分配宿舍人数统计
+        function undistribution(){
+            $.get("user/count.do",{"uid":userInfo.id},function (resp) {
+                if (resp.flag){
+                    var k = "";
+                    var map = resp.data;
+                    k += '<tr>\n' +
+            '                <td>'+1+'</td>\n' +
+            '                <td><a onclick="queryDetail(1)" href="javascript:void(0);">'+map.maleStudentNumber+'</a></td>\n' +
+            '                <td><a onclick="queryDetail(2)" href="javascript:void(0);">'+map.femaleStudentNumber+'</a></td>\n' +
+            '                <td><a onclick="queryDetail(3)" href="javascript:void(0);">'+map.maleStaffNumber+'</a></td>\n' +
+            '                <td><a onclick="queryDetail(4)" href="javascript:void(0);">'+map.femaleStaffNumber+'</a></td>\n' +
+            '                </tr>';
+                    $("#un-distribution").html(k);
+                }
+            })
+        }
         //入口函数
         $(function () {
-            var E = window.wangEditor;
-            var editor = new E('#wangEditor');
-            editor.create();
-            if (userInfo!=null&&userInfo.role==2){
+            if (userInfo!=null&&userInfo.permission>0){
                 e(1);
                 j(1);
+                undistribution();
             }else{
                 $("#adminContent").html("您还不是管理员，无权访问。")
             }
+            var E = window.wangEditor;
+            var editor = new E('#wangEditor');
+            //开启debug模式
+            editor.customConfig.debug = true;
+            // 关闭粘贴内容中的样式
+            editor.customConfig.pasteFilterStyle = false;
+            // 忽略粘贴内容中的图片
+            editor.customConfig.pasteIgnoreImg = true;
+            editor.customConfig.uploadFileName = 'anouImg'; //设置文件上传的参数名称
+            editor.customConfig.uploadImgServer = 'anou/imgUpload.do'; //设置上传文件的服务器路径
+            editor.customConfig.uploadImgHooks = {
+                before : function(xhr, editor, files) {
+
+                },
+                success : function(xhr, editor, result) {
+                    console.log("上传成功");
+                },
+                fail : function(xhr, editor, result) {
+                    console.log("上传失败,原因是"+result);
+                },
+                error : function(xhr, editor) {
+                    console.log("上传出错");
+                },
+                timeout : function(xhr, editor) {
+                    console.log("上传超时");
+                }
+            };
+            editor.create();
+            <!-- 至此，wangEditor加载完毕。-->
+
             //获取wangeditor的html内容
             $("#btn1").click(function () {
-                alert(editor.txt.text());
+                var title = $("#title").val();
+                var html = editor.txt.html();
+                if (title != null && title != "" && html != null && html != "") {
+                    $.post("anou/publish.do",{"uid":userInfo.id,"title":title,"html":html},function (resp) {
+                        if (resp.flag){
+                            alert("发布成功")
+                        } else {
+                            alert("提交失败")
+                        }
+                    });
+                }else {
+                    $("#seeDiv").html("标题和内容均不能为空。");
+                    $("#adminSeeModal").modal('show');
+                }
+
             });
-            //获取wangeditor的html内容
             $("#btn2").click(function () {
-                alert(editor.txt.html());
+                $.get("user/distribution.do",{"uid":userInfo.id},function (resp) {
+                    if (resp.flag){
+                        //全部分配完毕
+                        $("#seeDiv").html("全部分配成功。");
+                        $("#adminSeeModal").modal('show');
+                    } else{
+                        $("#seeDiv").html("未能全部分配，可能原因:宿舍数量不足，请添加房源。");
+                        $("#adminSeeModal").modal('show');
+                    }
+                })
             });
             //用户退出
             $("#btn_logout").click(function () {
@@ -261,13 +413,41 @@
     </script>
 </head>
 <body>
+<!-- Modal -->
+<div class="modal fade" id="bigModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">人员详情</h4>
+            </div>
+            <div class="modal-body">
+                <div class="content table-responsive table-full-width">
+                    <table class="table table-hover">
+                        <thead>
+                            <th>序号</th>
+                            <th>学号/工号</th>
+                            <th>姓名</th>
+                            <th>专业</th>
+                        </thead>
+                        <tbody id="content-un-distrobution">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Small modal -->
 <div id="adminSeeModal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">内容</h4>
+                <h4 class="modal-title">消息提示框</h4>
             </div>
             <div class="modal-body">
                 <p id="seeDiv"></p>
@@ -410,25 +590,8 @@
                                 我的账户
                             </a>
                         </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                菜单
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </li>
                         <li>
-                            <a id="btn_logout" href="javascript:void(0);">
-                                退出
-                            </a>
+                            <a id="btn_logout" href="javascript:void(0);">退出</a>
                         </li>
                     </ul>
                 </div>
@@ -453,7 +616,10 @@
                                     <a href="#panel-669069" data-toggle="tab">优秀宿舍</a>
                                 </li>
                                 <li>
-                                    <a href="#panel-123" data-toggle="tab">新生宿舍分配</a>
+                                    <a href="#panel-123" data-toggle="tab">宿舍自动分配</a>
+                                </li>
+                                <li>
+                                    <a href="#panel-124758" data-toggle="tab">添加分配用户</a>
                                 </li>
                             </ul>
                             <div class="tab-content">
@@ -468,7 +634,8 @@
                                                         <th>申请调往</th>
                                                         <th>申请理由</th>
                                                         <th>申请日期</th>
-                                                        <th>审核</th>
+                                                        <th>操作</th>
+                                                        <th>状态</th>
                                                     </thead>
                                                     <tbody id="daList">
 
@@ -494,6 +661,7 @@
                                                     <th>损坏情况</th>
                                                     <th>申请日期</th>
                                                     <th>操作</th>
+                                                    <th>状态</th>
                                                     </thead>
                                                     <tbody id="repairList">
 
@@ -509,24 +677,63 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="panel-669060">
-                                    <div id="wangEditor" class="col-md-12">
-                                        <p>欢迎使用wangEditor，在这里写入想要发布的文章和图片</p>
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-6"><div style="text-align: center;margin: 2px;">
+                                            <form>
+                                                <div class="form-group has-feedback" id="alert-1">
+                                                    <label class="control-label" for="title">公告标题</label>
+                                                    <input type="text" class="form-control" id="title" placeholder="标题不宜过长">
+                                                </div>
+                                            </form>
+                                        </div></div>
+                                        <div class="col-md-3"></div>
                                     </div>
-                                    <div>
-                                        <button id="btn1">获取文本内容</button>
-                                        <button id="btn2">获取html内容</button>
+                                    <div id="wangEditor" class="col-md-12">
+                                        <p>在这里写入想要发布的文章和图片</p>
+                                    </div>
+                                    <div class="col-md-12" style="margin-top: 2px;">
+                                        <button id="btn1" type="button" class="btn btn-primary btn-lg">
+                                            发布
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="panel-669069">
                                     <div class="col-md-12">
                                         <div class="card card-plain">
                                             <div class="content table-responsive table-full-width">
-                                                zzzzzzzzzzzz
+                                                xxxxxxxxxx
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="panel-123">
+                                    <div class="col-md-12">
+                                        <div class="card card-plain">
+                                            <div class="header">
+                                                <p class="category">点击数字即可查看详情</p>
+                                            </div>
+                                            <div class="content table-responsive table-full-width">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                    <th>序号</th>
+                                                    <th>未分配宿舍男学生人数</th>
+                                                    <th>未分配宿舍女学生人数</th>
+                                                    <th>未分配宿舍男教职工人数</th>
+                                                    <th>未分配宿舍女教职工人数</th>
+                                                    </thead>
+                                                    <tbody id="un-distribution">
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <button id="btn2" type="button" class="btn btn-primary btn-lg">
+                                                    自动分配
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="panel-124758">
                                     <div class="col-md-12">
                                         <div class="card card-plain">
                                             <div class="content table-responsive table-full-width">
@@ -567,9 +774,6 @@
                         </li>
                     </ul>
                 </nav>
-                <p class="copyright pull-right">
-                    Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://www.17sucai.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
-                </p>
             </div>
         </footer>
 

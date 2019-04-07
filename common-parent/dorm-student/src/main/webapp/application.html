@@ -101,7 +101,7 @@
                         var data_list ="";
                         for (var i = 0;i<respData.length;i++){
                             if (respData[i].status===1){
-                                respData[i].status = '驳回不同意';
+                                respData[i].status = '驳回';
                             }
                             if (respData[i].status===2){
                                 respData[i].status = '同意';
@@ -287,7 +287,7 @@
                 <li>
                     <a href="admin.html">
                         <i class="pe-7s-key"></i>
-                        <p>管理员界面</p>
+                        <p>管理员</p>
                     </a>
                 </li>
                 <li>
@@ -375,25 +375,8 @@
                                我的账户
                             </a>
                         </li>
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    菜单
-                                    <b class="caret"></b>
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                              </ul>
-                        </li>
                         <li>
-                            <a id="btn_logout" href="javascript:void(0);">
-                                退出
-                            </a>
+                            <a id="btn_logout" href="javascript:void(0);">退出</a>
                         </li>
                     </ul>
                 </div>
@@ -487,9 +470,6 @@
                         </li>
                     </ul>
                 </nav>
-                <p class="copyright pull-right">
-                    Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://www.17sucai.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
-                </p>
             </div>
         </footer>
 

@@ -9,19 +9,34 @@ public class User {
     private String dept;//专业名称
     private int dorm_id;//对应dorm表主键
     private String password;
-    private int role;//角色(0学生1教职工2管理员)
+    private int role;//角色(0学生1教职工)
     private String email;
     private String homeAddress;
     private String entrancetime;//入校时间
     private String headpic;
     private String aboutMe;
+    private int permission;
 
     public User() {
     }
 
-    public User(String id, int role) {
+    public User(String id, int role, int permission) {
         this.id = id;
         this.role = role;
+        this.permission = permission;
+    }
+
+    public User(String gender, int role) {
+        this.gender = gender;
+        this.role = role;
+    }
+
+    public int getPermission() {
+        return permission;
+    }
+
+    public void setPermission(int permission) {
+        this.permission = permission;
     }
 
     public String getId() {
@@ -153,6 +168,7 @@ public class User {
                 ", entrancetime='" + entrancetime + '\'' +
                 ", headpic='" + headpic + '\'' +
                 ", aboutMe='" + aboutMe + '\'' +
+                ", permission=" + permission +
                 '}';
     }
 }

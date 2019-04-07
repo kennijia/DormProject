@@ -35,6 +35,9 @@
         <servlet.version>3.1.0</servlet.version>
         <jjwt.version>0.9.1</jjwt.version>
         <jwt.version>3.4.0</jwt.version>
+        <fileupload.version>1.4</fileupload.version>
+        <io.version>2.2</io.version>
+        <jsoup.version>1.11.3</jsoup.version>
     </properties>
     <!-- 公共依赖 -->
     <dependencies>

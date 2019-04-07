@@ -16,4 +16,12 @@ public interface RepairService extends BaseService<Repair> {
     List<Repair> findRepairs(String uid);
 
     PageBean<RepairExt> findByPage(int currentPage);
+
+    int send(int rid,int status);
+
+    int repairComplete(int rid,int status);
+
+    int deleteRepair(int rid);
+
+    String findContent(int rid);
 }

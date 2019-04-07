@@ -86,7 +86,7 @@
                 <li>
                     <a href="admin.html">
                         <i class="pe-7s-key"></i>
-                        <p>管理员界面</p>
+                        <p>管理员</p>
                     </a>
                 </li>
                 <li>
@@ -174,24 +174,12 @@
                                我的账户
                             </a>
                         </li>
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    菜单
-                                    <b class="caret"></b>
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                              </ul>
+                        <li>
+                            <a id="btn_logout" href="javascript:void(0);">退出</a>
                         </li>
                         <li>
-                            <a id="btn_logout" href="javascript:void(0);">
-                                退出
+                            <a href="javascript:void(0);">
+                                xx
                             </a>
                         </li>
                     </ul>
@@ -205,19 +193,18 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card card-user">
-                            <!--<div class="image">
-                                <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
-                            </div>-->
                             <div class="image">
-                                <img src="image/bgImgs/headpicbg.jpg" alt="..."/>
+                                <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
                             </div>
+                            <!--<div class="image">
+                                <img src="image/bgImgs/headpicbg.jpg" />
+                            </div>-->
                             <div class="content">
                                 <div id="headpic" class="author">
                                     <a href="#">
-                                        <img class="avatar border-gray" src="image/headpic/defaultMale.jpg" alt="..."/>
-
-                                        <h4 class="title">Mike Andrew<br />
-                                            <small>michael24</small>
+                                        <img class="avatar border-gray" src=""/>
+                                        <h4 class="title"><br />
+                                            <small></small>
                                         </h4>
                                     </a>
                                 </div>
@@ -227,7 +214,8 @@
                                 <div class="row">
                                     <div class="col-xs-4"></div>
                                     <div class="col-xs-4 text-center" style="padding-left: 5px">
-                                        <button href="#" class="btn btn-primary">更改头像</button>
+                                        <input onchange="changeHead(this)" id="newHeadImg" type="file" name="newHeadImg" style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;"/>
+                                        <button id="changeHead" class="btn btn-primary">更改头像</button>
                                     </div>
                                     <div class="col-xs-4"></div>
                                 </div>
@@ -361,9 +349,6 @@
                         </li>
                     </ul>
                 </nav>
-                <p class="copyright pull-right">
-                    Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://www.17sucai.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
-                </p>
             </div>
         </footer>
 
@@ -394,6 +379,15 @@
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="assets/js/demo.js"></script>
     <script>
+        var text = sessionStorage.getItem("userInfo");//从sessionStorage中取出文本数据
+        var a ;
+        if (text!=null&&text!==""){
+            a = JSON.parse(text);//将文本数据转为object
+            f(a);
+        } else {
+            //页面中没有用户信息，该用户未登录，提示登录
+            $("#loginAlert").modal('show');
+        }
         //通过用户id查找用户信息
         function f(a){
             var userId = a.id;
@@ -416,7 +410,7 @@
                 });
                 var headpic = "";
                 headpic += '<a href="#">\n' +
-                    '                        <img class="avatar border-gray" src="'+respUser.headpic+'" alt="..."/>\n' +
+                    '                        <img id="headImg" class="avatar border-gray" src="'+respUser.headpic+'" alt="..."/>\n' +
                     '\n' +
                     '                    <h4 class="title">'+respUser.name+'<br />\n' +
                     '                    <small>个性签名</small>\n' +
@@ -425,16 +419,33 @@
                 $("#headpic").html(headpic);
             });
         }
+        //改变头像
+        function changeHead(obj){
+            var params = new FormData();
+            params.append("uid",a.id);
+            params.append("newHeadImg",obj.files[0]);
+            $.ajax({
+                type:"post",
+                url:"user/img.do",
+                data:params,
+                contentType:false,
+                processData:false,
+                mimeType:"multipart/form-data",
+                success:function (resp) {
+                    var res = JSON.parse(resp);
+                    if (res.flag){
+                        $("#headImg").attr("src",res.data);
+                    } else {
+                        alert("头像修改失败。")
+                    }
+                }
+            });
+        }
         $(function () {
-            var text = sessionStorage.getItem("userInfo");//从sessionStorage中取出文本数据
-            var a ;
-            if (text!=null&&text!==""){
-                a = JSON.parse(text);//将文本数据转为object
-                f(a);
-            } else {
-                //页面中没有用户信息，该用户未登录，提示登录
-                $("#loginAlert").modal('show');
-            }
+            //更改头像
+            $("#changeHead").click(function () {
+                $("#newHeadImg").click();
+            });
             $("#btn_logout").click(function () {
                 sessionStorage.removeItem("userInfo");
                 $.get("user/logout.do",{},function (r) {

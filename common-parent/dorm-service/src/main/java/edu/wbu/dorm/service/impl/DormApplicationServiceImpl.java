@@ -62,11 +62,11 @@ public class DormApplicationServiceImpl extends BaseServiceImpl<DormApplication>
                         int dormBuildingType = dormBuilding.getType();
                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                         String date = sdf.format(new Date());
-                        if (u.getRole()<1&&dormBuildingType<3){
+                        if (u.getRole()==0&&dormBuildingType<3){
                             //申请人的身份是学生且目标宿舍是学生宿舍
                             i = daMapper.insertApplication(new DormApplication(uid,reason,to_db_id,to_dorm_number,date));
                         }
-                        if (u.getRole()<=2&&dormBuildingType==3){
+                        if (u.getRole()==1&&dormBuildingType==3){
                             //申请人身份是教职工且目标宿舍是教职工宿舍
                             i = daMapper.insertApplication(new DormApplication(uid,reason,to_db_id,to_dorm_number,date));
                         }
@@ -113,15 +113,8 @@ public class DormApplicationServiceImpl extends BaseServiceImpl<DormApplication>
     }
 
     @Override
-    public int updateStatus(String uid,int id, int status) {
-        int i = 0;
-        User byId = userMapper.findById(uid);
-        if (byId!=null){
-            if (byId.getRole()==2){
-                i = daMapper.updateStatus(new DormApplication(id,status));
-            }
-        }
-        return i;
+    public int updateStatus(int id, int status) {
+        return daMapper.updateStatus(new DormApplication(id,status));
     }
 
     @Override

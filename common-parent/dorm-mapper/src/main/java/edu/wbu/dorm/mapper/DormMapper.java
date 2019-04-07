@@ -27,4 +27,11 @@ public interface DormMapper extends BaseMapper<Dorm> {
      */
     List<Dorm> findAllDorms(int db_id);
 
+    /**
+     * 查找出所有有剩余位置的男或女宿舍
+     * @param gender
+     * @return
+     */
+    List<Dorm> findEmptyDorm(String gender);
+
 }

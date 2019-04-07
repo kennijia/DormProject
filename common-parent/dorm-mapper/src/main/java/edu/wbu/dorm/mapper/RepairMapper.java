@@ -15,4 +15,8 @@ public interface RepairMapper extends BaseMapper<Repair> {
     int countAll();
 
     List<RepairExt> findByPage(int selectedRow);
+
+    int updateStatus(Repair r);
+
+    int delete(int rid);
 }

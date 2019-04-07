@@ -7,6 +7,7 @@ import edu.wbu.dorm.model.PageBean;
 import edu.wbu.dorm.model.ResultInfo;
 import edu.wbu.dorm.service.DormApplicationService;
 import edu.wbu.dorm.service.DormService;
+import edu.wbu.dorm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,8 @@ public class DormApplicationController {
     private DormApplicationService dormApplicationService;
     @Autowired
     private DormService dormService;
+    @Autowired
+    private UserService userService;
 
     @RequestMapping("/findOld")
     public @ResponseBody List<DormApplication> findOld(String id){
@@ -65,15 +68,6 @@ public class DormApplicationController {
         return info;
     }
 
-    @RequestMapping("/updateStatus")
-    public @ResponseBody ResultInfo updateStatus(String uid,int id,int status){
-        ResultInfo info = new ResultInfo(false);
-        int i = dormApplicationService.updateStatus(uid,id,status);
-        if (i>0)
-            info.setFlag(true);
-        return info;
-    }
-
     @RequestMapping("/find")
     public @ResponseBody ResultInfo find(String currentPageStr){
         ResultInfo info = new ResultInfo(false);
@@ -97,6 +91,40 @@ public class DormApplicationController {
             da.setReason(byId.getReason());
             info.setData(da);
             info.setFlag(true);
+        }
+        return info;
+    }
+
+    @RequestMapping("/refuse")
+    public @ResponseBody ResultInfo refuse(String uid,String daIdStr){
+        ResultInfo info = new ResultInfo(false);
+        Boolean admin = userService.isAdmin(uid);
+        int daId = 0;
+        if (daIdStr!=null&&!daIdStr.equals(""))
+            daId = Integer.parseInt(daIdStr);
+        if (admin){
+            //是管理员
+            int i = dormApplicationService.updateStatus(daId, 1);
+            if (i>0){
+                info.setFlag(true);
+            }
+        }
+        return info;
+    }
+
+    @RequestMapping("/agree")
+    public @ResponseBody ResultInfo agree(String uid,String daIdStr){
+        ResultInfo info = new ResultInfo(false);
+        Boolean admin = userService.isAdmin(uid);
+        int daId = 0;
+        if (daIdStr!=null&&!daIdStr.equals(""))
+            daId = Integer.parseInt(daIdStr);
+        if (admin){
+            //是管理员
+            int i = dormApplicationService.updateStatus(daId, 2);
+            if (i>0){
+                info.setFlag(true);
+            }
         }
         return info;
     }

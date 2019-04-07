@@ -18,4 +18,10 @@ public interface DormBuildingMapper extends BaseMapper<DormBuilding> {
      * @return
      */
     int insert(DormBuilding db);
+
+    /**
+     * 查找某类型的有空余位置的宿舍
+     * @return
+     */
+    List<DormBuilding> findEmptyDorm(int type);
 }

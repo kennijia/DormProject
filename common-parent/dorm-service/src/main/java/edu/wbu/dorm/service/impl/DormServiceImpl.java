@@ -13,11 +13,6 @@ import java.util.List;
 public class DormServiceImpl extends BaseServiceImpl<Dorm> implements DormService {
 
     @Override
-    public int addPerson(Dorm dorm) {
-        return dormMapper.updateOccupy(dorm);
-    }
-
-    @Override
     public List<Dorm> findAllDorms(int db_id) {
         return dormMapper.findAllDorms(db_id);
     }

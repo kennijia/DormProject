@@ -5,12 +5,15 @@
         select * from dorm where db_id = #{db_id} and dorm_number = #{dorm_number}
     </select>
     <update id="updateOccupy" parameterType="dorm">
-        update dorm set occupy = occupy + 1 where id = #{id}
+        update dorm set occupy = #{occupy} where id = #{id}
     </update>
     <select id="findAllDorms" parameterType="int" resultType="dorm">
         select * from dorm where db_id = #{db_id}
     </select>
     <select id="findById" parameterType="int" resultType="dorm">
         select * from dorm where id = #{id}
+    </select>
+    <select id="findEmptyDorm" parameterType="String" resultType="dorm">
+        SELECT * from dorm where occupy &lt; capacity and dorm_gender = #{gender}
     </select>
 </mapper>

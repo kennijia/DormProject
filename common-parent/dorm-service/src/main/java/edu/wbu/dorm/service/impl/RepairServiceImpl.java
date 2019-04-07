@@ -70,6 +70,45 @@ public class RepairServiceImpl extends BaseServiceImpl<Repair> implements Repair
     }
 
     @Override
+    public int send(int rid, int status) {
+        Repair r = new Repair();
+        r.setId(rid);
+        r.setStatus(1);
+        int i = repairMapper.updateStatus(r);
+        return i;
+    }
+
+    @Override
+    public int repairComplete(int rid,int status) {
+        Repair byId = repairMapper.findById(rid);
+        int i = 0;
+        if (byId.getStatus()==1){
+            Repair r = new Repair();
+            r.setId(rid);
+            r.setStatus(2);
+            i = repairMapper.updateStatus(r);
+        }
+        return i;
+    }
+
+    @Override
+    public int deleteRepair(int rid) {
+        //首先判断该请求是否被管理员处理过或者已结束
+        Repair r = repairMapper.findById(rid);
+        if (r.getStatus()==0||r.getStatus()==2){
+            //此时可以删除
+            return repairMapper.delete(rid);
+        }
+        return 0;
+    }
+
+    @Override
+    public String findContent(int rid) {
+        Repair byId = repairMapper.findById(rid);
+        return byId.getContent();
+    }
+
+    @Override
     public Repair findById(String id) {
         return null;
     }
@@ -78,4 +117,5 @@ public class RepairServiceImpl extends BaseServiceImpl<Repair> implements Repair
     public Repair findById(int id) {
         return null;
     }
+
 }

@@ -1,12 +1,16 @@
 package edu.wbu.dorm.model;
 
+import java.util.List;
+
 public class DormBuilding {
     private int id;//宿舍楼唯一id
-    private int type;//宿舍楼类型(1.男生宿舍2.女生宿舍3.教职工宿舍)
+    private int type;//宿舍楼类型(1.男生宿舍2.女生宿舍3.男教职工宿舍4.女教职工宿舍)
     private int floors;//宿舍楼层数
     private String location;//宿舍楼地理位置
     private String builtuptime;//宿舍楼建立时间
     private int capacity;//宿舍楼的房间数
+
+    private List<Dorm> dormList;
 
     public DormBuilding() {
     }
@@ -18,6 +22,14 @@ public class DormBuilding {
         this.location = location;
         this.builtuptime = builtuptime;
         this.capacity = capacity;
+    }
+
+    public List<Dorm> getDormList() {
+        return dormList;
+    }
+
+    public void setDormList(List<Dorm> dormList) {
+        this.dormList = dormList;
     }
 
     public int getId() {
@@ -66,17 +78,5 @@ public class DormBuilding {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
-    }
-
-    @Override
-    public String toString() {
-        return "DormBuilding{" +
-                "id=" + id +
-                ", type=" + type +
-                ", floors=" + floors +
-                ", location='" + location + '\'' +
-                ", builtuptime='" + builtuptime + '\'' +
-                ", capacity=" + capacity +
-                '}';
     }
 }

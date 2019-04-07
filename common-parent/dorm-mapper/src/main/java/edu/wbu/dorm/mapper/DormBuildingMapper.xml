@@ -10,4 +10,27 @@
     <select id="findById" parameterType="int" resultType="dormBuilding">
         select * from dorm_building where id = #{id}
     </select>
+    <resultMap id="dbResultMap" type="dormBuilding">
+        <id column="id1" property="id"/>
+        <result column="type" property="type"/>
+        <result column="floors" property="floors"/>
+        <result column="location" property="location"/>
+        <result column="builtuptime" property="builtuptime"/>
+        <result column="capacity1" property="capacity"/>
+        <collection property="dormList" ofType="dorm">
+            <id column="id" property="id"/>
+            <result column="db_id" property="db_id"/>
+            <result column="dorm_number" property="dorm_number"/>
+            <result column="dorm_gender" property="dorm_gender"/>
+            <result column="capacity" property="capacity"/>
+            <result column="occupy" property="occupy"/>
+            <result column="hid" property="hid"/>
+            <result column="fee_id" property="fee_id"/>
+        </collection>
+    </resultMap>
+    <select id="findEmptyDorm" parameterType="int" resultMap="dbResultMap">
+        SELECT *
+        FROM dorm d,dorm_building db
+        WHERE d.db_id = db.id AND db.type = #{type} AND d.occupy &lt; d.capacity;
+    </select>
 </mapper>

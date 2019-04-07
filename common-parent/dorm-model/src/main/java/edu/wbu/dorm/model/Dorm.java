@@ -1,7 +1,7 @@
 package edu.wbu.dorm.model;
 
 public class Dorm {
-    private int id;
+    private int id;//值为0时代表住在校外
     private int db_id;//宿舍楼
     private int dorm_number;//宿舍编号
     private String dorm_gender;//宿舍性别

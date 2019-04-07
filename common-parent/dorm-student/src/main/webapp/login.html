@@ -54,19 +54,21 @@
             if (checkUsername()&&checkPassword()) {
                 $.post("user/login.do",{"id":id,"password":password},function (respData) {
                     //对响应结果做出处理
+                    var glyy = $(".glyphicon");
+                    var formG = $(".form-group");
                     if (respData.flag){
                         //登录成功
-                        gly.removeClass("glyphicon-remove");
-                        formGro.removeClass("has-error");
-                        gly.addClass("glyphicon-ok");
-                        formGro.addClass("has-success");
+                        glyy.removeClass("glyphicon-remove");
+                        formG.removeClass("has-error");
+                        glyy.addClass("glyphicon-ok");
+                        formG.addClass("has-success");
                         sessionStorage.setItem("userInfo",JSON.stringify(respData.data));//将json数据转化为字符串存储
                         setTimeout(function (){location.href = "user.html"},500);
                     } else {
                         //登录失败，给出提示信息
                         $("#alert-password").html(respData.errorMsg);
-                        gly.addClass("glyphicon-remove");
-                        formGro.addClass("has-error");
+                        glyy.addClass("glyphicon-remove");
+                        formG.addClass("has-error");
                     }
                 });
             }

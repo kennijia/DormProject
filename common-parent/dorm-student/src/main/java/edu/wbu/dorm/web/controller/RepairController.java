@@ -54,4 +54,64 @@ public class RepairController {
         info.setData(byPage);
         return info;
     }
+
+    @RequestMapping("/send")
+    public @ResponseBody ResultInfo send(String uid,String ridStr){
+        ResultInfo info = new ResultInfo(false);
+        Boolean admin = userService.isAdmin(uid);
+        int rid = 0;
+        if (ridStr!=null&&!ridStr.equals(""))
+            rid = Integer.parseInt(ridStr);
+        if (admin){
+            int i = repairService.send(rid,1);
+            if (i>0)
+                info.setFlag(true);
+        }
+        return info;
+    }
+
+    @RequestMapping("/complete")
+    public @ResponseBody ResultInfo complete(String uid,String ridStr){
+        ResultInfo info = new ResultInfo(false);
+        if (!userService.exists(uid))
+            return info;
+        int rid = 0;
+        if (ridStr!=null&&!ridStr.equals("")){
+            rid = Integer.parseInt(ridStr);
+            int i = repairService.repairComplete(rid,2);
+            if (i>0)
+                info.setFlag(true);
+        }
+        return info;
+    }
+
+    @RequestMapping("/delete")
+    public @ResponseBody ResultInfo delete(String uid,String ridStr){
+        ResultInfo info = new ResultInfo(false);
+        if (!userService.exists(uid))
+            return info;
+        int rid = 0;
+        if (ridStr!=null&&!ridStr.equals("")){
+            rid = Integer.parseInt(ridStr);
+            int i = repairService.deleteRepair(rid);
+            if (i>0)
+                info.setFlag(true);
+        }
+        return info;
+    }
+
+    @RequestMapping("/findOne")
+    public @ResponseBody ResultInfo findOne(String uid,String ridStr){
+        ResultInfo info = new ResultInfo(false);
+        if (!userService.exists(uid))
+            return info;
+        int rid = 0;
+        if (ridStr!=null&&!ridStr.equals("")){
+            rid = Integer.parseInt(ridStr);
+            String content = repairService.findContent(rid);
+            info.setData(content);
+            info.setFlag(true);
+        }
+        return info;
+    }
 }

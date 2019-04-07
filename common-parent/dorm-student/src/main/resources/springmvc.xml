@@ -34,4 +34,6 @@
             <bean class="edu.wbu.dorm.web.interceptor.AuthenticationInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
+    <!-- 文件上传，并限制大小，一定要配置id且id名固定-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 </beans>

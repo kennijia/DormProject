@@ -35,4 +35,13 @@
         ORDER BY r.status ASC
         LIMIT #{selectedRow},15
     </select>
+    <update id="updateStatus" parameterType="repair">
+        update repair set status = #{status} where id = #{id}
+    </update>
+    <select id="findById" parameterType="int" resultType="repair">
+        select * from repair where id = #{id}
+    </select>
+    <delete id="delete" parameterType="int">
+        delete from repair where id = #{id}
+    </delete>
 </mapper>

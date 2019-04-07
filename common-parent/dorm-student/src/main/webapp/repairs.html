@@ -57,6 +57,32 @@
             userInfo = JSON.parse(text);
             console.log(userInfo.id);
         }
+        //维修完成
+        function complete(rid) {
+            $.get("repair/complete.do",{"uid":userInfo.id,"ridStr":rid},function (resp) {
+                if (resp.flag){
+                    $("#promptMsg").html("操作成功");
+                    $('#promptModal').modal('show');
+                    e(userInfo.id);
+                }else{
+                    $("#promptMsg").html("操作失败");
+                    $('#promptModal').modal('show');
+                }
+            });
+        }
+        //删除维修记录，只能在管理员未处理前以及维修完成之后操作成功
+        function del(rid) {
+            $.get("repair/delete.do",{"ridStr":rid,"uid":userInfo.id},function (respData) {
+                if (respData.flag){
+                    $("#promptMsg").html("删除成功。");
+                    $('#promptModal').modal('show');
+                    e(userInfo.id);
+                }else {
+                    $("#promptMsg").html("删除失败。");
+                    $('#promptModal').modal('show');
+                }
+            });
+        }
         //刷新报修页面申请列表
         function e(userId){
             $.get("repair/find.do",{"uid":userId},function (respRepairs) {
@@ -65,23 +91,25 @@
                     var repair = "";
                     for (var i = 0;i<repairList.length;i++){
                         var j = i+1;
-                        if (repairList[i].status===0)
+                        if (repairList[i].status==0)
                             repairList[i].status = "等待管理员处理" ;
-                        if (repairList[i].status===1)
-                            repairList[i].status = "正在派人前往" ;
-                        if (repairList[i].status===2)
+                        if (repairList[i].status==1)
+                            repairList[i].status = "已派遣维修人员" ;
+                        if (repairList[i].status==2)
                             repairList[i].status = "已完成" ;
                         repair += '<tr>\n' +
             '                        <td>'+j+'</td>\n' +
             '                        <td>'+repairList[i].content+'</td>\n' +
             '                        <td>'+repairList[i].createTime+'</td>\n' +
             '                        <td>'+repairList[i].status+'</td>\n' +
+            '                        <td><a onclick="complete('+repairList[i].id+')" href="javascript:void(0);">完成</a>&nbsp;<a onclick="del('+repairList[i].id+')" href="javascript:void(0);">删除</a></td>\n' +
         '                          </tr>';
                     }
                     $("#repairList").html(repair);
                 }
             });
         }
+        //入口函数
         $(function () {
             if (userInfo!=null){
                 e(userInfo.id);
@@ -90,7 +118,7 @@
                 var content = $("#repairContent").val();
                 if (content!=null&&content!==""){
                     $.post("repair/add.do",{"content":content,"uid":userInfo.id},function (resp) {
-                        if (resp.flag!==false){
+                        if (resp.flag){
                             $("#myModal").modal('hide');
                             e(userInfo.id);
                         }else
@@ -98,7 +126,8 @@
                     });
                 }else
                     //提交内容不能为空
-                    $('#delModal').modal();
+                    $("#promptMsg").html("提交内容不能为空");
+                    $('#promptModal').modal('show');
             });
             //用户退出
             $("#btn_logout").click(function () {
@@ -135,11 +164,11 @@
     </div>
 </div>
 <!-- Small modal -->
-<div id="delModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+<div id="promptModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
-            <div style="height: 80px;text-align: center;line-height: 80px">
-                内容不能为空</div>
+            <div id="promptMsg" style="height: 80px;text-align: center;line-height: 80px">
+                提交成功</div>
         </div>
     </div>
 </div>
@@ -187,7 +216,7 @@
                 <li>
                     <a href="admin.html">
                         <i class="pe-7s-key"></i>
-                        <p>管理员界面</p>
+                        <p>管理员</p>
                     </a>
                 </li>
                 <li>
@@ -275,24 +304,12 @@
                                 我的账户
                             </a>
                         </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                菜单
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
+                        <li>
+                            <a id="btn_logout" href="javascript:void(0);">退出</a>
                         </li>
                         <li>
-                            <a id="btn_logout" href="javascript:void(0);">
-                                退出
+                            <a href="javascript:void(0);">
+                                xx
                             </a>
                         </li>
                     </ul>
@@ -306,7 +323,7 @@
                         <div class="card card-plain">
                             <div class="header">
                                 <h4 class="title">已提交报修申请</h4>
-                                <p class="category">...</p>
+                                <p class="category">点击完成即表示工作人员已维修完毕，只有未被管理员处理或已完成才能点击删除</p>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover">
@@ -315,6 +332,7 @@
                                     <th>损坏情况描述</th>
                                     <th>报修日期</th>
                                     <th>受理状态</th>
+                                    <th>操作</th>
                                     </thead>
                                     <tbody id="repairList">
 
@@ -364,9 +382,6 @@
                         </li>
                     </ul>
                 </nav>
-                <p class="copyright pull-right">
-                    Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://www.17sucai.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
-                </p>
             </div>
         </footer>
 

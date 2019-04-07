@@ -18,7 +18,7 @@ demo = {
     
     initChartist: function(male,female){
         
-        var dataSales = {
+        /*var dataSales = {
           labels: ['9:00AM', '12:00AM', '3:00PM', '6:00PM', '9:00PM', '12:00PM', '3:00AM', '6:00AM'],
           series: [
              [287, 385, 490, 492, 554, 586, 698, 695, 752, 788, 846, 944],
@@ -53,10 +53,10 @@ demo = {
           }]
         ];
     
-        Chartist.Line('#chartHours', dataSales, optionsSales, responsiveSales);
+        Chartist.Line('#chartHours', dataSales, optionsSales, responsiveSales);*/
         
     
-        var data = {
+        /*var data = {
           labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
           series: [
             [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895],
@@ -83,7 +83,7 @@ demo = {
           }]
         ];
         
-        Chartist.Bar('#chartActivity', data, options, responsiveOptions);
+        Chartist.Bar('#chartActivity', data, options, responsiveOptions);*/
     
         var dataPreferences = {
             series: [

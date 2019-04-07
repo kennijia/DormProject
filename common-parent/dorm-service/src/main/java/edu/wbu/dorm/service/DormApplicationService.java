@@ -56,5 +56,5 @@ public interface DormApplicationService extends BaseService<DormApplication> {
      * @param status
      * @return
      */
-    int updateStatus(String uid,int id,int status);
+    int updateStatus(int id,int status);
 }

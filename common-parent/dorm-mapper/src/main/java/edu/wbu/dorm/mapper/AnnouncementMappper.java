@@ -25,4 +25,11 @@ public interface AnnouncementMappper extends BaseMapper<Announcement> {
      * @return
      */
     int update(Announcement anou);
+
+    /**
+     * 插入新公告
+     * @param anou
+     * @return
+     */
+    int insert(Announcement anou);
 }

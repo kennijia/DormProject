@@ -13,6 +13,21 @@
             <if test="role!=null">
                 and role = #{role}
             </if>
+            <if test="dorm_id==0">
+                and dorm_id = #{dorm_id}
+            </if>
         </where>
+    </select>
+    <select id="findFemaleOrMale" parameterType="user" resultType="user">
+        select * from user where dorm_id = 0 and role = #{role} and gender = #{gender}
+    </select>
+    <update id="updateDormId" parameterType="user">
+        update user set dorm_id = #{dorm_id} where id = #{id}
+    </update>
+    <update id="updateImg" parameterType="String">
+        update user set headpic = #{headpic} where id = #{id}
+    </update>
+    <select id="findByRoleAndGenderAndDormId" parameterType="user" resultType="user">
+        select id,name,dept from user where role = #{role} and gender = #{gender} and dorm_id = #{dorm_id}
     </select>
 </mapper>

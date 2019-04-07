@@ -23,7 +23,7 @@ public class AgainstController {
 
     @RequestMapping("/find")
     public @ResponseBody ResultInfo find(String uid){
-        ResultInfo info = new ResultInfo();
+        ResultInfo info = new ResultInfo(false);
         User user = userService.findById(uid);
         List<Against> againsts = againstService.findByDormId(user.getDorm_id());
         info.setData(againsts);
