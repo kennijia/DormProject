@@ -163,12 +163,14 @@
                 $.get("db/findAll.do",{},function (dormBuilding) {
                     var dormBuildingData = '';
                     for (var i = 0;i<dormBuilding.length;i++){
-                        if (dormBuilding[i].type===1)
-                            dormBuildingData += '<option value="'+dormBuilding[i].id+'">'+dormBuilding[i].id+'号男生宿舍'+'</option>';
-                        if (dormBuilding[i].type===2)
-                            dormBuildingData += '<option value="'+dormBuilding[i].id+'">'+dormBuilding[i].id+'号女生宿舍'+'</option>';
-                        if (dormBuilding[i].type===3)
-                            dormBuildingData += '<option value="'+dormBuilding[i].id+'">'+dormBuilding[i].id+'号教工宿舍'+'</option>';
+                        if (dormBuilding[i].type==1)
+                            dormBuildingData += '<option value="'+dormBuilding[i].id+'">'+dormBuilding[i].id+'号男生宿舍楼'+'</option>';
+                        if (dormBuilding[i].type==2)
+                            dormBuildingData += '<option value="'+dormBuilding[i].id+'">'+dormBuilding[i].id+'号女生宿舍楼'+'</option>';
+                        if (dormBuilding[i].type==3)
+                            dormBuildingData += '<option value="'+dormBuilding[i].id+'">'+dormBuilding[i].id+'号男教工宿舍楼'+'</option>';
+                        if (dormBuilding[i].type==4)
+                            dormBuildingData += '<option value="'+dormBuilding[i].id+'">'+dormBuilding[i].id+'号女教工宿舍楼'+'</option>';
                     }
                     $("#to_db_id").html(dormBuildingData);
                 })
@@ -200,7 +202,6 @@
                 <form id="applyForm">
                     <div class="form-group">
                         <label for="to_db_id">您想调换至几号楼</label>
-                        <!--<input type="text" class="form-control" id="to_db_id" placeholder="例如:2">-->
                         <select id="to_db_id" class="form-control">
 
                         </select>
@@ -288,30 +289,6 @@
                     <a href="admin.html">
                         <i class="pe-7s-key"></i>
                         <p>管理员</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="typography.html">
-                        <i class="pe-7s-news-paper"></i>
-                        <p>Typography</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="icons.html">
-                        <i class="pe-7s-science"></i>
-                        <p>Icons</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="maps.html">
-                        <i class="pe-7s-map-marker"></i>
-                        <p>Maps</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="notifications.html">
-                        <i class="pe-7s-bell"></i>
-                        <p>Notifications</p>
                     </a>
                 </li>
 				<li class="active-pro">

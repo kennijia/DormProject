@@ -52,7 +52,7 @@ public class AnnouncementServiceImpl extends BaseServiceImpl<Announcement> imple
             String suffix = f.getOriginalFilename().split("\\.")[1];
             String fileName = UUID.randomUUID().toString()+"."+suffix;
             //2.2将图片名字与保存路径组合成完整的保存路径
-            String totalPath = imgUploadPath+"\\"+fileName;
+            String totalPath = imgUploadPath+"/"+fileName;
             //2.3将图片写入该路径
             try {
                 FileCopyUtils.copy(f.getInputStream(), new FileOutputStream(new File(totalPath)));
@@ -90,7 +90,7 @@ public class AnnouncementServiceImpl extends BaseServiceImpl<Announcement> imple
             img.attr("style","height:305px;width:450px;");
             //将模板文件起一个新名字放入到公告的统一存放路径中
             String newFileName = "anou"+System.currentTimeMillis()+".html";//新文件名
-            String totalPath = anouPath+"\\"+newFileName;//完整存放路径
+            String totalPath = anouPath+"/"+newFileName;//完整存放路径
             //将修改后的html存在本地
             OutputStream os = new BufferedOutputStream(new FileOutputStream(totalPath));
             FileCopyUtils.copy(new String(document.html().getBytes()),new OutputStreamWriter(os,"utf-8"));

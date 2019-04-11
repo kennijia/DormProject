@@ -2,18 +2,23 @@ package edu.wbu.dorm.service.impl;
 
 import edu.wbu.dorm.model.Dorm;
 import edu.wbu.dorm.model.DormBuilding;
+import edu.wbu.dorm.model.DormExt;
 import edu.wbu.dorm.model.User;
 import edu.wbu.dorm.service.UserService;
 import edu.wbu.dorm.service.base.BaseServiceImpl;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Service
@@ -82,17 +87,23 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     }
 
     @Override
-    public Map<String, Double> countPersonProportion() {
-        Map<String,Double> map = new HashMap<String,Double>();
+    public Map<String, Integer> countPersonProportion() {
+        Map<String,Integer> map = new HashMap<String,Integer>();
         User u = new User();
         u.setGender("男");
         u.setRole(0);
         u.setDorm_id(100);
-        double countMale = (double)userMapper.countPerson(u);
+        int countMale = userMapper.countPerson(u);
         u.setGender("女");
-        double countFemale = (double)userMapper.countPerson(u);
-        Double maleProportion = new BigDecimal(countMale/(countMale+countFemale)*100).setScale(1,BigDecimal.ROUND_UP).doubleValue();
-        Double femaleProportion = 100.0 - maleProportion;
+        int countFemale = userMapper.countPerson(u);
+        System.out.println(countMale+"...."+countFemale);
+        if (countMale==0&&countFemale==0){
+            map.put("male",30);
+            map.put("female",70);
+            return map;
+        }
+        int maleProportion = (countMale*100)/(countFemale+countMale);
+        int femaleProportion = 100 - maleProportion;
         map.put("male",maleProportion);
         map.put("female",femaleProportion);
         return map;
@@ -124,6 +135,11 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         int femaleStu = privateDistributionOfDorm(0, "女", 2);
         int maleSta = privateDistributionOfDorm(1, "男", 3);
         int femaleSta = privateDistributionOfDorm(1, "女", 4);
+        //在最后，将已住人的宿舍数量更新至宿舍楼表中
+        List<DormExt> numberByDbId = dormMapper.findNumberByDbId();
+        for (DormExt dormExt:numberByDbId){
+            dormBuildingMapper.updateOccupy(dormExt);
+        }
         map.put("maleStu",maleStu);
         map.put("femaleStu",femaleStu);
         map.put("maleSta",maleSta);
@@ -196,6 +212,61 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         u.setRole(role);
         u.setDorm_id(dorm_id);
         return userMapper.findByRoleAndGenderAndDormId(u);
+    }
+
+    @Override
+    public Boolean uploadExcel(MultipartFile file) {
+        XSSFRow row;
+        InputStream fis = null;
+        XSSFWorkbook workbook = null;
+        User u = new User();
+        try {
+            fis = file.getInputStream();
+            workbook = new XSSFWorkbook(fis);
+            XSSFSheet spreadsheet = workbook.getSheetAt(0);
+            Iterator <Row> rowIterator = spreadsheet.iterator();
+            rowIterator.next();//跳过第一行，第一行为标题行
+            while (rowIterator.hasNext())
+            {
+                row = (XSSFRow) rowIterator.next();
+                u.setId(row.getCell(0).getStringCellValue());
+                u.setName(row.getCell(1).getStringCellValue());
+                u.setGender(row.getCell(2).getStringCellValue());
+                u.setAge((int)row.getCell(3).getNumericCellValue());
+                Cell c = row.getCell(4);
+                String dept;
+                try {
+                    dept = c.getStringCellValue();
+                    u.setDept(dept);
+                } catch (Exception e) {
+                    u.setDept("");
+                }
+                u.setDorm_id((int)row.getCell(5).getNumericCellValue());
+                u.setInstitute(row.getCell(6).getStringCellValue());
+                u.setPassword(row.getCell(7).getStringCellValue());
+                u.setRole((int)row.getCell(8).getNumericCellValue());
+                u.setEmail(row.getCell(9).getStringCellValue());
+                u.setHomeAddress(row.getCell(10).getStringCellValue());
+                SimpleDateFormat sdf = new SimpleDateFormat(row.getCell(11).getCellStyle().getDataFormatString());
+                String date = sdf.format(row.getCell(11).getDateCellValue());
+                u.setEntrancetime(date);
+                u.setPermission((int)row.getCell(14).getNumericCellValue());
+                User u1 = userMapper.findById(u.getId());
+                if (u1==null){
+                    userMapper.insertUser(u);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }finally {
+            try {
+                fis.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return true;
     }
 
     /**

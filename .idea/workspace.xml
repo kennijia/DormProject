@@ -6,19 +6,114 @@
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/index.html" line="138" />
-    <bookmark url="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/dorm.html" />
+    <bookmark url="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/index.html" line="195" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db0d245a-c7b8-4de2-bf49-a76f8c53f686" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/fonts/w-e-icon.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/js/wangEditor.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/js/wangEditor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/js/wangEditor.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/js/wangEditor.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/js/wangEditor.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_virtuald_curvesapi_1_04.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_3_17.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_17.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_2_6_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/ExcellentDormMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/ExcellentDormMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/DormExt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/ExcellentDorm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/ExcellentDormService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/ExcellentDormServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/ExcellentDormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/image/bgImgs/dddsss.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/image/excellentDormImg/asda.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/image/excellentDormImg/asdcvbh.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/image/excellentDormImg/axcx.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/image/excellentDormImg/dscvb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/image/excellentDormImg/ertyy.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/image/excellentDormImg/fdggr.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/image/excellentDormImg/fff.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/image/excellentDormImg/fghui.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/image/excellentDormImg/timg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/js/jquery.form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/dorm_student_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/dorm_student_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_1_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_1_12.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_auth0_java_jwt_3_4_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_auth0_java_jwt_3_4_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_9_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_9_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jstl_jstl_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jstl_jstl_1_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_35.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_35.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_9.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_4_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_4_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_12.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_12.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_14_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_14_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_4_3_14_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_4_3_14_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_14_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_14_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_14_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_14_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_14_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_14_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_14_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_14_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_14_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_14_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_4_3_14_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_4_3_14_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_3_14_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_3_14_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_3_14_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_3_14_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_3_14_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_3_14_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_14_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_14_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__taglibs_standard_1_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__taglibs_standard_1_1_2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/AgainstMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/AgainstMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/AgainstMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/AgainstMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormBuildingMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormBuildingMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormBuildingMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormBuildingMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/DormBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/DormBuilding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/RepairExt.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/RepairExt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-service/dorm-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-service/dorm-service.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/AgainstService.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/AgainstService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/DormService.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/DormService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/HygieneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/HygieneService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/base/BaseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/base/BaseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/AgainstServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/AgainstServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/AnnouncementServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/AnnouncementServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/DormApplicationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/DormApplicationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/DormServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/DormServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/HygieneServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/HygieneServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/dorm-student.iml" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-student/dorm-student.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/AgainstController.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/AgainstController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/AnnouncementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/AnnouncementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/DormBuildingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/DormBuildingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/DormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/DormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/HygieneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/HygieneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/interceptor/AuthenticationInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/interceptor/AuthenticationInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/src/main/resources/druid.properties" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/resources/druid.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/application.html" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/application.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/dashboard.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/dorm.html" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/dorm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/maps.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/notifications.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/repairs.html" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/repairs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/template.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/typography.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-parent/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/common-parent/target/" />
     <ignored path="$PROJECT_DIR$/common-parent/dorm-model/target/" />
@@ -34,82 +129,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/RepairController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="45" column="69" selection-start-line="45" selection-start-column="69" selection-end-line="45" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/admin.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="511" column="74" selection-start-line="511" selection-start-column="74" selection-end-line="511" selection-end-column="74" />
-              <folding>
-                <element signature="e#2790#6679#0" />
-                <element signature="e#6730#10820#0" />
-                <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/js/wangEditor.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#textarea#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#p#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#1;n#p#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#4#10#1" expanded="true" />
-                <element signature="e#4#10#1" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#4#10#1" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/application.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4725">
-              <caret line="225" selection-start-line="225" selection-end-line="241" selection-end-column="22" />
-              <folding>
-                <element signature="n#style#0;n#textarea#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -130,56 +156,56 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/common-parent/pom.xml" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-student/pom.xml" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-utils/src/main/java/edu/wbu/dorm/utils/JWT.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-utils/src/test/java/edu/wbu/dorm/utils/JWT.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-utils/src/test/java/edu/wbu/dorm/utils/JwtTest.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-utils/src/main/java/edu/wbu/dorm/utils/JwtTokenUtil.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-utils/pom.xml" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-utils/src/main/java/edu/wbu/dorm/utils/JwtUtil.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/login.html" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/base/BaseServiceImpl.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/interceptor/AuthenticationInterceptor.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/dashboard.html" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/AnnouncementMappper.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/AnnouncementService.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/Announcement.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/AnnouncementController.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/AnnouncementMappper.xml" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/AnnouncementServiceImpl.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/assets/js/bootstrap-select.js" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/DormService.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/DormServiceImpl.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/FeeController.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/DormController.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/HygieneController.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/UserService.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/Dorm.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/DormBuilding.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormBuildingMapper.xml" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormBuildingMapper.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/application.html" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/dorm.html" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/user.html" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/repairs.html" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/PageBean.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/DormApplicationService.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/DormApplicationExt.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/DormApplication.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/RepairExt.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/RepairService.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/RepairMapper.java" />
         <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/RepairServiceImpl.java" />
         <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/RepairController.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/index.html" />
         <option value="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/RepairMapper.xml" />
         <option value="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormApplicationMapper.xml" />
         <option value="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormApplicationMapper.java" />
         <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/DormApplicationServiceImpl.java" />
         <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/DormApplicationController.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/AnnouncementServiceImpl.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/resources/druid.properties" />
+        <option value="$PROJECT_DIR$/common-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-service/pom.xml" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/UserService.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/UserMapper.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/UserMapper.xml" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/HygieneServiceImpl.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/HygieneService.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/HygieneController.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/AgainstController.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/AgainstService.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/AgainstServiceImpl.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/AgainstMapper.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/AgainstMapper.xml" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/AnnouncementController.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/DormBuildingServiceImpl.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/RepairExt.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/DormExt.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormBuildingMapper.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/DormBuilding.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormBuildingMapper.xml" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/DormService.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormMapper.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/DormServiceImpl.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormMapper.xml" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/DormController.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/DormBuildingController.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/ExcellentDorm.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/base/BaseServiceImpl.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/interceptor/AuthenticationInterceptor.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/ExcellentDormService.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/ExcellentDormMapper.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/ExcellentDormMapper.xml" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/ExcellentDormController.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/ExcellentDormServiceImpl.java" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/application.html" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/dorm.html" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/index.html" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/repairs.html" />
+        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/user.html" />
         <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/admin.html" />
       </list>
     </option>
@@ -194,8 +220,8 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="D:/apache-maven-3.6.0" />
-        <option name="userSettingsFile" value="D:\apache-maven-3.6.0\conf\settings.xml" />
+        <option name="mavenHome" value="$USER_HOME$/maven-3.6.0" />
+        <option name="userSettingsFile" value="$USER_HOME$/maven-3.6.0/conf/settings.xml" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -206,18 +232,28 @@
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
-      <expand />
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="common-parent" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="common-parent" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
       <select />
     </treeState>
   </component>
   <component name="MavenRunner">
     <option name="vmOptions" value="-DarchetypeCatalog=internal" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="10" />
-    <option name="y" value="17" />
-    <option name="width" value="1400" />
-    <option name="height" value="820" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-1" />
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="805" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -225,8 +261,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -237,37 +273,55 @@
             <path>
               <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="common-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="dorm-student" type="462c0819:PsiDirectoryNode" />
+              <item name="dorm-mapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="common-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="dorm-student" type="462c0819:PsiDirectoryNode" />
+              <item name="dorm-mapper" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="common-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="dorm-student" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="common-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="dorm-student" type="462c0819:PsiDirectoryNode" />
+              <item name="dorm-mapper" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="common-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="dorm-student" type="462c0819:PsiDirectoryNode" />
+              <item name="dorm-mapper" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="dorm-mapper" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="dorm-student" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="dorm-student" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="dorm-student" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
@@ -287,7 +341,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554191069297" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554985446725" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="D:/workspaces/travel" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -296,22 +350,25 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.14746094" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/image/bgImgs" />
+      <recent name="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/js" />
+      <recent name="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/image/excellentDormImg" />
+      <recent name="C:\DormWorkspaces\DormProject\common-parent\dorm-student\src\main\webapp" />
+      <recent name="C:\DormWorkspaces\DormProject\common-parent\dorm-student\src\main\webapp\student" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="edu.wbu.dorm.model" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\workspace\DormProject\common-parent\dorm-student\src\main\webapp\js" />
       <recent name="D:\workspace\DormProject\common-parent\dorm-student\src\main\webapp\fonts" />
       <recent name="C:\DormWorkspaces\DormProject\common-parent\dorm-mapper\src\test\java\edu\wbu\dorm\mapper" />
       <recent name="C:\DormWorkspaces\DormProject\common-parent\dorm-mapper\src\test\java\edu\wbu\dorm" />
       <recent name="C:\DormWorkspaces\DormProject\common-parent\dorm-student\src\main\webapp\image\headpic" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="edu.wbu.dorm.model" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\DormWorkspaces\DormProject\common-parent\dorm-student\src\main\webapp" />
-      <recent name="C:\DormWorkspaces\DormProject\common-parent\dorm-student\src\main\webapp\student" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -361,18 +418,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Testccc.test01" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="dorm-service" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Testccc" />
-      <option name="METHOD_NAME" value="test01" />
-      <option name="TEST_OBJECT" value="method" />
+    <configuration name="edu.wbu.dorm.web.controller in dorm-student" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dorm-student" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.wbu.dorm.web.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.wbu.dorm.web.controller" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="Tomcat 8.5.39" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.39" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:80/" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
       <deployment>
@@ -384,7 +445,6 @@
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_DormProject" />
-        <option name="HTTP_PORT" value="80" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -451,16 +511,16 @@
       <item itemvalue="Application.JwtUtil" />
       <item itemvalue="JUnit.JwtTest.test01" />
       <item itemvalue="JUnit.JwtTest.test02" />
-      <item itemvalue="JUnit.Testccc.test01" />
+      <item itemvalue="JUnit.edu.wbu.dorm.web.controller in dorm-student" />
       <item itemvalue="Tomcat Server.Tomcat 8.5.39" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.edu.wbu.dorm.web.controller in dorm-student" />
         <item itemvalue="Application.JwtUtil" />
         <item itemvalue="Application.JwtTokenUtil" />
         <item itemvalue="JUnit.JwtTest.test02" />
         <item itemvalue="JUnit.JwtTest.test01" />
-        <item itemvalue="JUnit.Testccc.test01" />
       </list>
     </recent_temporary>
   </component>
@@ -478,6 +538,17 @@
       <workItem from="1554019018226" duration="22189000" />
       <workItem from="1554085685104" duration="35538000" />
       <workItem from="1554183519328" duration="3241000" />
+      <workItem from="1554638892010" duration="1208000" />
+      <workItem from="1554641367988" duration="14725000" />
+      <workItem from="1554663282278" duration="39000" />
+      <workItem from="1554693566514" duration="1584000" />
+      <workItem from="1554696669491" duration="20349000" />
+      <workItem from="1554727632186" duration="756000" />
+      <workItem from="1554737370803" duration="276000" />
+      <workItem from="1554779675380" duration="201000" />
+      <workItem from="1554782933298" duration="21702000" />
+      <workItem from="1554894549717" duration="10111000" />
+      <workItem from="1554956448969" duration="24527000" />
     </task>
     <task id="LOCAL-00001" summary="更新项目20190330----22:42">
       <created>1553957019102</created>
@@ -504,9 +575,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="JwtTest_test01 - 2019.03.30 at 05h 04m 03s.xml">
-      <configuration name="JwtTest.test01" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="JwtTest_test02 - 2019.03.30 at 05h 05m 52s.xml">
       <configuration name="JwtTest.test02" configurationId="JUnit" />
     </history-entry>
@@ -534,9 +602,12 @@
     <history-entry file="JwtTest_test02 - 2019.03.30 at 05h 13m 09s.xml">
       <configuration name="JwtTest.test02" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="edu_wbu_dorm_web_controller_in_dorm-student - 2019.04.10 at 21h 25m 58s.xml">
+      <configuration name="edu.wbu.dorm.web.controller in dorm-student" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90080000" />
+    <option name="totallyTimeSpent" value="185558000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -548,26 +619,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-1" y="23" width="1440" height="805" extended-state="0" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Web" order="2" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.49932706" visible="true" weight="0.20628998" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.49932706" visible="true" weight="0.21030043" />
       <window_info id="Structure" order="4" sideWeight="0.50067294" side_tool="true" weight="0.26432666" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="UI Designer" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
-      <window_info anchor="bottom" id="Version Control" order="1" />
+      <window_info anchor="bottom" id="Version Control" order="1" weight="0.32902297" />
       <window_info anchor="bottom" id="Java Enterprise" order="2" />
-      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.5010661" side_tool="true" weight="0.14316703" />
-      <window_info anchor="bottom" id="Messages" order="4" weight="0.2505423" />
+      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.5010661" side_tool="true" weight="0.15848528" />
+      <window_info anchor="bottom" id="Messages" order="4" weight="0.24964938" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.32884097" />
-      <window_info active="true" anchor="bottom" id="Run" order="8" sideWeight="0.4989339" visible="true" weight="0.29609543" />
+      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.4989339" weight="0.31837308" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
@@ -583,7 +653,7 @@
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="right" id="Maven" order="8" weight="0.17110874" />
+      <window_info anchor="right" id="Maven" order="8" weight="0.2067239" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -598,70 +668,344 @@
     <option name="LAST_COMMIT_MESSAGE" value="更新项目20190402    14:59" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/assets/js/bootstrap-checkbox-radio-switch.js">
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/HygieneServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1260">
-          <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        <state relative-caret-position="111">
+          <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/HygieneController.java">
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/AgainstServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="29" column="27" lean-forward="true" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+        <state relative-caret-position="377">
+          <caret line="43" column="35" lean-forward="true" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/FeeController.java">
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/AgainstService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="30" column="9" lean-forward="true" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+        <state relative-caret-position="200">
+          <caret line="11" column="74" selection-start-line="11" selection-start-column="74" selection-end-line="11" selection-end-column="74" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/DormController.java">
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/AgainstController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="28" column="27" lean-forward="true" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/Repair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="45" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
+        <state relative-caret-position="361">
+          <caret line="39" column="39" lean-forward="true" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="62" column="76" lean-forward="true" selection-start-line="62" selection-start-column="76" selection-end-line="62" selection-end-column="76" />
+        <state relative-caret-position="348">
+          <caret line="105" column="89" lean-forward="true" selection-start-line="105" selection-start-column="64" selection-end-line="105" selection-end-column="89" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/UserServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/HygieneMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/AnnouncementController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+        <state relative-caret-position="2300">
+          <caret line="92" column="65" selection-start-line="92" selection-start-column="65" selection-end-line="92" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#905#920#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/RepairExt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/DormExt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <folding>
+            <element signature="e#147#148#0" expanded="true" />
+            <element signature="e#175#176#0" expanded="true" />
+            <element signature="e#214#215#0" expanded="true" />
+            <element signature="e#248#249#0" expanded="true" />
+            <element signature="e#278#279#0" expanded="true" />
+            <element signature="e#307#308#0" expanded="true" />
+            <element signature="e#348#349#0" expanded="true" />
+            <element signature="e#384#385#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/DormBuilding.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+          <folding>
+            <element signature="e#778#779#0" expanded="true" />
+            <element signature="e#819#820#0" expanded="true" />
+            <element signature="e#855#856#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormBuildingMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+        <state relative-caret-position="264">
+          <caret line="72" column="39" selection-start-line="72" selection-start-column="39" selection-end-line="72" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormBuildingMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="7" column="106" selection-start-line="7" selection-start-column="106" selection-end-line="7" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/Dorm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="47" column="7" lean-forward="true" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/DormService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="725">
+          <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/DormServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="61" column="48" lean-forward="true" selection-start-line="61" selection-start-column="48" selection-end-line="61" selection-end-column="48" />
+          <folding>
+            <element signature="e#2034#2035#0" expanded="true" />
+            <element signature="e#2061#2062#0" expanded="true" />
+            <element signature="e#2111#2112#0" expanded="true" />
+            <element signature="e#2157#2158#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/DormBuildingServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#497#498#0" expanded="true" />
+            <element signature="e#548#549#0" expanded="true" />
+            <element signature="e#687#688#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/DormBuildingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/image/excellentDormImg/fdggr.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/image/excellentDormImg/fff.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/assets/js/bootstrap-notify.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#162#169#1" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/assets/js/demo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/ExcellentDorm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="44" column="18" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+          <folding>
+            <element signature="e#248#249#0" expanded="true" />
+            <element signature="e#273#274#0" expanded="true" />
+            <element signature="e#306#307#0" expanded="true" />
+            <element signature="e#334#335#0" expanded="true" />
+            <element signature="e#365#366#0" expanded="true" />
+            <element signature="e#395#396#0" expanded="true" />
+            <element signature="e#438#439#0" expanded="true" />
+            <element signature="e#476#477#0" expanded="true" />
+            <element signature="e#507#508#0" expanded="true" />
+            <element signature="e#534#535#0" expanded="true" />
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#642#643#0" expanded="true" />
+            <element signature="e#674#675#0" expanded="true" />
+            <element signature="e#724#725#0" expanded="true" />
+            <element signature="e#766#767#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/AgainstMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/AgainstMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="9" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/base/BaseMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/base/BaseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/base/BaseServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="804">
+          <caret line="35" column="54" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/image/excellentDormImg/timg.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/DormController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="29" column="52" lean-forward="true" selection-start-line="29" selection-start-column="52" selection-end-line="29" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/myRepository/org/springframework/spring-web/4.3.14.RELEASE/spring-web-4.3.14.RELEASE.jar!/org/springframework/web/multipart/MultipartFile.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/js/jquery.form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-277">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/ExcellentDormService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="110" selection-start-line="12" selection-start-column="110" selection-end-line="12" selection-end-column="110" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/src.zip!/java/io/InputStreamReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="70" column="11" selection-start-line="70" selection-start-column="11" selection-end-line="70" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/src.zip!/java/io/BufferedReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-639">
+          <caret line="311" column="11" selection-start-line="311" selection-start-column="11" selection-end-line="311" selection-end-column="11" />
+          <folding>
+            <element signature="e#3011#3012#0" expanded="true" />
+            <element signature="e#3058#3059#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/AnnouncementServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="772">
+          <caret line="71" column="19" selection-start-line="71" selection-start-column="19" selection-end-line="71" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="19" column="39" lean-forward="true" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/ExcellentDormMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/ExcellentDormMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -670,441 +1014,120 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/interceptor/AuthenticationInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="20" column="102" selection-start-line="20" selection-start-column="102" selection-end-line="20" selection-end-column="102" />
+        <state relative-caret-position="350">
+          <caret line="20" column="181" selection-start-line="20" selection-start-column="181" selection-end-line="20" selection-end-column="181" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/Dorm.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/src.zip!/java/io/File.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="85" column="18" selection-start-line="85" selection-start-column="18" selection-end-line="85" selection-end-column="18" />
-          <folding>
-            <element signature="e#473#474#0" expanded="true" />
-            <element signature="e#498#499#0" expanded="true" />
-            <element signature="e#531#532#0" expanded="true" />
-            <element signature="e#559#560#0" expanded="true" />
-            <element signature="e#588#589#0" expanded="true" />
-            <element signature="e#616#617#0" expanded="true" />
-            <element signature="e#655#656#0" expanded="true" />
-            <element signature="e#689#690#0" expanded="true" />
-            <element signature="e#724#725#0" expanded="true" />
-            <element signature="e#758#759#0" expanded="true" />
-            <element signature="e#809#810#0" expanded="true" />
-            <element signature="e#855#856#0" expanded="true" />
-            <element signature="e#893#894#0" expanded="true" />
-            <element signature="e#927#928#0" expanded="true" />
-            <element signature="e#981#982#0" expanded="true" />
-            <element signature="e#1027#1028#0" expanded="true" />
-            <element signature="e#1059#1060#0" expanded="true" />
-            <element signature="e#1090#1091#0" expanded="true" />
-            <element signature="e#1135#1136#0" expanded="true" />
-            <element signature="e#1175#1176#0" expanded="true" />
-            <element signature="e#1205#1206#0" expanded="true" />
-            <element signature="e#1234#1235#0" expanded="true" />
-            <element signature="e#1275#1276#0" expanded="true" />
-            <element signature="e#1311#1312#0" expanded="true" />
-            <element signature="e#1338#1339#0" expanded="true" />
-            <element signature="e#1364#1365#0" expanded="true" />
-            <element signature="e#1399#1400#0" expanded="true" />
-            <element signature="e#1429#1430#0" expanded="true" />
-            <element signature="e#1459#1460#0" expanded="true" />
-            <element signature="e#1488#1489#0" expanded="true" />
-            <element signature="e#1529#1530#0" expanded="true" />
-            <element signature="e#1565#1566#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="224">
+          <caret line="1032" column="19" selection-start-line="1032" selection-start-column="19" selection-end-line="1032" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/DormBuilding.java">
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/ExcellentDormServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/base/BaseMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/base/BaseServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormBuildingMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        <state relative-caret-position="191">
+          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2266#2267#0" expanded="true" />
+            <element signature="e#2293#2294#0" expanded="true" />
+            <element signature="e#2352#2353#0" expanded="true" />
+            <element signature="e#2379#2380#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/AnnouncementService.java">
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/ExcellentDormController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+        <state relative-caret-position="476">
+          <caret line="44" column="20" lean-forward="true" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/AnnouncementController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="683">
-          <caret line="47" column="33" lean-forward="true" selection-start-line="47" selection-start-column="33" selection-end-line="47" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/phrase.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1323">
-          <caret line="63" column="14" selection-start-line="63" selection-start-column="14" selection-end-line="63" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/js/bootstrap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/PageBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="641">
-          <caret line="60" column="42" lean-forward="true" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
-          <folding>
-            <element signature="e#311#312#0" expanded="true" />
-            <element signature="e#344#345#0" expanded="true" />
-            <element signature="e#393#394#0" expanded="true" />
-            <element signature="e#437#438#0" expanded="true" />
-            <element signature="e#470#471#0" expanded="true" />
-            <element signature="e#502#503#0" expanded="true" />
-            <element signature="e#549#550#0" expanded="true" />
-            <element signature="e#591#592#0" expanded="true" />
-            <element signature="e#626#627#0" expanded="true" />
-            <element signature="e#660#661#0" expanded="true" />
-            <element signature="e#711#712#0" expanded="true" />
-            <element signature="e#757#758#0" expanded="true" />
-            <element signature="e#789#790#0" expanded="true" />
-            <element signature="e#820#821#0" expanded="true" />
-            <element signature="e#865#866#0" expanded="true" />
-            <element signature="e#905#906#0" expanded="true" />
-            <element signature="e#937#938#0" expanded="true" />
-            <element signature="e#964#965#0" expanded="true" />
-            <element signature="e#1005#1006#0" expanded="true" />
-            <element signature="e#1037#1038#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormBuildingMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="52" lean-forward="true" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/DormApplicationExt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="92" column="18" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
-          <folding>
-            <element signature="e#717#718#0" expanded="true" />
-            <element signature="e#748#749#0" expanded="true" />
-            <element signature="e#796#797#0" expanded="true" />
-            <element signature="e#836#837#0" expanded="true" />
-            <element signature="e#675#676#0" expanded="true" />
-            <element signature="e#702#703#0" expanded="true" />
-            <element signature="e#742#743#0" expanded="true" />
-            <element signature="e#774#775#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="115" column="48" lean-forward="true" selection-start-line="115" selection-start-column="48" selection-end-line="115" selection-end-column="48" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/DormApplicationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="50" column="31" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/AnnouncementServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="29" column="15" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1294#1295#0" expanded="true" />
-            <element signature="e#1321#1322#0" expanded="true" />
-            <element signature="e#1379#1380#0" expanded="true" />
-            <element signature="e#1425#1426#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/AgainstServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/DormBuildingServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/FeeServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/HygieneServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/DormApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#672#673#0" expanded="true" />
-            <element signature="e#699#700#0" expanded="true" />
-            <element signature="e#739#740#0" expanded="true" />
-            <element signature="e#771#772#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/DormService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/DormServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="26" column="41" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/RepairService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-model/src/main/java/edu/wbu/dorm/model/RepairExt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1092">
-          <caret line="76" column="18" selection-start-line="76" selection-start-column="18" selection-end-line="76" selection-end-column="18" />
-          <folding>
-            <element signature="e#458#459#0" expanded="true" />
-            <element signature="e#485#486#0" expanded="true" />
-            <element signature="e#523#524#0" expanded="true" />
-            <element signature="e#555#556#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/assets/css/light-bootstrap-dashboard.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="1960" column="7" selection-start-line="1960" selection-start-column="7" selection-end-line="1960" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/dorm.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5492">
-          <caret line="52" column="12" lean-forward="true" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/repairs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4050">
-          <caret line="315" column="49" lean-forward="true" selection-start-line="315" selection-start-column="49" selection-end-line="315" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4056">
-          <caret line="439" column="56" lean-forward="true" selection-start-line="439" selection-start-column="56" selection-end-line="439" selection-end-column="56" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#div#4;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5274">
-          <caret line="289" selection-start-line="289" selection-end-line="289" />
-          <folding>
-            <element signature="n#style#0;n#textarea#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/RepairServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="61" column="26" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
-          <folding>
-            <element signature="e#1767#1778#0" expanded="true" />
-            <element signature="e#1624#1625#0" expanded="true" />
-            <element signature="e#1651#1652#0" expanded="true" />
-            <element signature="e#1703#1704#0" expanded="true" />
-            <element signature="e#1730#1731#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/RepairMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/RepairMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="34" column="29" lean-forward="true" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormApplicationMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormApplicationMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="9" column="73" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/DormApplicationServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="132" column="45" selection-start-line="132" selection-start-column="45" selection-end-line="132" selection-end-column="45" />
-          <folding>
-            <element signature="e#4303#4304#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/application.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4725">
-          <caret line="225" selection-start-line="225" selection-end-line="241" selection-end-column="22" />
+        <state relative-caret-position="75">
+          <caret line="292" column="21" selection-start-line="292" selection-start-column="21" selection-end-line="292" selection-end-column="21" />
           <folding>
             <element signature="n#style#0;n#textarea#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/RepairController.java">
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/dorm.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="45" column="69" selection-start-line="45" selection-start-column="69" selection-end-line="45" selection-end-column="69" />
+        <state relative-caret-position="214">
+          <caret line="179" column="21" selection-start-line="179" selection-start-column="21" selection-end-line="179" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/DormApplicationController.java">
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="96" column="43" selection-start-line="96" selection-start-column="43" selection-end-line="96" selection-end-column="43" />
+        <state relative-caret-position="189">
+          <caret line="200" column="21" selection-start-line="200" selection-start-column="21" selection-end-line="200" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/js/wangEditor.css">
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/repairs.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-491" />
+        <state>
+          <caret line="221" column="21" selection-start-line="221" selection-start-column="21" selection-end-line="221" selection-end-column="21" />
+          <folding>
+            <element signature="e#231#237#1" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/js/wangEditor.js">
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/user.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#p#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#p#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#4#10#1" expanded="true" />
-            <element signature="e#4#10#1" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#4#10#1" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="100">
+          <caret line="90" column="21" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/admin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="511" column="74" selection-start-line="511" selection-start-column="74" selection-end-line="511" selection-end-column="74" />
+        <state relative-caret-position="187">
+          <caret line="715" column="21" selection-start-line="715" selection-start-column="21" selection-end-line="715" selection-end-column="21" />
           <folding>
-            <element signature="e#2790#6679#0" />
-            <element signature="e#6730#10820#0" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="e#320#326#1" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#5;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#div#5;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#div#5;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#5;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#3;n#div#5;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#6;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#7;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#3;n#div#7;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#8;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#8;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#8;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#8;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#8;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#2;n#div#8;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#2;n#div#8;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#3;n#div#8;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#8;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#4;n#div#8;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>

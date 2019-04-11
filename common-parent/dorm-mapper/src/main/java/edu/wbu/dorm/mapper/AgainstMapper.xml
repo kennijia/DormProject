@@ -4,4 +4,7 @@
     <select id="findByDormId" parameterType="int" resultType="against">
         select * from against where dorm_id = #{dorm_id}
     </select>
+    <insert id="insert" parameterType="against">
+        insert into against values (null,#{dorm_id},#{description},#{createTime},#{punishment})
+    </insert>
 </mapper>

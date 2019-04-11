@@ -6,7 +6,7 @@ public class RepairExt {
     private String content;//报修内容
     private int status;//报修申请受理状态
     private String createTime;//报修申请时间
-    private String comments;//报修完成后报修人对此次报修的评价
+    private String comments;
     private Dorm dorm;
 
     public RepairExt() {

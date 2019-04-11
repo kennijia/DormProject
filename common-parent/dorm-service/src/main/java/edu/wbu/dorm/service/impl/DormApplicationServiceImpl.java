@@ -5,7 +5,6 @@ import edu.wbu.dorm.service.DormApplicationService;
 import edu.wbu.dorm.service.base.BaseServiceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import sun.security.krb5.internal.PAData;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -51,7 +50,7 @@ public class DormApplicationServiceImpl extends BaseServiceImpl<DormApplication>
             int dorm_id = u.getDorm_id();
             if (dorm_id!=0){
                 //找到该用户并且住在校内
-                Dorm d = dormMapper.findByDbidAndDid(new Dorm(to_db_id, to_dorm_number));//查找目标宿舍的信息
+                Dorm d = dormMapper.findByDbidAndDnumber(new Dorm(to_db_id, to_dorm_number));//查找目标宿舍的信息
                 if (d!=null){
                     DormBuilding dormBuilding = dormBuildingMapper.findById(d.getDb_id());//查找目标宿舍的宿舍楼信息
                     if (d.getOccupy()<d.getCapacity()&&u.getGender().equals(d.getDorm_gender())){

@@ -21,4 +21,13 @@ public interface DormService  extends BaseService<Dorm> {
     Boolean isAdd(int db_id,int dorm_number);
 
     Boolean isOutside(String uid);
+
+    /**
+     * 在已有宿舍楼的基础上添加宿舍
+     * @param db_Id
+     * @param dorm_number
+     * @param capacity
+     * @return
+     */
+    int addDorm(int db_Id,int dorm_number,int capacity);
 }

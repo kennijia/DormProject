@@ -20,7 +20,7 @@ public interface UserService extends BaseService<User> {
      * 统计人群比例
      * @return
      */
-    Map<String, Double> countPersonProportion();
+    Map<String, Integer> countPersonProportion();
 
     /**
      * 验证该用户是否是管理员
@@ -62,4 +62,7 @@ public interface UserService extends BaseService<User> {
      * @return
      */
     List<User> findNoDistributionPerson(int behavior);
+
+    Boolean uploadExcel(MultipartFile file);
+
 }

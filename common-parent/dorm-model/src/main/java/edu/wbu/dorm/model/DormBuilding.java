@@ -9,6 +9,7 @@ public class DormBuilding {
     private String location;//宿舍楼地理位置
     private String builtuptime;//宿舍楼建立时间
     private int capacity;//宿舍楼的房间数
+    private int occupy;//该宿舍楼已住人的宿舍数量
 
     private List<Dorm> dormList;
 
@@ -22,6 +23,14 @@ public class DormBuilding {
         this.location = location;
         this.builtuptime = builtuptime;
         this.capacity = capacity;
+    }
+
+    public int getOccupy() {
+        return occupy;
+    }
+
+    public void setOccupy(int occupy) {
+        this.occupy = occupy;
     }
 
     public List<Dorm> getDormList() {

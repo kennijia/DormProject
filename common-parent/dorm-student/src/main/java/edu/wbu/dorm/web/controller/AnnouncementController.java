@@ -90,7 +90,7 @@ public class AnnouncementController {
         if (b){
             ServletContext sc = req.getServletContext();
             String anouPath = sc.getRealPath("anou");
-            String anouModelPath = sc.getRealPath("anouModelHtml\\htmlModel.html");
+            String anouModelPath = sc.getRealPath("anouModelHtml/htmlModel.html");
             Boolean flag = anouService.publish(uid,title,html,anouPath,anouModelPath);
             info.setFlag(flag);
         }

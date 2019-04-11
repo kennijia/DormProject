@@ -7,6 +7,7 @@ import edu.wbu.dorm.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -57,7 +58,7 @@ public class UserController {
     @RequestMapping("/proportion")
     public @ResponseBody ResultInfo proportion(){
         ResultInfo info = new ResultInfo();
-        Map<String, Double> proportion = userService.countPersonProportion();
+        Map<String, Integer> proportion = userService.countPersonProportion();
         info.setFlag(true);
         info.setData(proportion);
         return info;
@@ -85,7 +86,7 @@ public class UserController {
         if (newHeadImg==null)
             return info;
         ServletContext sc = req.getServletContext();
-        String path = sc.getRealPath("image\\headpic");
+        String path = sc.getRealPath("image/headpic");
         String url = userService.changeImg(uid,path,newHeadImg);
         if (url==null)
             return info;
@@ -120,6 +121,18 @@ public class UserController {
             list = userService.findNoDistributionPerson(behavior);
             info.setFlag(true);
             info.setData(list);
+        }
+        return info;
+    }
+
+    @RequestMapping(value = "/uploadExcel",method = RequestMethod.POST)
+    public @ResponseBody ResultInfo uploadExcel(String uid,MultipartFile excelFile){
+        ResultInfo info = new ResultInfo(false);
+        Boolean b = userService.isAdmin(uid);
+        if (b){
+            Boolean a = userService.uploadExcel(excelFile);
+            System.out.println(a);
+            info.setFlag(a);
         }
         return info;
     }

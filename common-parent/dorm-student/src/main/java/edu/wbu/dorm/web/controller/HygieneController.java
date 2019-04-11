@@ -30,4 +30,17 @@ public class HygieneController {
         info.setFlag(true);
         return info;
     }
+
+    @RequestMapping("/insert")
+    public @ResponseBody ResultInfo insert(String dorm_idStr,String description,String comments){
+        ResultInfo info = new ResultInfo(false);
+        if (dorm_idStr==null||dorm_idStr.equals(""))
+            return info;
+        int dorm_id = Integer.parseInt(dorm_idStr);
+        int i = hygieneService.submitHygiene(dorm_id,description,comments);
+        if (i>0){
+            info.setFlag(true);
+        }
+        return info;
+    }
 }

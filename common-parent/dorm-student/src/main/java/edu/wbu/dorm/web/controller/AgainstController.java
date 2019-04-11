@@ -30,4 +30,16 @@ public class AgainstController {
         info.setFlag(true);
         return info;
     }
+
+    @RequestMapping("/insert")
+    public @ResponseBody ResultInfo insert(String dorm_idStr,String description,String punishment){
+        ResultInfo info = new ResultInfo(false);
+        if (dorm_idStr==null&&dorm_idStr.equals(""))
+            return info;
+        int dorm_id = Integer.parseInt(dorm_idStr);
+        int i = againstService.submitAgainst(dorm_id,description,punishment);
+        if (i>0)
+            info.setFlag(true);
+        return info;
+    }
 }

@@ -32,6 +32,72 @@
 </head>
 <body>
 <!-- Modal -->
+<div class="modal fade" id="edModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel1">Title</h4>
+            </div>
+            <div class="modal-body">
+                <div id="carousel-example-generic2" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic2" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic2" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic2" data-slide-to="2"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <a href="javascript:void (0);">
+                                <img name="edImgModal" style="width:695px;height: 323px;" src="" alt="...">
+                            </a>
+                            <div class="carousel-caption">
+                                ...
+                            </div>
+                        </div>
+                        <div class="item">
+                            <a href="javascript:void (0);">
+                                <img name="edImgModal" style="width:695px;height: 323px;" src="" alt="...">
+                            </a>
+                            <div class="carousel-caption">
+                                ...
+                            </div>
+                        </div>
+                        <div class="item">
+                            <a href="javascript:void (0);">
+                                <img name="edImgModal" style="width:695px;height: 323px;" src="" alt="...">
+                            </a>
+                            <div class="carousel-caption">
+                                ...
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic2" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic2" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <hr>
+                <div class="header">简介</div>
+                <div id="edIntroduce" class="content" style="margin-top: 5px;">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
 <div class="modal fade" id="editAnouModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -79,15 +145,6 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
-<!--<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    Link with href
-</a>
-<div class="collapse" id="collapseExample">
-    <div class="well">
-        ...
-    </div>
-</div>-->
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
 
@@ -140,30 +197,6 @@
                     <a href="admin.html">
                         <i class="pe-7s-key"></i>
                         <p>管理员</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="typography.html">
-                        <i class="pe-7s-news-paper"></i>
-                        <p>Typography</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="icons.html">
-                        <i class="pe-7s-science"></i>
-                        <p>Icons</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="maps.html">
-                        <i class="pe-7s-map-marker"></i>
-                        <p>Maps</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="notifications.html">
-                        <i class="pe-7s-bell"></i>
-                        <p>Notifications</p>
                     </a>
                 </li>
 				<li class="active-pro">
@@ -314,17 +347,6 @@
                                         </a>
                                     </div>
                                 </div>
-                                <!--<div class="footer">
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Open
-                                        <i class="fa fa-circle text-danger"></i> Click
-                                        <i class="fa fa-circle text-warning"></i> Click Second Time
-                                    </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="fa fa-history"></i> Updated 3 minutes ago
-                                    </div>
-                                </div>-->
                             </div>
                         </div>
                     </div>
@@ -334,19 +356,60 @@
                         <div class="card ">
                             <div class="header">
                                 <h4 class="title">优秀宿舍展示</h4>
-                                <p class="category">The Show of Excellent Dorm</p>
+                                <p class="category">The Show of Excellent Dorm(每次将会挑选3间寝室进行展示)</p>
                             </div>
                             <div class="content">
-                                <div class="ct-chart"></div>
+                                <div class="ct-chart" style="height:326px; ">
+                                    <div id="carousel-example-generic1" class="carousel slide" data-ride="carousel">
+                                        <!-- Indicators -->
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#carousel-example-generic1" data-slide-to="0" class="active"></li>
+                                            <li data-target="#carousel-example-generic1" data-slide-to="1"></li>
+                                            <li data-target="#carousel-example-generic1" data-slide-to="2"></li>
+                                        </ol>
 
-                                <div class="footer">
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Tesla Model S
-                                        <i class="fa fa-circle text-danger"></i> BMW 5 Series
+                                        <!-- Wrapper for slides -->
+                                        <div class="carousel-inner" role="listbox">
+                                            <div class="item active">
+                                                <a name="edImga" href="javascript:void (0);">
+                                                    <img name="excellentDorm" style="width:695px;height: 323px;" src="" alt="...">
+                                                </a>
+                                                <div class="carousel-caption">
+                                                    ...
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <a name="edImga" href="javascript:void (0);">
+                                                    <img name="excellentDorm" style="width:695px;height: 323px;" src="" alt="...">
+                                                </a>
+                                                <div class="carousel-caption">
+                                                    ...
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <a name="edImga" href="javascript:void (0);">
+                                                    <img name="excellentDorm" style="width:695px;height: 323px;" src="" alt="...">
+                                                </a>
+                                                <div class="carousel-caption">
+                                                    ...
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Controls -->
+                                        <a class="left carousel-control" href="#carousel-example-generic1" role="button" data-slide="prev">
+                                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="right carousel-control" href="#carousel-example-generic1" role="button" data-slide="next">
+                                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
                                     </div>
+                                </div>
+                                <div class="footer">
                                     <hr>
                                     <div class="stats">
-                                        <i class="fa fa-check"></i> Data information certified
+                                        <i class="fa fa-check"></i> 点击图片查看详情
                                     </div>
                                 </div>
                             </div>
@@ -523,9 +586,6 @@
     <!--  Notifications Plugin    -->
     <script src="assets/js/bootstrap-notify.js"></script>
 
-    <!--  Google Maps Plugin    -->
-<!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
-
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 	<script src="assets/js/light-bootstrap-dashboard.js"></script>
 	<script src="assets/js/demo.js"></script>
@@ -535,9 +595,6 @@
         if (text != null && text !== ""){
             userInfo = JSON.parse(text);
         }
-        console.log("用户ID："+userInfo.id);
-        console.log("用户角色："+userInfo.role);
-        console.log("用户权限："+userInfo.permission);
         //刷新公告栏
         function h(){
             $.get("anou/findSix.do",function (respData) {
@@ -547,9 +604,6 @@
 
                     anou += '<tr>\n' +
 '                                                <td>\n' +
-'                                                    <label class="checkbox">\n' +
-'\n' +
-'                                                    </label>\n' +
 '                                                </td>\n' +
 '                                                <td><a href="'+anouList[i].content+'">'+anouList[i].title+'</a></td>\n' +
 '                                                <td>'+anouList[i].time+'</td>\n' +
@@ -601,10 +655,57 @@
                 $("#promptMsg").html("请提供管理员权限");
                 $("#prompt_Modal").modal('show');
             }
-
+        }
+        //将宿舍数据写入模态框并弹出展示
+        function fn1(id) {
+            var eds = JSON.parse(sessionStorage.getItem("edList"));
+            var ed = eds[id];
+            var edId = ed.id;
+            var dorm_id = ed.dorm_id;
+            $.get("dorm/findOne.do",{"dorm_id":dorm_id},function (resp) {
+                if (resp.flag){
+                    var dorm = resp.data;
+                    $("#myModalLabel1").text("观湖苑"+dorm.db_id+"栋"+dorm.dorm_number);
+                }
+            });
+            var imgs = ed.imgs.split(",");//返回字符串数组
+            var introduce = ed.introduce;
+            var s = $("a>img[name='edImgModal']");
+            for (var i = 0; i < s.length; i++) {
+                s.eq(i).prop("src",imgs[i])
+            }
+            $("#edIntroduce").text(introduce);
+            $("#edModal").modal('show');
+        }
+        //将请求得到的优秀宿舍的数据中的首张图片展示并给a标签绑定点击事件
+        function fn2(eds){
+            var edImgTags = $("a>img[name='excellentDorm']");
+            var edImgas = $("a[name='edImga']");
+            //首先拿到eds中图片地址的第一个
+            for (var i = 0; i < eds.length; i++) {
+                var imgs = eds[i].imgs;
+                var str = imgs.split(",");
+                edImgTags.eq(i).prop("src",str[0]);
+                edImgas.eq(i).attr("onclick","fn1("+i+")");
+            }
+        }
+        //请求得到优秀宿舍的数据并存入会话空间中
+        function fn3(){
+            var edStr = sessionStorage.getItem("edList");
+            var eds;
+            if (edStr!=null&&edStr!="") {
+                eds = JSON.parse(edStr);
+                fn2(eds);
+            }else {
+                $.get("eDorm/findAll.do",function (res) {
+                    var exceDormStr = JSON.stringify(res);
+                    sessionStorage.setItem("edList",exceDormStr);
+                    fn2(res);
+                });
+            }
         }
         //页面载入完成
-    	$(document).ready(function(){
+        $(document).ready(function(){
     	    h();
     	    //管理员调整公告信息
     	    $("#btn_anouSubmit").click(function () {
@@ -632,23 +733,19 @@
                     location.href = "login.html";
                 });
             });
+            fn3();
             //查询男女比例并将结果写入饼状图
             $.get("user/proportion.do",function (respData) {
                 var proportion = { male:respData.data.male,female:respData.data.female} ;
-                //g(proportion.male,proportion.female);
                 demo.initChartist(proportion.male,proportion.female);
             });
-
-
         	$.notify({
             	icon: 'pe-7s-gift',
             	message: "欢迎来到 <b>武汉商学院</b>宿舍后勤管理集团 - 专注为每一位商院人提供满意的服务."
-
             },{
                 type: 'info',
                 timer: 4000
             });
-
     	});
 	</script>
 

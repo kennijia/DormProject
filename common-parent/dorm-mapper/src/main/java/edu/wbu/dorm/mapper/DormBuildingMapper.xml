@@ -5,7 +5,7 @@
         select * from dorm_building
     </select>
     <insert id="insert" parameterType="dormBuilding">
-        insert into dorm_building values (#{id},#{type},#{floors},#{location},#{builtuptime},#{capacity})
+        insert into dorm_building values (#{id},#{type},#{floors},#{location},#{builtuptime},#{capacity},0)
     </insert>
     <select id="findById" parameterType="int" resultType="dormBuilding">
         select * from dorm_building where id = #{id}
@@ -33,4 +33,7 @@
         FROM dorm d,dorm_building db
         WHERE d.db_id = db.id AND db.type = #{type} AND d.occupy &lt; d.capacity;
     </select>
+    <update id="updateOccupy" parameterType="dormExt">
+        update dorm_building set occupy = #{number} where id = #{db_id}
+    </update>
 </mapper>

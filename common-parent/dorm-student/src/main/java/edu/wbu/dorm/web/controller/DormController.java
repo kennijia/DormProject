@@ -30,4 +30,20 @@ public class DormController {
         info.setData(dormService.findById(dorm_id));
         return info;
     }
+
+    @RequestMapping("/add")
+    public @ResponseBody ResultInfo add(String dbId,String dormNumber,String roomCapacity){
+        ResultInfo info = new ResultInfo(false);
+        if (dbId==null||dbId.equals("")||dormNumber==null||dormNumber.equals("")||roomCapacity==null||roomCapacity.equals(""))
+            return info;
+        int i = 0;
+        try {
+            i = dormService.addDorm(Integer.parseInt(dbId),Integer.parseInt(dormNumber),Integer.parseInt(roomCapacity));
+        } catch (NumberFormatException e) {
+            return info;
+        }
+        if (i>0)
+            info.setFlag(true);
+        return info;
+    }
 }

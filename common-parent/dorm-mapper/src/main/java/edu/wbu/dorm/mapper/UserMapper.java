@@ -34,5 +34,12 @@ public interface UserMapper extends BaseMapper<User> {
 
     List<User> findByRoleAndGenderAndDormId(User u);
 
+    /**
+     * 插入新用户
+     * @param u
+     * @return
+     */
+    int insertUser(User u);
+
 
 }

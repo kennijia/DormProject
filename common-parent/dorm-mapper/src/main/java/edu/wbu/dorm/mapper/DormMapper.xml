@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="edu.wbu.dorm.mapper.DormMapper" >
-    <select id="findByDbidAndDid" parameterType="dorm" resultType="dorm">
+    <select id="findByDbidAndDnumber" parameterType="dorm" resultType="dorm">
         select * from dorm where db_id = #{db_id} and dorm_number = #{dorm_number}
     </select>
     <update id="updateOccupy" parameterType="dorm">
@@ -16,4 +16,13 @@
     <select id="findEmptyDorm" parameterType="String" resultType="dorm">
         SELECT * from dorm where occupy &lt; capacity and dorm_gender = #{gender}
     </select>
+    <select id="findNumberByDbId" resultType="dormExt">
+        select count(*) as number,db_id
+        from dorm
+        where occupy > 0
+        GROUP BY db_id
+    </select>
+    <insert id="insertDorm" parameterType="dorm">
+        insert into dorm values (null,#{db_id},#{dorm_number},#{dorm_gender},#{capacity},0,null,null)
+    </insert>
 </mapper>

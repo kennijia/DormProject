@@ -8,4 +8,6 @@ import java.util.List;
 public interface AgainstService extends BaseService<Against> {
 
     List<Against> findByDormId(int dorm_id);
+
+    int submitAgainst(int dorm_id, String description, String punishment);
 }

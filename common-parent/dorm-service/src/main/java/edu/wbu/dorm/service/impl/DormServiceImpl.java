@@ -1,6 +1,7 @@
 package edu.wbu.dorm.service.impl;
 
 import edu.wbu.dorm.model.Dorm;
+import edu.wbu.dorm.model.DormBuilding;
 import edu.wbu.dorm.service.DormService;
 import edu.wbu.dorm.service.base.BaseServiceImpl;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,7 @@ public class DormServiceImpl extends BaseServiceImpl<Dorm> implements DormServic
 
     @Override
     public Boolean isAdd(int db_id, int dorm_number) {
-        Dorm dorm = dormMapper.findByDbidAndDid(new Dorm(db_id, dorm_number));
+        Dorm dorm = dormMapper.findByDbidAndDnumber(new Dorm(db_id, dorm_number));
         if (dorm==null)
             return false;//没有该宿舍
         if (dorm.getOccupy()<dorm.getCapacity())
@@ -35,6 +36,33 @@ public class DormServiceImpl extends BaseServiceImpl<Dorm> implements DormServic
             return true;//代表住在校外
         }
         return false;//代表住在校内
+    }
+
+    @Override
+    public int addDorm(int db_Id, int dorm_number, int capacity) {
+        int i = 0;
+        //先检验该宿舍楼是否存在
+        if (capacity<=0)
+            return i;
+        DormBuilding byId = dormBuildingMapper.findById(db_Id);
+        int type = byId.getType();
+        String gender =null;
+        if (type==1||type==3)
+            gender = "男";
+        if (type==2||type==4)
+            gender = "女";
+        if (byId!=null){
+            //再检验该编号在次宿舍楼中是否存在
+            Dorm d = dormMapper.findByDbidAndDnumber(new Dorm(db_Id, dorm_number));
+            if (d==null){
+                //此时可以安全添加
+                Dorm dorm = new Dorm(db_Id,dorm_number);
+                dorm.setCapacity(capacity);
+                dorm.setDorm_gender(gender);
+                i = dormMapper.insertDorm(dorm);
+            }
+        }
+        return i;
     }
 
 

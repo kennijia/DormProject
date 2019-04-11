@@ -2,6 +2,7 @@ package edu.wbu.dorm.mapper;
 
 import edu.wbu.dorm.mapper.base.BaseMapper;
 import edu.wbu.dorm.model.Dorm;
+import edu.wbu.dorm.model.DormExt;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ public interface DormMapper extends BaseMapper<Dorm> {
      * @param dorm
      * @return
      */
-    Dorm findByDbidAndDid(Dorm dorm);
+    Dorm findByDbidAndDnumber(Dorm dorm);
 
     /**
      * 根据宿舍id更新宿舍现住人数
@@ -33,5 +34,22 @@ public interface DormMapper extends BaseMapper<Dorm> {
      * @return
      */
     List<Dorm> findEmptyDorm(String gender);
+
+    /**
+     * 查找每个宿舍楼的已住人宿舍数量
+     * @return
+     */
+    List<DormExt> findNumberByDbId();
+
+    /**
+     * 添加新的宿舍
+     * @param d
+     * @return
+     */
+    int insertDorm(Dorm d);
+
+
+
+
 
 }

@@ -8,4 +8,6 @@ import java.util.List;
 public interface AgainstMapper extends BaseMapper<Against> {
 
     List<Against> findByDormId(int dorm_id);
+
+    int insert(Against a);
 }

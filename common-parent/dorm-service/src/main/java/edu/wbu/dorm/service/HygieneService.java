@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface HygieneService extends BaseService<Hygiene> {
     List<Hygiene> findByDormId(int dorm_id);
+
+    int submitHygiene(int dorm_id,String description,String comments);
 }

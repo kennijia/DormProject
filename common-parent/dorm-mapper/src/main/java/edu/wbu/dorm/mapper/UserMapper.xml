@@ -30,4 +30,7 @@
     <select id="findByRoleAndGenderAndDormId" parameterType="user" resultType="user">
         select id,name,dept from user where role = #{role} and gender = #{gender} and dorm_id = #{dorm_id}
     </select>
+    <insert id="insertUser" parameterType="user">
+        insert into user values (#{id},#{name},#{gender},#{age},#{dept},#{dorm_id},#{institute},#{password},#{role},#{email},#{homeAddress},#{entrancetime},#{headpic},#{aboutMe},#{permission})
+    </insert>
 </mapper>

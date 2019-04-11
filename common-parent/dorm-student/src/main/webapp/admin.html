@@ -30,7 +30,8 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
     <!--   Core JS Files   -->
-    <script src="assets/js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.form.js" type="text/javascript"></script>
     <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 
     <!--  Checkbox, Radio & Switch Plugins -->
@@ -41,9 +42,6 @@
 
     <!--  Notifications Plugin    -->
     <script src="assets/js/bootstrap-notify.js"></script>
-
-    <!--  Google Maps Plugin    -->
-    <!---<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>--->
 
     <!--wangeditor-->
     <script type="text/javascript" src="js/wangEditor.min.js"></script>
@@ -232,11 +230,8 @@
                     }
                     $("#repairList").html(repair);
                     var totalCount = resp.data.totalCount;
-                    console.log(totalCount);
                     var totalPage = resp.data.totalPage;
-                    console.log(totalPage);
                     var curPage = resp.data.currentPage;
-                    console.log(curPage);
                     var back = curPage-1;
                     var next = curPage+1;
                     if (next > totalPage) {
@@ -333,12 +328,115 @@
                 }
             })
         }
+        //查询拥有的宿舍楼
+        function findDormBuildings(){
+            var dbsStr = sessionStorage.getItem("dbs");
+            var dbs;
+            if (dbsStr!=null&&dbsStr!=""){
+                dbs = JSON.parse(dbsStr);
+                fn1(dbs);
+                k(dbs);
+            } else {
+                $.get("db/findAll.do",function (resDbs) {
+                    var resDbsStr = JSON.stringify(resDbs);
+                    sessionStorage.setItem("dbs",resDbsStr);
+                    dbs = resDbs;
+                    fn1(dbs);
+                    k(dbs);
+                });
+            }
+        }
+        //将宿舍楼信息写入select
+        function fn1(dbs) {
+            var dormBuilding='';
+            for (var i = 0;i<dbs.length;i++){
+                dormBuilding +='<option value="'+dbs[i].id+'">观湖苑'+dbs[i].id+'</option>';
+            }
+            $("#db_id").html(dormBuilding);
+            $("#db_id1").html(dormBuilding);
+            $("#dbId").html(dormBuilding);
+            $("#ed_dbId").html(dormBuilding);
+        }
+        //查询对应宿舍楼中的宿舍
+        function findDroms(dbId,behaviorId){
+            $.get("dorm/findAll.do",{"db_id":dbId},function (dorms) {
+                var dorm = '';
+                for (var i = 0; i < dorms.length; i++) {
+                    dorm +='<option value="'+dorms[i].id+'">'+dorms[i].dorm_number+'</option>';
+                }
+                if (behaviorId==1)
+                    $("#ed_dormId").html(dorm);
+                if (behaviorId == 2)
+                    $("#dorm_number").html(dorm);
+                if (behaviorId == 3)
+                    $("#dorm_number1").html(dorm);
+            })
+        }
+        //展示宿舍楼信息
+        function k(dbs){
+            var dormBuilding='';
+            for (var i = 0;i<dbs.length;i++){
+                var j = i+1;
+                if (dbs[i].type==1)
+                    dbs[i].type = '男学生宿舍';
+                if (dbs[i].type==2)
+                    dbs[i].type = '女学生宿舍';
+                if (dbs[i].type==3)
+                    dbs[i].type = '男教工宿舍';
+                if (dbs[i].type==4)
+                    dbs[i].type = '女教工宿舍';
+                dormBuilding += '<tr>\n' +
+                    '                <td>'+j+'</td>\n' +
+                    '                <td>观湖苑'+dbs[i].id+'</td>\n' +
+                    '                <td>'+dbs[i].type+'</td>\n' +
+                    '                <td>'+dbs[i].occupy+'</td>\n' +
+                    '                <td>'+dbs[i].capacity+'</td>\n' +
+                    '                <td>'+dbs[i].location+'</td>\n' +
+                    '                <td>'+dbs[i].builtuptime+'</td>\n' +
+                    '                <td>删除</td>\n' +
+                    '                </tr>';
+            }
+            $("#dbList").html(dormBuilding);
+        }
+        //获取优秀宿舍模块数据并上传
+        function fn4(){
+            var options ={
+                url:"eDorm/add.do",
+                type:"post",
+                beforeSubmit:function(formData){
+                    console.log(formData);
+                    console.log(formData[4].value);
+                    var p = $("#seeDiv");
+                    var pshow = $("#adminSeeModal");
+                    var txtName = formData[4].value;
+                    var txtReg = /\.txt$/;
+                    if (!txtReg.test(txtName)) {
+                        p.html("请选择txt文件");
+                        pshow.modal('show');
+                        return false;
+                    }
+                },
+                success:function(resp){
+                    var res = JSON.parse(resp);
+                    if (res.flag){
+                        sessionStorage.removeItem("edList");
+                        alert("提交成功！");
+                    } else {
+                        alert("提交失败！");
+                    }
+                },
+                dataType:"application/json",
+                clearForm:true
+            };
+            $("#edForm").ajaxSubmit(options);
+        }
         //入口函数
         $(function () {
             if (userInfo!=null&&userInfo.permission>0){
                 e(1);
                 j(1);
                 undistribution();
+                findDormBuildings();
             }else{
                 $("#adminContent").html("您还不是管理员，无权访问。")
             }
@@ -370,8 +468,41 @@
                 }
             };
             editor.create();
-            <!-- 至此，wangEditor加载完毕。-->
-
+            <!-- wangEditor加载完毕。-->
+            //卫生详情添加
+            $("#btn3").click(function () {
+                var dorm_id = $("#dorm_number").val();
+                var description = $("#description").val();
+                var comments = $("#comments").val();
+                var p = $("#seeDiv");
+                var pshow = $("#adminSeeModal");
+                $.post("hygiene/insert.do",{"dorm_idStr":dorm_id,"description":description,"comments":comments},function (resp) {
+                    if (resp.flag){
+                        p.html("提交成功。");
+                        pshow.modal('show');
+                    } else {
+                        p.html("提交失败。");
+                        pshow.modal('show');
+                    }
+                });
+            });
+            //违纪记录添加
+            $("#btn4").click(function () {
+                var dorm_id = $("#dorm_number1").val();
+                var description = $("#description1").val();
+                var punishment = $("#punishment").val();
+                var p = $("#seeDiv");
+                var pshow = $("#adminSeeModal");
+                $.post("against/insert.do",{"dorm_idStr":dorm_id,"description":description,"punishment":punishment},function (resp) {
+                    if (resp.flag){
+                        p.html("提交成功。");
+                        pshow.modal('show');
+                    } else {
+                        p.html("提交失败。");
+                        pshow.modal('show');
+                    }
+                });
+            });
             //获取wangeditor的html内容
             $("#btn1").click(function () {
                 var title = $("#title").val();
@@ -388,7 +519,6 @@
                     $("#seeDiv").html("标题和内容均不能为空。");
                     $("#adminSeeModal").modal('show');
                 }
-
             });
             $("#btn2").click(function () {
                 $.get("user/distribution.do",{"uid":userInfo.id},function (resp) {
@@ -397,10 +527,89 @@
                         $("#seeDiv").html("全部分配成功。");
                         $("#adminSeeModal").modal('show');
                     } else{
-                        $("#seeDiv").html("未能全部分配，可能原因:宿舍数量不足，请添加房源。");
+                        $("#seeDiv").html("未能全部分配，可能原因:宿舍数量不足");
                         $("#adminSeeModal").modal('show');
                     }
                 })
+            });
+            $("#uid1").val(userInfo.id);
+            $("#uid2").val(userInfo.id);
+            $("#excelForm").submit(function () {
+                var uid = userInfo.id;
+                var excelFile = $("#excelFile").val();
+                var a = document.getElementById("excelFile");
+                var suffix = excelFile.split(".")[1];
+                var p = $("#seeDiv");
+                var pshow = $("#adminSeeModal");
+                if (excelFile!=null&&'xlsx'==suffix){
+                    var params = new FormData();
+                    params.append("uid",uid);
+                    params.append("excelFile",a.files[0]);
+                    $.ajax({
+                        type:"post",
+                        url:"user/uploadExcel.do",
+                        data:params,
+                        contentType:false,
+                        processData:false,
+                        mimeType:"multipart/form-data",
+                        success:function (resp) {
+                            var res = JSON.parse(resp);
+                            if (res.flag){
+                                p.html("提交成功。");
+                                pshow.modal('show');
+                            } else{
+                                p.html("提交失败。");
+                                pshow.modal('show');
+                            }
+                        }
+                    });
+                }else{
+                    p.html("请选择xlsx文件。");
+                    pshow.modal('show');
+                }
+                return false;
+            });
+            //宿舍楼添加
+            $("#dbForm").submit(function () {
+                var p = $("#seeDiv");
+                var pshow = $("#adminSeeModal");
+                var dateReg = /^[0-9]{4}\/[0-9]{2}\/[0-9]{2}$/;
+                if (dateReg.test($("#builtuptime").val())){
+                    $.post("db/add.do",$("#dbForm").serialize(),function (res) {
+                        if (res.flag){
+                            p.html("新宿舍楼添加成功。");
+                            pshow.modal('show');
+                            //移除sessionStorage中的dbs
+                            sessionStorage.removeItem("dbs");
+                            findDormBuildings();
+                        }else{
+                            p.html("新宿舍楼添加失败，请检查数据格式。");
+                            pshow.modal('show');
+                        }
+                    });
+                }else{
+                    p.html("新宿舍楼添加失败，请检查数据格式。");
+                    pshow.modal('show');
+                }
+                return false;
+            });
+            //宿舍添加
+            $("#dormForm").submit(function () {
+                $.post("dorm/add.do",$("#dormForm").serialize(),function (res) {
+                    if (res.flag){
+                        $("#seeDiv").html("宿舍添加成功。");
+                        $("#adminSeeModal").modal('show');
+                    }else {
+                        $("#seeDiv").html("宿舍添加失败，请检查数据格式。");
+                        $("#adminSeeModal").modal('show');
+                    }
+                });
+                return false;
+            });
+            //优秀宿舍数据上传表单提交事件
+            $("#edForm").submit(function () {
+                fn4();
+                return false;
             });
             //用户退出
             $("#btn_logout").click(function () {
@@ -505,30 +714,6 @@
                         <p>管理员</p>
                     </a>
                 </li>
-                <li>
-                    <a href="typography.html">
-                        <i class="pe-7s-news-paper"></i>
-                        <p>Typography</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="icons.html">
-                        <i class="pe-7s-science"></i>
-                        <p>Icons</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="maps.html">
-                        <i class="pe-7s-map-marker"></i>
-                        <p>Maps</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="notifications.html">
-                        <i class="pe-7s-bell"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
                 <li class="active-pro">
                     <a href="upgrade.html">
                         <i class="pe-7s-rocket"></i>
@@ -613,13 +798,22 @@
                                     <a href="#panel-669060" data-toggle="tab">公告发布</a>
                                 </li>
                                 <li>
+                                    <a href="#panel-123" data-toggle="tab">宿舍分配</a>
+                                </li>
+                                <li>
                                     <a href="#panel-669069" data-toggle="tab">优秀宿舍</a>
                                 </li>
                                 <li>
-                                    <a href="#panel-123" data-toggle="tab">宿舍自动分配</a>
+                                    <a href="#panel-124758" data-toggle="tab">添加用户</a>
                                 </li>
                                 <li>
-                                    <a href="#panel-124758" data-toggle="tab">添加分配用户</a>
+                                    <a href="#panel-957" data-toggle="tab">卫生检查</a>
+                                </li>
+                                <li>
+                                    <a href="#panel-9575" data-toggle="tab">宿舍违纪</a>
+                                </li>
+                                <li>
+                                    <a href="#panel-9576" data-toggle="tab">房源管理</a>
                                 </li>
                             </ul>
                             <div class="tab-content">
@@ -698,15 +892,6 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="tab-pane" id="panel-669069">
-                                    <div class="col-md-12">
-                                        <div class="card card-plain">
-                                            <div class="content table-responsive table-full-width">
-                                                xxxxxxxxxx
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="tab-pane" id="panel-123">
                                     <div class="col-md-12">
                                         <div class="card card-plain">
@@ -733,13 +918,296 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="tab-pane" id="panel-669069">
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-6">
+                                            <form id="edForm">
+                                                <div class="form-group has-feedback" hidden>
+                                                    <label class="control-label" for="uid2">用户id</label>
+                                                    <input id="uid2" class="form-control" name="uid" type="text">
+                                                </div>
+                                                <div class="form-group has-feedback">
+                                                    <label class="control-label" for="edId">请选择修改位置</label>
+                                                    <select id="edId" class="form-control" name="edId">
+                                                        <option value="1">优秀宿舍1</option>
+                                                        <option value="2">优秀宿舍2</option>
+                                                        <option value="3">优秀宿舍3</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group has-feedback">
+                                                    <label class="control-label" for="ed_dbId">请选择宿舍楼</label>
+                                                    <select id="ed_dbId" class="form-control" onchange="findDroms($(this).val(),1)">
+
+                                                    </select>
+                                                </div>
+                                                <div class="form-group has-feedback">
+                                                    <label class="control-label" for="ed_dormId">请选择宿舍</label>
+                                                    <select id="ed_dormId" class="form-control" name="ed_dormId">
+
+                                                    </select>
+                                                </div>
+                                                <div class="form-group has-feedback">
+                                                    <label class="control-label" for="ed_imgs">请选择3张展示图片</label>
+                                                    <input id="ed_imgs" class="form-control" name="ed_imgs" type="file" accept="image/jpeg,image/png,image/gif" multiple="multiple">
+                                                </div>
+                                                <div class="form-group has-feedback">
+                                                    <label class="control-label" for="ed_introduce">简介(请选择txt文件)</label>
+                                                    <input id="ed_introduce" name="ed_introduce" class="form-control" type="file">
+                                                </div>
+                                                <div class="form-group has-feedback">
+                                                    <button id="ed_btn" class="btn btn-primary" type="submit">确认提交</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="col-md-3"></div>
+                                    </div>
+                                </div>
                                 <div class="tab-pane" id="panel-124758">
-                                    <div class="col-md-12">
-                                        <div class="card card-plain">
-                                            <div class="content table-responsive table-full-width">
-                                                zzzzzzzzzzzz
+                                    <div class="row">
+                                        <div class="clo-md-12">
+                                            <div class="header" style="margin-left: 30px;">
+                                                <h4 class="title">单用户添加：</h4>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-6">
+                                            <form id="infoForm">
+                                                <div class="form-group has-feedback">
+                                                    <label class="control-label" for="uid">学号/工号</label>
+                                                    <input type="text" class="form-control" id="uid" placeholder="请输入学号/工号">
+                                                </div>
+                                                <div class="form-group has-feedback" >
+                                                    <label class="control-label" for="name">姓名</label>
+                                                    <input type="text" class="form-control" id="name" placeholder="请输入姓名">
+                                                </div>
+                                                <div class="form-group has-feedback" >
+                                                    <label class="control-label" for="age">年龄</label>
+                                                    <input type="text" class="form-control" id="age" placeholder="请输入年龄">
+                                                </div>
+                                                <div class="form-group has-feedback" >
+                                                    <label class="control-label" for="gender">性别</label>
+                                                    <input type="text" class="form-control" id="gender" placeholder="请输入性别">
+                                                </div>
+                                                <div class="form-group has-feedback" >
+                                                    <label class="control-label" for="permission">权限</label>
+                                                    <input type="text" class="form-control" id="permission" placeholder="请输入0或者1，未输入则默认为0">
+                                                </div>
+                                                <div class="form-group has-feedback" >
+                                                    <label class="control-label" for="role">身份</label>
+                                                    <input type="text" class="form-control" id="role" placeholder="请输入0或者1，0代表学生，1代表教职工">
+                                                </div>
+                                                <div class="form-group has-feedback" >
+                                                    <label class="control-label" for="password">密码</label>
+                                                    <input type="text" class="form-control" id="password" placeholder="请输入密码">
+                                                </div>
+                                                <button id="btn_infoSubmit" type="submit" class="btn btn-warning btn-block">提交</button>
+                                            </form>
+                                        </div>
+                                        <div class="col-md-3"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="clo-md-12">
+                                            <div class="header" style="margin-left: 30px;">
+                                                <h4 class="title">多用户添加：</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-6">
+                                            <form id="excelForm">
+                                                <div class="form-group has-feedback" hidden>
+                                                    <label class="control-label" for="uid1">管理员id</label>
+                                                    <input type="text" class="form-control" id="uid1" name="uid">
+                                                </div>
+                                                <div class="form-group has-feedback">
+                                                        <label class="control-label" for="excelFile">添加Excel文件(xlsx)</label>
+                                                        <input type="file" class="form-control" id="excelFile" name="excelFile">
+                                                </div>
+                                                <button type="submit" class="btn btn-warning btn-block">确认提交</button>
+                                            </form>
+                                        </div>
+                                        <div class="col-md-3"></div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="panel-957">
+                                    <div class="row">
+                                            <div class="col-md-3">
+                                                <label for="db_id">单元楼</label>
+                                                <select onchange="findDroms($(this).val(),2)" id="db_id" class="form-control">
+
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="dorm_number">宿舍编号</label>
+                                                <select id="dorm_number" class="form-control">
+                                                    <option value=""></option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6"></div>
+                                        </div>
+                                    <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="description">该宿舍卫生情况</label>
+                                                <textarea class="form-control" id="description" style="resize: vertical;min-height: 150px;max-height: 250px;"></textarea>
+                                            </div>
+                                            <div class="col-md-6"></div>
+                                        </div>
+                                    <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="description">宿管会评价</label>
+                                                <textarea class="form-control" id="comments" style="resize: vertical;min-height: 150px;max-height: 250px;"></textarea>
+                                            </div>
+                                            <div class="col-md-6"></div>
+                                        </div>
+                                    <div class="row" style="margin-top: 2px;">
+                                            <div class="col-md-2">
+                                                <button id="btn3" type="button" class="btn btn-primary">提交</button>
+                                            </div>
+                                            <div class="col-md-10"></div>
+                                        </div>
+                                </div>
+                                <div class="tab-pane" id="panel-9575">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="db_id1">单元楼</label>
+                                            <select onchange="findDroms($(this).val(),3)" id="db_id1" class="form-control">
+
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="dorm_number1">宿舍编号</label>
+                                            <select id="dorm_number1" class="form-control">
+
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="punishment">处罚种类</label>
+                                            <input id="punishment" class="form-control">
+                                        </div>
+                                        <div class="col-md-6"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="description">该宿舍违纪情况</label>
+                                            <textarea class="form-control" id="description1" style="resize: vertical;min-height: 150px;max-height: 250px;"></textarea>
+                                        </div>
+                                        <div class="col-md-6"></div>
+                                    </div>
+                                    <div class="row" style="margin-top: 2px;">
+                                        <div class="col-md-2">
+                                            <button id="btn4" type="button" class="btn btn-primary">提交</button>
+                                        </div>
+                                        <div class="col-md-10"></div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="panel-9576">
+                                    <div class="col-md-12">
+                                        <div class="card card-plain">
+                                            <div class="header">
+                                                <h4 class="title">目前拥有以下宿舍楼房</h4>
+                                                <p class="category">...</p>
+                                            </div>
+                                            <div class="content table-responsive table-full-width">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                    <th>序号</th>
+                                                    <th>名称</th>
+                                                    <th>类型</th>
+                                                    <th>被使用房间数</th>
+                                                    <th>共有房间数</th>
+                                                    <th>地址</th>
+                                                    <th>建成日期</th>
+                                                    <th>操作</th>
+                                                    </thead>
+                                                    <tbody id="dbList">
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="clo-md-12">
+                                            <div class="header" style="margin-left: 30px;">
+                                                <h4 class="title">宿舍楼添加：</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-6">
+                                            <form id="dbForm">
+                                                <div class="form-group has-feedback">
+                                                    <label class="control-label" for="location">地址</label>
+                                                    <input type="text" class="form-control" name="location" id="location" placeholder="例如：湖北省武汉市东风大道001号">
+                                                </div>
+                                                <div class="form-group has-feedback" >
+                                                    <label class="control-label" for="roomNumber">共有房间</label>
+                                                    <input type="text" class="form-control" name="roomNumber" id="roomNumber" placeholder="请输入该栋楼的宿舍数量">
+                                                </div>
+                                                <div class="form-group has-feedback" >
+                                                    <label class="control-label" for="builtuptime">建成日期</label>
+                                                    <input type="date" class="form-control" name="builtuptime" id="builtuptime" placeholder="例如：2010/08/21">
+                                                </div>
+                                                <div class="form-group has-feedback" >
+                                                    <label class="control-label" for="dbType">类型</label>
+                                                    <select id="dbType" class="form-control" name="dbType">
+                                                        <option value="1">男学生宿舍</option>
+                                                        <option value="2">女学生宿舍</option>
+                                                        <option value="3">男教工宿舍</option>
+                                                        <option value="4">女教工宿舍</option>
+                                                    </select>
+                                                </div>
+                                                <button id="btn_dbSubmit" type="submit" class="btn btn-primary">提交</button>
+                                            </form>
+                                        </div>
+                                        <div class="col-md-3"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="clo-md-12">
+                                            <div class="header" style="margin-left: 30px;">
+                                                <h4 class="title">宿舍添加：</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-6">
+                                            <form id="dormForm">
+                                                <div class="form-group has-feedback">
+                                                    <label class="control-label" for="dbId">请选择宿舍楼</label>
+                                                    <select id="dbId" class="form-control" name="dbId">
+
+                                                    </select>
+                                                </div>
+                                                <div class="form-group has-feedback">
+                                                    <label class="control-label" for="dormNumber">编号</label>
+                                                    <input type="text" class="form-control" name="dormNumber" id="dormNumber" placeholder="请输入宿舍编号">
+                                                </div>
+                                                <div class="form-group has-feedback" >
+                                                    <label class="control-label" for="roomCapacity">可住人数</label>
+                                                    <input type="text" class="form-control" name="roomCapacity" id="roomCapacity" placeholder="请输入该宿舍能住多少人">
+                                                </div>
+                                                <button id="btn_dormSubmit" type="submit" class="btn btn-primary">提交</button>
+                                            </form>
+                                        </div>
+                                        <div class="col-md-3"></div>
                                     </div>
                                 </div>
                             </div>

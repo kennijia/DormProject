@@ -31,4 +31,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 
     @Autowired
     protected AnnouncementMappper anouMapper;
+
+    @Autowired
+    protected ExcellentDormMapper excellentDormMapper;
 }
