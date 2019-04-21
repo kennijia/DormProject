@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="dorm-annotation" />
         <module name="dorm-api" />
         <module name="dorm-mapper" />
         <module name="dorm-model" />
@@ -16,6 +17,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
       <module name="common-parent" target="1.8" />
+      <module name="dorm-annotation" target="1.8" />
       <module name="dorm-api" target="1.8" />
       <module name="dorm-mapper" target="1.8" />
       <module name="dorm-model" target="1.8" />

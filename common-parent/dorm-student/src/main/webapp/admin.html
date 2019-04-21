@@ -49,6 +49,7 @@
     <script src="assets/js/light-bootstrap-dashboard.js"></script>
     <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
     <script src="assets/js/demo.js"></script>
+    <script src="js/common.js"></script>
     <script>
         var text = sessionStorage.getItem("userInfo");
         var userInfo = {id:0,role:0,permission:0};
@@ -57,7 +58,7 @@
         }
         //查看该条宿舍调换申请的理由
         function g(daId) {
-            $.get("da/findById.do",{"daIdStr":daId},function (respData) {
+            $.get("/da/findById.do",{"daIdStr":daId},function (respData) {
                 if (respData.flag) {
                     $("#seeDiv").html(respData.data.reason);
                     $("#adminSeeModal").modal('show');
@@ -66,7 +67,7 @@
         }
         //查看该条报修申请的损坏情况描述
         function h(repairId) {
-            $.get("repair/findOne.do",{"uid":userInfo.id,"ridStr":repairId},function (respData) {
+            $.get("/repair/findOne.do",{"uid":userInfo.id,"ridStr":repairId},function (respData) {
                 if (respData.flag) {
                     $("#seeDiv").html(respData.data);
                     $("#adminSeeModal").modal('show');
@@ -75,7 +76,7 @@
         }
         //宿舍调换驳回
         function refuse(daId,curPage) {
-            $.get("da/refuse.do",{"uid":userInfo.id,"daIdStr":daId},function (respData) {
+            $.get("/da/refuse.do",{"uid":userInfo.id,"daIdStr":daId},function (respData) {
                 if (respData.flag){
                     //驳回成功刷新列表
                     $("#seeDiv").html("操作成功。");
@@ -89,7 +90,7 @@
         }
         //宿舍调换同意
         function agree(daId,curPage) {
-            $.get("da/agree.do",{"uid":userInfo.id,"daIdStr":daId},function (respData) {
+            $.get("/da/agree.do",{"uid":userInfo.id,"daIdStr":daId},function (respData) {
                 if (respData.flag){
                     //同意成功刷新列表
                     $("#seeDiv").html("操作成功。");
@@ -103,7 +104,7 @@
         }
         //刷新宿舍调换申请列表并分页
         function e(currentPage){
-            $.get("da/find.do",{"currentPageStr":currentPage},function (resp) {
+            $.get("/da/find.do",{"currentPageStr":currentPage},function (resp) {
                 if (resp.flag){
                     var daList = resp.data.info;
                     var da = "";
@@ -191,7 +192,7 @@
         }
         //报修派人
         function repair(rid, curPage) {
-            $.get("repair/send.do",{"uid":userInfo.id,"ridStr":rid},function (respData) {
+            $.get("/repair/send.do",{"uid":userInfo.id,"ridStr":rid},function (respData) {
                 if (respData.flag){
                     $("#seeDiv").html("操作成功。");
                     $("#adminSeeModal").modal('show');
@@ -204,7 +205,7 @@
         }
         //刷新报修申请列表
         function j(currentPage){
-            $.get("repair/adminFind.do",{"currentPageStr":currentPage},function (resp) {
+            $.get("/repair/adminFind.do",{"currentPageStr":currentPage},function (resp) {
                 if (resp.flag){
                     var repairList = resp.data.info;
                     var repair = "";
@@ -293,7 +294,7 @@
         function queryDetail(behaviorId) {
             var modal1 = $("#bigModal");
             var content1 = $("#content-un-distrobution");
-            $.get("user/queryDetail.do",{"uid":userInfo.id,"behaviorId":behaviorId},function (resp) {
+            $.get("/user/queryDetail.do",{"uid":userInfo.id,"behaviorId":behaviorId},function (resp) {
                 if (resp.flag){
                     var list = resp.data;
                     var listStr = "";
@@ -313,7 +314,7 @@
         }
         //未分配宿舍人数统计
         function undistribution(){
-            $.get("user/count.do",{"uid":userInfo.id},function (resp) {
+            $.get("/user/count.do",{"uid":userInfo.id},function (resp) {
                 if (resp.flag){
                     var k = "";
                     var map = resp.data;
@@ -337,7 +338,7 @@
                 fn1(dbs);
                 k(dbs);
             } else {
-                $.get("db/findAll.do",function (resDbs) {
+                $.get("/db/findAll.do",function (resDbs) {
                     var resDbsStr = JSON.stringify(resDbs);
                     sessionStorage.setItem("dbs",resDbsStr);
                     dbs = resDbs;
@@ -359,7 +360,7 @@
         }
         //查询对应宿舍楼中的宿舍
         function findDroms(dbId,behaviorId){
-            $.get("dorm/findAll.do",{"db_id":dbId},function (dorms) {
+            $.get("/dorm/findAll.do",{"db_id":dbId},function (dorms) {
                 var dorm = '';
                 for (var i = 0; i < dorms.length; i++) {
                     dorm +='<option value="'+dorms[i].id+'">'+dorms[i].dorm_number+'</option>';
@@ -401,7 +402,7 @@
         //获取优秀宿舍模块数据并上传
         function fn4(){
             var options ={
-                url:"eDorm/add.do",
+                url:"/eDorm/add.do",
                 type:"post",
                 beforeSubmit:function(formData){
                     console.log(formData);
@@ -430,16 +431,8 @@
             };
             $("#edForm").ajaxSubmit(options);
         }
-        //入口函数
-        $(function () {
-            if (userInfo!=null&&userInfo.permission>0){
-                e(1);
-                j(1);
-                undistribution();
-                findDormBuildings();
-            }else{
-                $("#adminContent").html("您还不是管理员，无权访问。")
-            }
+        //wangEditor加载
+        function wangE() {
             var E = window.wangEditor;
             var editor = new E('#wangEditor');
             //开启debug模式
@@ -449,10 +442,10 @@
             // 忽略粘贴内容中的图片
             editor.customConfig.pasteIgnoreImg = true;
             editor.customConfig.uploadFileName = 'anouImg'; //设置文件上传的参数名称
-            editor.customConfig.uploadImgServer = 'anou/imgUpload.do'; //设置上传文件的服务器路径
+            editor.customConfig.uploadImgServer = '/anou/imgUpload.do'; //设置上传文件的服务器路径
             editor.customConfig.uploadImgHooks = {
                 before : function(xhr, editor, files) {
-
+                    xhr.setRequestHeader("Authorization",localStorage.getItem("access-token"))
                 },
                 success : function(xhr, editor, result) {
                     console.log("上传成功");
@@ -468,7 +461,42 @@
                 }
             };
             editor.create();
-            <!-- wangEditor加载完毕。-->
+            <!-- wangEditor加载完毕 -->
+            //获取wangeditor的html内容
+            $("#btn1").click(function () {
+                var title = $("#title").val();
+                var html = editor.txt.html();
+                if (title != null && title != "" && html != null && html != "") {
+                    $.post("/anou/publish.do",{"uid":userInfo.id,"title":title,"html":html},function (resp) {
+                        if (resp.flag){
+                            alert("发布成功")
+                        } else {
+                            alert("提交失败")
+                        }
+                    });
+                }else {
+                    $("#seeDiv").html("标题和内容均不能为空。");
+                    $("#adminSeeModal").modal('show');
+                }
+            });
+        }
+        //ajax全局事件
+        function onSend(event,xhr,settings){
+            xhr.setRequestHeader("Authorization",localStorage.getItem("access-token"))
+        }
+        $(document).ajaxSend(onSend);
+        //入口函数
+        $(function () {
+            if (userInfo!=null&&userInfo.permission>0){
+                e(1);
+                j(1);
+                undistribution();
+                findDormBuildings();
+                wangE();
+            }else{
+                $("#adminContent").html("您还不是管理员，无权访问。")
+            }
+
             //卫生详情添加
             $("#btn3").click(function () {
                 var dorm_id = $("#dorm_number").val();
@@ -476,7 +504,7 @@
                 var comments = $("#comments").val();
                 var p = $("#seeDiv");
                 var pshow = $("#adminSeeModal");
-                $.post("hygiene/insert.do",{"dorm_idStr":dorm_id,"description":description,"comments":comments},function (resp) {
+                $.post("/hygiene/insert.do",{"dorm_idStr":dorm_id,"description":description,"comments":comments},function (resp) {
                     if (resp.flag){
                         p.html("提交成功。");
                         pshow.modal('show');
@@ -493,7 +521,7 @@
                 var punishment = $("#punishment").val();
                 var p = $("#seeDiv");
                 var pshow = $("#adminSeeModal");
-                $.post("against/insert.do",{"dorm_idStr":dorm_id,"description":description,"punishment":punishment},function (resp) {
+                $.post("/against/insert.do",{"dorm_idStr":dorm_id,"description":description,"punishment":punishment},function (resp) {
                     if (resp.flag){
                         p.html("提交成功。");
                         pshow.modal('show');
@@ -503,25 +531,9 @@
                     }
                 });
             });
-            //获取wangeditor的html内容
-            $("#btn1").click(function () {
-                var title = $("#title").val();
-                var html = editor.txt.html();
-                if (title != null && title != "" && html != null && html != "") {
-                    $.post("anou/publish.do",{"uid":userInfo.id,"title":title,"html":html},function (resp) {
-                        if (resp.flag){
-                            alert("发布成功")
-                        } else {
-                            alert("提交失败")
-                        }
-                    });
-                }else {
-                    $("#seeDiv").html("标题和内容均不能为空。");
-                    $("#adminSeeModal").modal('show');
-                }
-            });
+
             $("#btn2").click(function () {
-                $.get("user/distribution.do",{"uid":userInfo.id},function (resp) {
+                $.get("/user/distribution.do",{"uid":userInfo.id},function (resp) {
                     if (resp.flag){
                         //全部分配完毕
                         $("#seeDiv").html("全部分配成功。");
@@ -547,7 +559,7 @@
                     params.append("excelFile",a.files[0]);
                     $.ajax({
                         type:"post",
-                        url:"user/uploadExcel.do",
+                        url:"/user/uploadExcel.do",
                         data:params,
                         contentType:false,
                         processData:false,
@@ -575,7 +587,7 @@
                 var pshow = $("#adminSeeModal");
                 var dateReg = /^[0-9]{4}\/[0-9]{2}\/[0-9]{2}$/;
                 if (dateReg.test($("#builtuptime").val())){
-                    $.post("db/add.do",$("#dbForm").serialize(),function (res) {
+                    $.post("/db/add.do",$("#dbForm").serialize(),function (res) {
                         if (res.flag){
                             p.html("新宿舍楼添加成功。");
                             pshow.modal('show');
@@ -595,7 +607,7 @@
             });
             //宿舍添加
             $("#dormForm").submit(function () {
-                $.post("dorm/add.do",$("#dormForm").serialize(),function (res) {
+                $.post("/dorm/add.do",$("#dormForm").serialize(),function (res) {
                     if (res.flag){
                         $("#seeDiv").html("宿舍添加成功。");
                         $("#adminSeeModal").modal('show');
@@ -610,13 +622,6 @@
             $("#edForm").submit(function () {
                 fn4();
                 return false;
-            });
-            //用户退出
-            $("#btn_logout").click(function () {
-                sessionStorage.removeItem("userInfo");
-                $.get("user/logout.do",{},function (r) {
-                    location.href = "login.html";
-                });
             });
         });
     </script>
@@ -1016,7 +1021,10 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-3"></div>
+                                        <div class="col-md-3">
+                                            <p>请按照下载的xlsx文件的格式填写</p>
+                                            <a href="/download/user.xlsx">点击这里下载模板xlxs文件</a>
+                                        </div>
                                         <div class="col-md-6">
                                             <form id="excelForm">
                                                 <div class="form-group has-feedback" hidden>

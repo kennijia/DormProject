@@ -14,7 +14,7 @@ public class JwtUtil {
 
     public static String SECRET = "dsahdasdkjfd7236487ydys7s77f67sdf";
 
-    public static String createToken(String uid,int role){
+    public static String createToken(String uid,int role,int permission){
         long nowTime = System.currentTimeMillis();
         long expiresTime = nowTime + 1000*3600*2;
         Map<String ,Object> map = new HashMap<>();
@@ -24,6 +24,7 @@ public class JwtUtil {
                 .withHeader(map)
                 .withClaim("uid",uid)
                 .withClaim("role",role)
+                .withClaim("permission",permission)
                 .withExpiresAt(new Date(expiresTime))
                 .withIssuedAt(new Date(nowTime))
                 .sign(Algorithm.HMAC256(SECRET));
@@ -38,7 +39,7 @@ public class JwtUtil {
     }
 
     public static void main(String[] args) {
-        String token = createToken("150576008",0);
+        String token = createToken("150576008",0,1);
         System.out.println(token);
         /*Map<String,Claim> map = verifyToken(token);
         System.out.println(map.get("uid").asString());

@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Transactional
@@ -30,14 +31,13 @@ public class ExcellentDormServiceImpl extends BaseServiceImpl<ExcellentDorm> imp
         try {
             for (MultipartFile f: ed_imgs){
                 String suffix = f.getOriginalFilename().split("\\.")[1];
-                System.out.println(suffix);
-                String newImgName = System.currentTimeMillis()+"."+suffix;
+                String newImgName = System.currentTimeMillis()+ UUID.randomUUID().toString()+ "."+suffix;
                 String totalPath = savePath+"/"+newImgName;
                 FileCopyUtils.copy(f.getInputStream(),new FileOutputStream(new File(totalPath)));
                 totalImgs.append("image/excellentDormImg/"+newImgName+",");
             }
             //处理上传的文本
-            BufferedReader bf = new BufferedReader(new InputStreamReader(ed_introduce.getInputStream()));
+            BufferedReader bf = new BufferedReader(new InputStreamReader(ed_introduce.getInputStream(),"utf-8"));
             content = new StringBuilder();
             String line ;
             while (( line= bf.readLine())!=null) {

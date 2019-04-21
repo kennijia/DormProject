@@ -52,23 +52,31 @@
             var id = $("#uid").val();
             var password = $("#password").val();
             if (checkUsername()&&checkPassword()) {
-                $.post("user/login.do",{"id":id,"password":password},function (respData) {
-                    //对响应结果做出处理
-                    var glyy = $(".glyphicon");
-                    var formG = $(".form-group");
-                    if (respData.flag){
-                        //登录成功
-                        glyy.removeClass("glyphicon-remove");
-                        formG.removeClass("has-error");
-                        glyy.addClass("glyphicon-ok");
-                        formG.addClass("has-success");
-                        sessionStorage.setItem("userInfo",JSON.stringify(respData.data));//将json数据转化为字符串存储
-                        setTimeout(function (){location.href = "user.html"},500);
-                    } else {
-                        //登录失败，给出提示信息
-                        $("#alert-password").html(respData.errorMsg);
-                        glyy.addClass("glyphicon-remove");
-                        formG.addClass("has-error");
+                $.ajax({
+                    type:"post",
+                    url:"user/login.do",
+                    data:{"id":id,"password":password},
+                    success:function (data,status,xhr) {
+                        var glyy = $(".glyphicon");
+                        var formG = $(".form-group");
+                        if (data.flag){
+                            //登录成功
+                            glyy.removeClass("glyphicon-remove");
+                            formG.removeClass("has-error");
+                            glyy.addClass("glyphicon-ok");
+                            formG.addClass("has-success");
+                            console.log(status);
+                            var a = xhr.getResponseHeader("Authorization");
+                            console.log(a);
+                            localStorage.setItem("access-token",a);
+                            sessionStorage.setItem("userInfo",JSON.stringify(data.data));//将json数据转化为字符串存储
+                            setTimeout(function (){location.href = "user.html"},500);
+                        } else {
+                            //登录失败，给出提示信息
+                            $("#alert-password").html(data.errorMsg);
+                            glyy.addClass("glyphicon-remove");
+                            formG.addClass("has-error");
+                        }
                     }
                 });
             }

@@ -589,6 +589,7 @@
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 	<script src="assets/js/light-bootstrap-dashboard.js"></script>
 	<script src="assets/js/demo.js"></script>
+    <script src="js/common.js"></script>
 	<script type="text/javascript">
         var text = sessionStorage.getItem("userInfo");
         var userInfo = {id : 0, role : 0,permission:0};
@@ -704,6 +705,10 @@
                 });
             }
         }
+        function onSend(event,xhr,settings){
+            xhr.setRequestHeader("Authorization",localStorage.getItem("access-token"))
+        }
+        $(document).ajaxSend(onSend);
         //页面载入完成
         $(document).ready(function(){
     	    h();
@@ -725,13 +730,6 @@
                 }else {
     	            alert("请提供管理员权限.")
                 }
-            });
-    	    //用户退出
-            $("#btn_logout").click(function () {
-                sessionStorage.removeItem("userInfo");
-                $.get("user/logout.do",{},function (r) {
-                    location.href = "login.html";
-                });
             });
             fn3();
             //查询男女比例并将结果写入饼状图

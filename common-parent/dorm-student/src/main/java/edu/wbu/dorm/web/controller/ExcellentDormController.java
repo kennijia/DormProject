@@ -34,7 +34,7 @@ public class ExcellentDormController {
         ResultInfo info = new ResultInfo(false);
         Boolean b = userService.isAdmin(uid);
         int i ;
-        if (ed_imgs.size()!=3||ed_introduce.getOriginalFilename().lastIndexOf("txt")>0)
+        if (ed_imgs.size()!=3||ed_introduce.getOriginalFilename().lastIndexOf("txt")<0)
             return info;
         if (b){
             String savePath = req.getServletContext().getRealPath("image/excellentDormImg");

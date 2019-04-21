@@ -34,20 +34,13 @@ public class UserController {
         if (login){
             User user = userService.findById(id);
             User retUser = new User(user.getId(),user.getRole(),user.getPermission());
-            session.setAttribute("onlineUser",retUser);
+            //session.setAttribute("onlineUser",retUser);
             info.setFlag(true);
             info.setData(retUser);
-            String access_token = JwtUtil.createToken(id,user.getRole());
-            System.out.println(access_token);
+            String access_token = JwtUtil.createToken(id,user.getRole(),user.getPermission());
             res.setHeader("Authorization",access_token);
         }
         return info;
-    }
-
-    @RequestMapping("/logout")
-    public @ResponseBody void logout(HttpSession session){
-        session.invalidate();
-        return;
     }
 
     @RequestMapping("/find")

@@ -14,6 +14,9 @@
           <element id="module-output" name="dorm-student" />
         </element>
         <element id="directory" name="lib">
+          <element id="archive" name="dorm-annotation-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="dorm-annotation" />
+          </element>
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.3.14.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aspects:4.3.14.RELEASE" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.9" />

@@ -50,6 +50,7 @@
 
     <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
     <script src="assets/js/demo.js"></script>
+    <script src="js/common.js"></script>
     <script>
         var text = sessionStorage.getItem("userInfo");
         var userInfo;
@@ -90,6 +91,10 @@
                 }
             })
         }
+        function onSend(event,xhr,settings){
+            xhr.setRequestHeader("Authorization",localStorage.getItem("access-token"))
+        }
+        $(document).ajaxSend(onSend);
         //页面加载完成后请求查询出所有的已处理的申请信息
         $(function () {
             if (userInfo!=null){
@@ -150,13 +155,6 @@
                         }
                     });
                 }
-            });
-            //退出
-            $("#btn_logout").click(function () {
-                sessionStorage.removeItem("userInfo");
-                $.get("user/logout.do",{},function (r) {
-                    location.href = "login.html";
-                });
             });
             //点击申请即查出所有的宿舍楼
             $("#btn_application").click(function () {
