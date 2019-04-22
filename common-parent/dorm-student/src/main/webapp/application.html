@@ -50,7 +50,7 @@
 
     <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
     <script src="assets/js/demo.js"></script>
-    <script src="js/common.js"></script>
+
     <script>
         var text = sessionStorage.getItem("userInfo");
         var userInfo;
@@ -91,10 +91,6 @@
                 }
             })
         }
-        function onSend(event,xhr,settings){
-            xhr.setRequestHeader("Authorization",localStorage.getItem("access-token"))
-        }
-        $(document).ajaxSend(onSend);
         //页面加载完成后请求查询出所有的已处理的申请信息
         $(function () {
             if (userInfo!=null){
@@ -452,7 +448,7 @@
     </div>
 </div>
 
-
+<script src="js/common.js"></script>
 </body>
 
 

@@ -59,6 +59,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
             }
             return true;
         }else{
+            System.out.println("Authorization为空，验证不通过。");
             res.getWriter().write(resJson);
             return false;
         }

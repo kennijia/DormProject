@@ -705,10 +705,6 @@
                 });
             }
         }
-        function onSend(event,xhr,settings){
-            xhr.setRequestHeader("Authorization",localStorage.getItem("access-token"))
-        }
-        $(document).ajaxSend(onSend);
         //页面载入完成
         $(document).ready(function(){
     	    h();

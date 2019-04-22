@@ -6,5 +6,9 @@ $("#btn_logout").click(function () {
 var info = sessionStorage.getItem("userInfo");
 if (info!=null&&info!=""){
     $("li>a[href='login.html']").parent().css("display","none");
-    console.log("application.html");
 }
+//ajax全局事件
+function onSend(event,xhr,settings){
+    xhr.setRequestHeader("Authorization",localStorage.getItem("access-token"))
+}
+$(document).ajaxSend(onSend);

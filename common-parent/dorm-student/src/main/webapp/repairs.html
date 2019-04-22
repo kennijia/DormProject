@@ -50,7 +50,7 @@
 
     <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
     <script src="assets/js/demo.js"></script>
-    <script src="js/common.js"></script>
+
     <script>
         var text = sessionStorage.getItem("userInfo");
         var userInfo = {id:0,role:0};
@@ -110,10 +110,6 @@
                 }
             });
         }
-        function onSend(event,xhr,settings){
-            xhr.setRequestHeader("Authorization",localStorage.getItem("access-token"))
-        }
-        $(document).ajaxSend(onSend);
         //入口函数
         $(function () {
             if (userInfo!=null){
@@ -364,7 +360,7 @@
     </div>
 </div>
 
-
+<script src="js/common.js"></script>
 </body>
 
 

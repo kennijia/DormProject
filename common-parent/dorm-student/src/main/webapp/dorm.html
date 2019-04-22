@@ -50,7 +50,7 @@
 
     <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
     <script src="assets/js/demo.js"></script>
-    <script src="js/common.js"></script>
+
     <script>
         //请求获取宿舍水电费
         function b(uid){
@@ -103,10 +103,6 @@
                 $("#againstList").html(againstStr);
             })
         }
-        function onSend(event,xhr,settings){
-            xhr.setRequestHeader("Authorization",localStorage.getItem("access-token"))
-        }
-        $(document).ajaxSend(onSend);
         $(function () {
             var text = sessionStorage.getItem("userInfo");
             var userInfo;
@@ -351,7 +347,7 @@
     </div>
 </div>
 
-
+<script src="js/common.js"></script>
 </body>
 
 

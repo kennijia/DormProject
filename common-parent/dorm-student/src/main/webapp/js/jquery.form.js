@@ -223,7 +223,6 @@ $.fn.ajaxSubmit = function(options) {
 		}
 		io = $io[0];
 
-
 		xhr = { // mock object
 			aborted: 0,
 			responseText: null,
@@ -232,7 +231,7 @@ $.fn.ajaxSubmit = function(options) {
 			statusText: 'n/a',
 			getAllResponseHeaders: function() {},
 			getResponseHeader: function() {},
-			setRequestHeader: function() {},
+			setRequestHeader: function(der) {},
 			abort: function(status) {
 				var e = (status === 'timeout' ? 'timeout' : 'aborted');
 				log('aborting upload... ' + e);

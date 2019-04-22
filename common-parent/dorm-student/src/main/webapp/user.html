@@ -414,10 +414,6 @@
                 }
             });
         }
-        function onSend(event,xhr,settings){
-            xhr.setRequestHeader("Authorization",localStorage.getItem("access-token"))
-        }
-        $(document).ajaxSend(onSend);
         $(function () {
             f(a);
             //更改头像

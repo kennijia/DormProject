@@ -49,7 +49,7 @@
     <script src="assets/js/light-bootstrap-dashboard.js"></script>
     <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
     <script src="assets/js/demo.js"></script>
-    <script src="js/common.js"></script>
+
     <script>
         var text = sessionStorage.getItem("userInfo");
         var userInfo = {id:0,role:0,permission:0};
@@ -401,35 +401,37 @@
         }
         //获取优秀宿舍模块数据并上传
         function fn4(){
-            var options ={
+            var params = new FormData();
+            var uid = $("#uid2").val();
+            var edId = $("#edId").val();
+            //var ed_dbId = $("#ed_dbId").val();
+            var ed_dormId = $("#ed_dormId").val();
+            var ed_imgs = $("#ed_imgs").val();
+            var ed_introduce = $("#ed_introduce").val();
+            params.append('uid',uid);
+            params.append('edId',edId);
+            params.append('ed_dormId',ed_dormId);
+            params.append('ed_imgs',ed_imgs);
+            params.append('ed_introduce',ed_introduce);
+            $.ajax({
                 url:"/eDorm/add.do",
                 type:"post",
-                beforeSubmit:function(formData){
-                    console.log(formData);
-                    console.log(formData[4].value);
-                    var p = $("#seeDiv");
-                    var pshow = $("#adminSeeModal");
-                    var txtName = formData[4].value;
-                    var txtReg = /\.txt$/;
-                    if (!txtReg.test(txtName)) {
-                        p.html("请选择txt文件");
-                        pshow.modal('show');
-                        return false;
-                    }
-                },
-                success:function(resp){
-                    var res = JSON.parse(resp);
-                    if (res.flag){
-                        sessionStorage.removeItem("edList");
-                        alert("提交成功！");
+                data:params,
+                mimeType:"multipart/form-data",
+                processData:false,
+                contentType:false,
+                success:function (resp) {
+                    var resObj = JSON.parse(resp)
+                    if (resObj.flag){
+                        $("#seeDiv").html("提交成功。");
+                        $("#adminSeeModal").modal('show');
                     } else {
-                        alert("提交失败！");
+                        $("#seeDiv").html("提交失败。");
+                        $("#adminSeeModal").modal('show');
                     }
-                },
-                dataType:"application/json",
-                clearForm:true
-            };
-            $("#edForm").ajaxSubmit(options);
+                }
+            });
+            return false;
         }
         //wangEditor加载
         function wangE() {
@@ -480,11 +482,7 @@
                 }
             });
         }
-        //ajax全局事件
-        function onSend(event,xhr,settings){
-            xhr.setRequestHeader("Authorization",localStorage.getItem("access-token"))
-        }
-        $(document).ajaxSend(onSend);
+
         //入口函数
         $(function () {
             if (userInfo!=null&&userInfo.permission>0){
@@ -620,8 +618,7 @@
             });
             //优秀宿舍数据上传表单提交事件
             $("#edForm").submit(function () {
-                fn4();
-                return false;
+                return fn4();
             });
         });
     </script>
@@ -942,7 +939,7 @@
                                                 </div>
                                                 <div class="form-group has-feedback">
                                                     <label class="control-label" for="ed_dbId">请选择宿舍楼</label>
-                                                    <select id="ed_dbId" class="form-control" onchange="findDroms($(this).val(),1)">
+                                                    <select id="ed_dbId" class="form-control" onchange="findDroms($(this).val(),1)" name="ed_dbId">
 
                                                     </select>
                                                 </div>
@@ -1257,11 +1254,6 @@
     </div>
 </div>
 
-
+<script src="js/common.js"></script>
 </body>
-
-
-
-
-
 </html>
