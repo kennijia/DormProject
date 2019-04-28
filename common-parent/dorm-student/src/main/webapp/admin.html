@@ -401,18 +401,7 @@
         }
         //获取优秀宿舍模块数据并上传
         function fn4(){
-            var params = new FormData();
-            var uid = $("#uid2").val();
-            var edId = $("#edId").val();
-            //var ed_dbId = $("#ed_dbId").val();
-            var ed_dormId = $("#ed_dormId").val();
-            var ed_imgs = $("#ed_imgs").val();
-            var ed_introduce = $("#ed_introduce").val();
-            params.append('uid',uid);
-            params.append('edId',edId);
-            params.append('ed_dormId',ed_dormId);
-            params.append('ed_imgs',ed_imgs);
-            params.append('ed_introduce',ed_introduce);
+            var params = new FormData(document.getElementById('edForm'));
             $.ajax({
                 url:"/eDorm/add.do",
                 type:"post",
@@ -421,10 +410,11 @@
                 processData:false,
                 contentType:false,
                 success:function (resp) {
-                    var resObj = JSON.parse(resp)
+                    var resObj = JSON.parse(resp);
                     if (resObj.flag){
                         $("#seeDiv").html("提交成功。");
                         $("#adminSeeModal").modal('show');
+                        sessionStorage.removeItem('edList');
                     } else {
                         $("#seeDiv").html("提交失败。");
                         $("#adminSeeModal").modal('show');

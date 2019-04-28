@@ -30,7 +30,7 @@ public class ExcellentDormController {
     }
 
     @RequestMapping("/add")
-    public @ResponseBody ResultInfo add(String uid, int edId, int ed_dormId, List<MultipartFile> ed_imgs, MultipartFile ed_introduce, HttpServletRequest req){
+    public @ResponseBody ResultInfo add(String uid, int edId, int ed_dbId, int ed_dormId, List<MultipartFile> ed_imgs, MultipartFile ed_introduce, HttpServletRequest req){
         ResultInfo info = new ResultInfo(false);
         Boolean b = userService.isAdmin(uid);
         int i ;
