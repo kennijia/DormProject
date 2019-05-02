@@ -22,7 +22,7 @@
 
     <dependencies>
         <dependency>
-            <artifactId>dorm-annotation</artifactId>
+            <artifactId>dorm-common</artifactId>
             <groupId>edu.wbu.dorm</groupId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
@@ -101,12 +101,6 @@
         <!--导入service依赖-->
         <dependency>
             <artifactId>dorm-service</artifactId>
-            <groupId>edu.wbu.dorm</groupId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <!--导入utils依赖-->
-        <dependency>
-            <artifactId>dorm-utils</artifactId>
             <groupId>edu.wbu.dorm</groupId>
             <version>1.0-SNAPSHOT</version>
         </dependency>

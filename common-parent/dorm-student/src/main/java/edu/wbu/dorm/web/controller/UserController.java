@@ -1,16 +1,15 @@
 package edu.wbu.dorm.web.controller;
 
+import edu.wbu.dorm.common.utils.JwtUtil;
 import edu.wbu.dorm.model.ResultInfo;
 import edu.wbu.dorm.model.User;
 import edu.wbu.dorm.service.UserService;
-import edu.wbu.dorm.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;

@@ -1,4 +1,4 @@
-package edu.wbu.dorm.utils;
+package edu.wbu.dorm.common.utils;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;

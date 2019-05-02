@@ -1,4 +1,4 @@
-package edu.wbu.dorm.customAnnotation;
+package edu.wbu.dorm.common.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -9,6 +9,6 @@
     <mappers>
         <!--<mapper resource="cn/wbu/lzh/mapper/UserMapper.xml"/>
         <mapper resource="cn/wbu/lzh/mapper/AccountMapper.xml"/>-->
-        <package name="edu.wbu.dorm.mapper" />
+        <package name="edu.wbu.dorm.mapper"/>
     </mappers>
 </configuration>

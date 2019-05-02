@@ -6,18 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="dorm-annotation" />
+        <module name="dorm-common" />
         <module name="dorm-mapper" />
         <module name="dorm-model" />
         <module name="dorm-service" />
         <module name="dorm-student" />
-        <module name="dorm-utils" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
       <module name="common-parent" target="1.8" />
       <module name="dorm-annotation" target="1.8" />
       <module name="dorm-api" target="1.8" />
+      <module name="dorm-common" target="1.8" />
       <module name="dorm-mapper" target="1.8" />
       <module name="dorm-model" target="1.8" />
       <module name="dorm-service" target="1.8" />

@@ -12,9 +12,7 @@
         <module>dorm-mapper</module>
         <module>dorm-service</module>
         <module>dorm-student</module>
-        <module>dorm-api</module>
-        <module>dorm-utils</module>
-        <module>dorm-annotation</module>
+        <module>dorm-common</module>
     </modules>
 
     <!-- 父工程 -->

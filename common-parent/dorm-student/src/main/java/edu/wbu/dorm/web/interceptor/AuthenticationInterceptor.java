@@ -2,9 +2,9 @@ package edu.wbu.dorm.web.interceptor;
 
 import com.auth0.jwt.interfaces.Claim;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import edu.wbu.dorm.common.annotation.PermissionCheck;
+import edu.wbu.dorm.common.utils.JwtUtil;
 import edu.wbu.dorm.model.ResultInfo;
-import edu.wbu.dorm.utils.JwtUtil;
-import edu.wbu.dorm.customAnnotation.PermissionCheck;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
