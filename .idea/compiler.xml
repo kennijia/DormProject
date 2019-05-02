@@ -7,7 +7,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="dorm-annotation" />
-        <module name="dorm-api" />
         <module name="dorm-mapper" />
         <module name="dorm-model" />
         <module name="dorm-service" />

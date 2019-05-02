@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/common-parent/common-parent.iml" filepath="$PROJECT_DIR$/common-parent/common-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/common-parent/dorm-annotation/dorm-annotation.iml" filepath="$PROJECT_DIR$/common-parent/dorm-annotation/dorm-annotation.iml" />
-      <module fileurl="file://$PROJECT_DIR$/common-parent/dorm-api/dorm-api.iml" filepath="$PROJECT_DIR$/common-parent/dorm-api/dorm-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/common-parent/dorm-mapper/dorm-mapper.iml" filepath="$PROJECT_DIR$/common-parent/dorm-mapper/dorm-mapper.iml" />
       <module fileurl="file://$PROJECT_DIR$/common-parent/dorm-model/dorm-model.iml" filepath="$PROJECT_DIR$/common-parent/dorm-model/dorm-model.iml" />
       <module fileurl="file://$PROJECT_DIR$/common-parent/dorm-service/dorm-service.iml" filepath="$PROJECT_DIR$/common-parent/dorm-service/dorm-service.iml" />
