@@ -1,5 +1,6 @@
 package edu.wbu.dorm.web.controller;
 
+import edu.wbu.dorm.common.annotation.PermissionCheck;
 import edu.wbu.dorm.model.DormBuilding;
 import edu.wbu.dorm.model.ResultInfo;
 import edu.wbu.dorm.service.DormBuildingService;
@@ -24,6 +25,15 @@ public class DormBuildingController {
         return dormBuildingService.findAll();
     }
 
+    /**
+     * 管理员添加房源
+     * @param location
+     * @param roomNumber
+     * @param builtuptime
+     * @param dbType
+     * @return
+     */
+    @PermissionCheck
     @RequestMapping("/add")
     public @ResponseBody ResultInfo add(String location, String roomNumber, String builtuptime, int dbType){
         DormBuilding db = new DormBuilding();

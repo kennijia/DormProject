@@ -1,5 +1,6 @@
 package edu.wbu.dorm.web.controller;
 
+import edu.wbu.dorm.common.annotation.PermissionCheck;
 import edu.wbu.dorm.model.Announcement;
 import edu.wbu.dorm.model.ResultInfo;
 import edu.wbu.dorm.model.WangEditorImg;
@@ -33,6 +34,12 @@ public class AnnouncementController {
         return info;
     }
 
+    /**
+     *  管理员查看公告简单信息
+     * @param anouId
+     * @return
+     */
+    @PermissionCheck
     @RequestMapping("/findOne")
     public @ResponseBody
     ResultInfo findOne(int anouId) {
@@ -43,6 +50,14 @@ public class AnnouncementController {
         return info;
     }
 
+    /**
+     *  管理员删除该公告
+     * @param anouId
+     * @param uid
+     * @param role
+     * @return
+     */
+    @PermissionCheck
     @RequestMapping("/delete")
     public @ResponseBody
     ResultInfo delete(int anouId, String uid, int role) {

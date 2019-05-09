@@ -7,9 +7,10 @@ function hideAdmin() {
     $("li>a[href='admin.html']").parent().remove();
 }
 var info = sessionStorage.getItem("userInfo");
+var loginUser = JSON.parse(info);
 if (info!=null&&info!=""){
     $("li>a[href='login.html']").parent().css("display","none");
-    var loginUser = JSON.parse(info);
+    loginUser = JSON.parse(info);
     if (loginUser.permission!==1){
         //已登陆但不是管理员
         hideAdmin();

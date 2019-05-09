@@ -34,16 +34,18 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                 tokenMap = JwtUtil.verifyToken(access_token);
             } catch (Exception e) {
                 //jwt解析出错，拒绝请求
+                res.setStatus(403);
                 res.getWriter().write(resJson);
                 return false;
             }
-            String uid = tokenMap.get("uid").asString();
-            int role = tokenMap.get("role").asInt();
+            //String uid = tokenMap.get("uid").asString();
+            //int role = tokenMap.get("role").asInt();
             int permission = tokenMap.get("permission").asInt();
             Date exp = tokenMap.get("exp").asDate();
             long now = System.currentTimeMillis();
             long exp1 = exp.getTime();
             if (exp1<now){
+                res.setStatus(403);
                 res.getWriter().write(resJson);
                 return false;//到了过期时间
             }
@@ -53,13 +55,15 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
             if (annotation!=null){
                 int p = annotation.permission();
                 if (permission!=p){
+                    res.setStatus(401);
                     res.getWriter().write(resJson);
                     return false;
                 }
             }
             return true;
         }else{
-            System.out.println("Authorization为空，验证不通过。");
+            //System.out.println("Authorization为空，验证不通过。");
+            res.setStatus(401);
             res.getWriter().write(resJson);
             return false;
         }

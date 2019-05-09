@@ -1,5 +1,6 @@
 package edu.wbu.dorm.web.controller;
 
+import edu.wbu.dorm.common.annotation.PermissionCheck;
 import edu.wbu.dorm.model.PageBean;
 import edu.wbu.dorm.model.Repair;
 import edu.wbu.dorm.model.RepairExt;
@@ -21,6 +22,11 @@ public class RepairController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 用户查看自己宿舍的报修记录
+     * @param uid
+     * @return
+     */
     @RequestMapping("/find")
     public @ResponseBody ResultInfo find(String uid){
         ResultInfo info = new ResultInfo(false);
@@ -31,6 +37,13 @@ public class RepairController {
         }
         return info;
     }
+
+    /**
+     * 用户提交新的报修申请
+     * @param content
+     * @param uid
+     * @return
+     */
     @RequestMapping("/add")
     public @ResponseBody ResultInfo add(String content,String uid){
         ResultInfo info = new ResultInfo(false);
@@ -42,6 +55,12 @@ public class RepairController {
         return info;
     }
 
+    /**
+     * 管理员查看所有的报修申请
+     * @param currentPageStr
+     * @return
+     */
+    @PermissionCheck
     @RequestMapping("/adminFind")
     public @ResponseBody ResultInfo adminFind(String currentPageStr){
         ResultInfo info = new ResultInfo(false);
@@ -55,6 +74,13 @@ public class RepairController {
         return info;
     }
 
+    /**
+     * 管理员同意派遣工作人员
+     * @param uid
+     * @param ridStr
+     * @return
+     */
+    @PermissionCheck
     @RequestMapping("/send")
     public @ResponseBody ResultInfo send(String uid,String ridStr){
         ResultInfo info = new ResultInfo(false);
@@ -70,6 +96,12 @@ public class RepairController {
         return info;
     }
 
+    /**
+     * 用户认为该报修已完成
+     * @param uid
+     * @param ridStr
+     * @return
+     */
     @RequestMapping("/complete")
     public @ResponseBody ResultInfo complete(String uid,String ridStr){
         ResultInfo info = new ResultInfo(false);

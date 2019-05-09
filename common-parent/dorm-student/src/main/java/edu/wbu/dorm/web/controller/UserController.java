@@ -1,5 +1,6 @@
 package edu.wbu.dorm.web.controller;
 
+import edu.wbu.dorm.common.annotation.PermissionCheck;
 import edu.wbu.dorm.common.utils.JwtUtil;
 import edu.wbu.dorm.model.ResultInfo;
 import edu.wbu.dorm.model.User;
@@ -56,6 +57,7 @@ public class UserController {
         return info;
     }
 
+    @PermissionCheck
     @RequestMapping("/distribution")
     public @ResponseBody ResultInfo distribution(String uid){
         ResultInfo info = new ResultInfo(false);

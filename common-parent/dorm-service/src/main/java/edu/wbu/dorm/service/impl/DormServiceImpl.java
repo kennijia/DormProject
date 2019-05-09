@@ -41,18 +41,19 @@ public class DormServiceImpl extends BaseServiceImpl<Dorm> implements DormServic
     @Override
     public int addDorm(int db_Id, int dorm_number, int capacity) {
         int i = 0;
-        //先检验该宿舍楼是否存在
         if (capacity<=0)
+            //可住人数至少为1
             return i;
+        //先检验该宿舍楼是否存在
         DormBuilding byId = dormBuildingMapper.findById(db_Id);
+        if (byId!=null){
         int type = byId.getType();
         String gender =null;
         if (type==1||type==3)
             gender = "男";
         if (type==2||type==4)
             gender = "女";
-        if (byId!=null){
-            //再检验该编号在次宿舍楼中是否存在
+            //再检验该编号在此宿舍楼中是否存在
             Dorm d = dormMapper.findByDbidAndDnumber(new Dorm(db_Id, dorm_number));
             if (d==null){
                 //此时可以安全添加

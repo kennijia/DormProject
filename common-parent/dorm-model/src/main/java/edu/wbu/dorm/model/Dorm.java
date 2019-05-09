@@ -7,7 +7,6 @@ public class Dorm {
     private String dorm_gender;//宿舍性别
     private int capacity;//宿舍容量
     private int occupy;//宿舍已住人数
-    private int hid;//对应卫生情况表的主键
     private int fee_id;//对应费用表的主键
 
     public Dorm(int db_id, int dorm_number) {
@@ -66,14 +65,6 @@ public class Dorm {
         this.occupy = occupy;
     }
 
-    public int getHid() {
-        return hid;
-    }
-
-    public void setHid(int hid) {
-        this.hid = hid;
-    }
-
     public int getFee_id() {
         return fee_id;
     }
@@ -91,7 +82,6 @@ public class Dorm {
                 ", dorm_gender='" + dorm_gender + '\'' +
                 ", capacity=" + capacity +
                 ", occupy=" + occupy +
-                ", hid=" + hid +
                 ", fee_id=" + fee_id +
                 '}';
     }

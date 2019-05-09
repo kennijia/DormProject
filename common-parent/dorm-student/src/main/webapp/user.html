@@ -353,14 +353,6 @@
 	<script src="assets/js/demo.js"></script>
     <script src="js/common.js"></script>
     <script>
-        var text = sessionStorage.getItem("userInfo");//从sessionStorage中取出文本数据
-        var a ;
-        if (text!=null&&text!==""){
-            a = JSON.parse(text);//将文本数据转为object
-        } else {
-            //页面中没有用户信息，该用户未登录，提示登录
-            $("#loginAlert").modal('show');
-        }
         //通过用户id查找用户信息
         function f(a){
             var userId = a.id;
@@ -395,7 +387,7 @@
         //改变头像
         function changeHead(obj){
             var params = new FormData();
-            params.append("uid",a.id);
+            params.append("uid",loginUser.id);
             params.append("newHeadImg",obj.files[0]);
             $.ajax({
                 type:"post",
@@ -415,7 +407,12 @@
             });
         }
         $(function () {
-            f(a);
+            if (info != null && info != "") {
+                var a = JSON.parse(info);
+                f(a);
+            }else {
+                $("#loginAlert").modal('show');
+            }
             //更改头像
             $("#changeHead").click(function () {
                 $("#newHeadImg").click();

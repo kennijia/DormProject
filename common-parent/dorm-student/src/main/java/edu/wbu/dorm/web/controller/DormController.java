@@ -1,5 +1,6 @@
 package edu.wbu.dorm.web.controller;
 
+import edu.wbu.dorm.common.annotation.PermissionCheck;
 import edu.wbu.dorm.model.Dorm;
 import edu.wbu.dorm.model.ResultInfo;
 import edu.wbu.dorm.service.DormService;
@@ -16,6 +17,11 @@ public class DormController {
     @Autowired
     private DormService dormService;
 
+    /**
+     * 获取某栋宿舍楼中的所有宿舍
+     * @param db_id
+     * @return
+     */
     @RequestMapping("/findAll")
     public @ResponseBody List<Dorm> findAll(int db_id){
         return dormService.findAllDorms(db_id);
@@ -31,6 +37,14 @@ public class DormController {
         return info;
     }
 
+    /**
+     *  管理员添加宿舍
+     * @param dbId
+     * @param dormNumber
+     * @param roomCapacity
+     * @return
+     */
+    @PermissionCheck
     @RequestMapping("/add")
     public @ResponseBody ResultInfo add(String dbId,String dormNumber,String roomCapacity){
         ResultInfo info = new ResultInfo(false);

@@ -11,55 +11,71 @@
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="js/bootstrap.min.js"></script>
     <title>高校宿舍后勤系统</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            background-image: url('image/bgImgs/headpicbg.jpg');
+            padding: 0;
+            margin: 0;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 <script>
     var gly = $(".glyphicon");
     var formGro = $(".form-group");
-    function checkUsername(){
+
+    function checkUsername() {
         var reg_username = /^[a-zA-Z0-9]+$/;
         var username = $("#username").val();
         var flag = reg_username.test(username);
-        if(flag){
+        if (flag) {
             $("#alert-username").html("");
             $("#alert-password").html("");
             gly.removeClass("glyphicon-remove");
             formGro.removeClass("has-error");
             /*checkUnique();*/
-        }else{
+        } else {
             $("#alert-1").addClass("has-error");
             $("#alert-username").html("用户名不能为空!");
         }
         return flag;
     }
-    function checkPassword(){
+
+    function checkPassword() {
         var reg_password = /^[a-zA-Z0-9]+$/;
         var password = $("#password").val();
         var flag = reg_password.test(password);
-        if(flag){
+        if (flag) {
             $("#alert-password").html("");
             gly.removeClass("glyphicon-remove");
             formGro.removeClass("has-error");
-        }else{
+        } else {
             $("#alert-2").addClass("has-error");
             $("#alert-password").html("密码不能为空!");
         }
         return flag;
     }
+
     $(function () {
         $("#uid").blur(checkUsername);
         $("#password").blur(checkPassword);
         $("#loginForm").submit(function () {
             var id = $("#uid").val();
             var password = $("#password").val();
-            if (checkUsername()&&checkPassword()) {
+            if (checkUsername() && checkPassword()) {
                 $.ajax({
-                    type:"post",
-                    url:"user/login.do",
-                    data:{"id":id,"password":password},
-                    success:function (data,status,xhr) {
+                    type: "post",
+                    url: "user/login.do",
+                    data: {"id": id, "password": password},
+                    success: function (data, status, xhr) {
                         var glyy = $(".glyphicon");
                         var formG = $(".form-group");
-                        if (data.flag){
+                        if (data.flag) {
                             //登录成功
                             glyy.removeClass("glyphicon-remove");
                             formG.removeClass("has-error");
@@ -68,9 +84,11 @@
                             console.log(status);
                             var a = xhr.getResponseHeader("Authorization");
                             console.log(a);
-                            localStorage.setItem("access-token",a);
-                            sessionStorage.setItem("userInfo",JSON.stringify(data.data));//将json数据转化为字符串存储
-                            setTimeout(function (){location.href = "user.html"},500);
+                            localStorage.setItem("access-token", a);
+                            sessionStorage.setItem("userInfo", JSON.stringify(data.data));//将json数据转化为字符串存储
+                            setTimeout(function () {
+                                location.href = "user.html"
+                            }, 500);
                         } else {
                             //登录失败，给出提示信息
                             $("#alert-password").html(data.errorMsg);

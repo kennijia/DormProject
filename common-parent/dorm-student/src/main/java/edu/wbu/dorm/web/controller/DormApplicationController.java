@@ -1,6 +1,7 @@
 package edu.wbu.dorm.web.controller;
 
 
+import edu.wbu.dorm.common.annotation.PermissionCheck;
 import edu.wbu.dorm.model.DormApplication;
 import edu.wbu.dorm.model.DormApplicationExt;
 import edu.wbu.dorm.model.PageBean;
@@ -95,23 +96,34 @@ public class DormApplicationController {
         return info;
     }
 
+    /**
+     * 管理员拒绝该申请
+     * @param uid
+     * @param daIdStr
+     * @return
+     */
+    @PermissionCheck
     @RequestMapping("/refuse")
     public @ResponseBody ResultInfo refuse(String uid,String daIdStr){
         ResultInfo info = new ResultInfo(false);
-        Boolean admin = userService.isAdmin(uid);
         int daId = 0;
         if (daIdStr!=null&&!daIdStr.equals(""))
             daId = Integer.parseInt(daIdStr);
-        if (admin){
-            //是管理员
-            int i = dormApplicationService.updateStatus(daId, 1);
-            if (i>0){
-                info.setFlag(true);
-            }
+        //是管理员
+        int i = dormApplicationService.updateStatus(daId, 1);
+        if (i>0){
+            info.setFlag(true);
         }
         return info;
     }
 
+    /**
+     *   管理员同意该申请
+     * @param uid
+     * @param daIdStr
+     * @return
+     */
+    @PermissionCheck
     @RequestMapping("/agree")
     public @ResponseBody ResultInfo agree(String uid,String daIdStr){
         ResultInfo info = new ResultInfo(false);
@@ -119,13 +131,13 @@ public class DormApplicationController {
         int daId = 0;
         if (daIdStr!=null&&!daIdStr.equals(""))
             daId = Integer.parseInt(daIdStr);
-        if (admin){
+        //if (admin){
             //是管理员
             int i = dormApplicationService.updateStatus(daId, 2);
             if (i>0){
                 info.setFlag(true);
             }
-        }
+        //}
         return info;
     }
 }

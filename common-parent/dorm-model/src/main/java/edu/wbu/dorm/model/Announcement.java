@@ -6,7 +6,6 @@ public class Announcement {
     private String content;
     private String time;//发布日期
     private String publisher;//发布人
-    private int readTimes;//阅读次数
 
     public Announcement() {
     }
@@ -57,14 +56,6 @@ public class Announcement {
         this.publisher = publisher;
     }
 
-    public int getReadTimes() {
-        return readTimes;
-    }
-
-    public void setReadTimes(int readTimes) {
-        this.readTimes = readTimes;
-    }
-
     @Override
     public String toString() {
         return "Announcement{" +
@@ -73,7 +64,6 @@ public class Announcement {
                 ", content='" + content + '\'' +
                 ", time='" + time + '\'' +
                 ", publisher='" + publisher + '\'' +
-                ", readTimes=" + readTimes +
                 '}';
     }
 }

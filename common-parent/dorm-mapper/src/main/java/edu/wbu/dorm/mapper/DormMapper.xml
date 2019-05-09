@@ -23,6 +23,6 @@
         GROUP BY db_id
     </select>
     <insert id="insertDorm" parameterType="dorm">
-        insert into dorm values (null,#{db_id},#{dorm_number},#{dorm_gender},#{capacity},0,null,null)
+        insert into dorm values (null,#{db_id},#{dorm_number},#{dorm_gender},#{capacity},0,null)
     </insert>
 </mapper>

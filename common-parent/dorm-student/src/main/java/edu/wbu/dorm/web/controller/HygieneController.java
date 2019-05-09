@@ -1,5 +1,6 @@
 package edu.wbu.dorm.web.controller;
 
+import edu.wbu.dorm.common.annotation.PermissionCheck;
 import edu.wbu.dorm.model.Hygiene;
 import edu.wbu.dorm.model.ResultInfo;
 import edu.wbu.dorm.service.HygieneService;
@@ -31,6 +32,14 @@ public class HygieneController {
         return info;
     }
 
+    /**
+     * 管理员添加卫生情况
+     * @param dorm_idStr
+     * @param description
+     * @param comments
+     * @return
+     */
+    @PermissionCheck
     @RequestMapping("/insert")
     public @ResponseBody ResultInfo insert(String dorm_idStr,String description,String comments){
         ResultInfo info = new ResultInfo(false);

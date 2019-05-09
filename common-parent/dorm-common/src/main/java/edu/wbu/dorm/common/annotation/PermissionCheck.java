@@ -8,5 +8,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD,ElementType.TYPE})
 public @interface PermissionCheck {
-    int permission() default 1;
+    int permission() default 1;//设置默认权限为管理员权限
 }

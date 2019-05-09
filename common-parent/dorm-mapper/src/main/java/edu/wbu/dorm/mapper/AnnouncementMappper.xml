@@ -14,6 +14,6 @@
         select * from announcement where id = #{id}
     </select>
     <insert id="insert" parameterType="announcement">
-        insert into announcement values (null,#{title},#{content},#{time},#{publisher},0)
+        insert into announcement values (null,#{title},#{content},#{time},#{publisher})
     </insert>
 </mapper>
