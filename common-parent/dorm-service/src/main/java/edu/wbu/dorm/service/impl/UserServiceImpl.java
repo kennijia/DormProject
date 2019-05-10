@@ -26,7 +26,7 @@ import java.util.*;
 public class UserServiceImpl extends BaseServiceImpl<User> implements UserService {
 
     /**
-     * 根据不同角色自动分配宿舍
+     * 根据不同角色分配宿舍
      * @param role
      * @param gender
      * @param type
