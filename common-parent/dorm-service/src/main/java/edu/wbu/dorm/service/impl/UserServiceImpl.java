@@ -247,7 +247,8 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
                 u.setRole((int)row.getCell(8).getNumericCellValue());
                 u.setEmail(row.getCell(9).getStringCellValue());
                 u.setHomeAddress(row.getCell(10).getStringCellValue());
-                SimpleDateFormat sdf = new SimpleDateFormat(row.getCell(11).getCellStyle().getDataFormatString());
+                //SimpleDateFormat sdf = new SimpleDateFormat(row.getCell(11).getCellStyle().getDataFormatString());
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String date = sdf.format(row.getCell(11).getDateCellValue());
                 u.setEntrancetime(date);
                 u.setPermission((int)row.getCell(14).getNumericCellValue());
