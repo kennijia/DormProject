@@ -9,11 +9,9 @@
     <bookmark url="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/admin.html" description="&lt;div class=&quot;form-group has-feedback&quot;&gt;" line="918" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db0d245a-c7b8-4de2-bf49-a76f8c53f686" name="Default Changelist" comment="">
+    <list default="true" id="db0d245a-c7b8-4de2-bf49-a76f8c53f686" name="Default Changelist" comment="项目说明">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/common-parent/target/" />
     <ignored path="$PROJECT_DIR$/common-parent/dorm-model/target/" />
@@ -34,7 +32,20 @@
     <favorites_list name="DormProject" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="160">
+                <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -71,8 +82,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/common-parent/dorm-utils/src/main/java/edu/wbu/dorm/utils/JwtUtil.java" />
-        <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/PermissionCheck.java" />
         <option value="$PROJECT_DIR$/common-parent/dorm-annotation/pom.xml" />
         <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/webapp/js/logout.js" />
         <option value="$PROJECT_DIR$/common-parent/dorm-student/src/main/resources/springmvc.xml" />
@@ -122,6 +131,8 @@
         <option value="$USER_HOME$/资料/字典树/DictionaryTree.java" />
         <option value="$PROJECT_DIR$/common-parent/dorm-common/src/main/java/edu/wbu/dorm/common/utils/ListUtil.java" />
         <option value="$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/dormTree/DormTree.java" />
+        <option value="$PROJECT_DIR$/README.en.md" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -161,8 +172,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="809" />
+    <option name="width" value="1284" />
+    <option name="height" value="828" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -170,6 +181,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -178,18 +190,102 @@
               <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="common-parent" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="dorm-common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="dorm-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="dorm-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="dorm-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="dorm-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="dorm-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="annotation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="dorm-model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="dorm-service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="dorm-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="dorm-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="dorm-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DormProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="dorm-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557582570728" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1571640657550" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -444,6 +540,7 @@
       <workItem from="1557477678864" duration="291000" />
       <workItem from="1557564667210" duration="12828000" />
       <workItem from="1557744539844" duration="20000" />
+      <workItem from="1571638665686" duration="1819000" />
     </task>
     <task id="LOCAL-00001" summary="更新项目20190330----22:42">
       <created>1553957019102</created>
@@ -522,7 +619,14 @@
       <option name="project" value="LOCAL" />
       <updated>1557450723091</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="..">
+      <created>1571639052750</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1571639052751</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -558,7 +662,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="306428000" />
+    <option name="totallyTimeSpent" value="308247000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -570,12 +674,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="809" extended-state="0" />
+    <frame x="0" y="23" width="1284" height="828" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="Favorites" order="1" sideWeight="0.50489235" side_tool="true" weight="0.26752505" />
       <window_info id="Web" order="2" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.49510762" visible="true" weight="0.24177396" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.49510762" visible="true" weight="0.27616748" />
       <window_info id="Structure" order="4" sideWeight="0.50067294" side_tool="true" weight="0.26432666" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Capture Tool" order="6" />
@@ -633,19 +738,10 @@
     <MESSAGE value="更新项目20190502    23:06" />
     <MESSAGE value="更新项目20190509    19:17" />
     <MESSAGE value="更新项目20190510    09:11" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新项目20190510    09:11" />
+    <MESSAGE value=".." />
+    <option name="LAST_COMMIT_MESSAGE" value=".." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/dorm-student.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common-parent/dorm-mapper/src/main/java/edu/wbu/dorm/mapper/DormMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
@@ -787,12 +883,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/target/dorm-student/anou/anou1556914611622.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/target/dorm-student/anou/anou1556914694259.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/target/dorm-student/anou/anou1556914611622.html" />
+    <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/target/dorm-student/anou/anou1556914694259.html" />
     <entry file="file://$PROJECT_DIR$/common-parent/dorm-student/src/main/java/edu/wbu/dorm/web/controller/FeeController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -997,6 +1089,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/common-parent/dorm-common/src/main/java/edu/wbu/dorm/common/utils/ListUtil.java" />
     <entry file="file://$PROJECT_DIR$/common-parent/dorm-service/src/main/java/edu/wbu/dorm/service/dormTree/DormTree.java" />
+    <entry file="file://$PROJECT_DIR$/README.en.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="40">
+            <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="160">
+            <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
