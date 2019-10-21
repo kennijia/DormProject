@@ -19,3 +19,7 @@
 ![image](https://github.com/lzhgithup/DormProject/blob/master/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-10-21%20%E4%B8%8B%E5%8D%882.39.12.png)
 管理员发布公告，前端使用WangEditor富文本编辑器编辑公告页面，可放置多张图片。
 ![image](https://github.com/lzhgithup/DormProject/blob/master/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-10-21%20%E4%B8%8B%E5%8D%882.39.27.png)
+#### 项目访问路径
+   http://47.102.100.62:8080/dormStu/index.html
+   账户：150576008
+   密码：lzh123
