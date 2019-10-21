@@ -1,7 +1,6 @@
 # DormProject
 
 #### Description
-毕业设计
 
 #### Software Architecture
 Software architecture description
