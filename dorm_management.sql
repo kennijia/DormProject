@@ -54,7 +54,6 @@ CREATE TABLE `announcement` (
   `content` varchar(300) DEFAULT NULL,
   `time` date DEFAULT NULL,
   `pulisher` varchar(20) DEFAULT NULL,
-  `readTimes` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
@@ -62,9 +61,9 @@ CREATE TABLE `announcement` (
 -- Records of announcement
 -- ----------------------------
 BEGIN;
-INSERT INTO `announcement` VALUES (2, '标题测试1', '/anou/anou1555170206497.html', '2019-04-13', '李志豪', 0);
-INSERT INTO `announcement` VALUES (3, '测试标题2', '/anou/anou1555170667452.html', '2019-04-13', '李志豪', 0);
-INSERT INTO `announcement` VALUES (4, '测试标题3', '/anou/anou1555170831292.html', '2019-04-13', '李志豪', 0);
+INSERT INTO `announcement` VALUES (2, '标题测试1', '/anou/anou1555170206497.html', '2019-04-13', '李三', 0);
+INSERT INTO `announcement` VALUES (3, '测试标题2', '/anou/anou1555170667452.html', '2019-04-13', '李三', 0);
+INSERT INTO `announcement` VALUES (4, '测试标题3', '/anou/anou1555170831292.html', '2019-04-13', '李三', 0);
 COMMIT;
 
 -- ----------------------------
@@ -118,9 +117,9 @@ CREATE TABLE `dorm_building` (
 -- Records of dorm_building
 -- ----------------------------
 BEGIN;
-INSERT INTO `dorm_building` VALUES (1, 1, 6, '湖北省武汉市东风大道', '2010-11-19', 180, 0);
-INSERT INTO `dorm_building` VALUES (2, 1, 6, '湖北省武汉市东风大道', '2011-07-30', 180, 2);
-INSERT INTO `dorm_building` VALUES (3, 1, 6, '湖北省武汉市东风大道', '2015-03-26', 180, 0);
+INSERT INTO `dorm_building` VALUES (1, 1, 6, '湖北省武汉市', '2010-11-19', 180, 0);
+INSERT INTO `dorm_building` VALUES (2, 1, 6, '湖北省武汉市', '2011-07-30', 180, 2);
+INSERT INTO `dorm_building` VALUES (3, 1, 6, '湖北省武汉市', '2015-03-26', 180, 0);
 INSERT INTO `dorm_building` VALUES (4, 2, 6, '湖北省武汉市东风大道', '2015-11-28', 180, 1);
 INSERT INTO `dorm_building` VALUES (5, 2, 6, '湖北省武汉市东风大道', '2014-03-26', 180, 0);
 INSERT INTO `dorm_building` VALUES (6, 2, 6, '湖北省武汉市东风大道', '2014-03-26', 180, 0);
